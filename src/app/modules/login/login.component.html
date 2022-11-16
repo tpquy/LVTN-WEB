@@ -1,0 +1,39 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+<div class="login-signin" fxLayout="column" fxLayoutAlign="center center">
+    <h2 class="login-title">Chào mừng bạn đến với SmartVi <br> Đăng nhập để có trải nghiệm tốt hơn khi mua hàng!</h2>
+    <mat-tab-group class="form-container"  mat-align-tabs="center">
+        <mat-tab label="Đăng nhập" >  
+            <div class="login" fxLayout="column" fxLayoutAlign="start center">
+                <h2>Đăng nhập</h2>
+                <form [formGroup]="loginForm" fxLayout="column">
+                    <mat-form-field appearance="Outlined">
+                        <mat-label>Tên đăng nhập / SĐT</mat-label>
+                        <span matPrefix><span class="material-symbols-outlined">
+                            supervisor_account
+                            </span> &nbsp;
+                        </span>
+                        <input matInput formControlName="username" required="true">
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width" appearance="Outlined">
+                        <mat-label>Mật khẩu</mat-label>
+                        <span matPrefix><span class="material-symbols-outlined">
+                            lock
+                            </span> &nbsp;
+                        </span>
+                        <input matInput type="password" formControlName="password" required="true">
+                    </mat-form-field>
+                    <mat-checkbox class="remember-password">Ghi nhớ đăng nhập</mat-checkbox>
+                    <button mat-flat-button color="primary" class="submit-button" (click)="onLogin()">Đăng nhập</button>
+                    <!-- <div (click)="onLogin()">Đăng nhập</div> -->
+                    <p>Quên mật khẩu?</p>
+                </form>
+            </div>
+        </mat-tab>
+        <mat-tab label="Đăng ký">
+            <div class="signin">
+                <h2>Đăng ký</h2>
+            </div>    
+        </mat-tab>
+    </mat-tab-group>
+</div>

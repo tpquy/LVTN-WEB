@@ -1,0 +1,123 @@
+<div class="manage-product" fxLayout="column" fxLayoutAlign="start center">
+  <div class="manage-product-main" fxFlayout="column">
+    <h2 class="manage-product-header">Quản lí sản phẩm</h2>
+    <form [formGroup]="searchForm" class="productSearchForm">
+      <div class="search-bars" fxFlayout="row" fxLayoutAlign="space-between center">
+        <mat-form-field appearance="outline" fxFlex="30">
+          <mat-label>Từ khóa</mat-label>
+          <input matInput formControlName="keyword" placeholder="Tên hoặc mã sản phẩm">
+          <!-- <mat-hint>Hint</mat-hint> -->
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" fxFlex="30">
+          <mat-label>Trạng thái</mat-label>
+          <mat-select value="0">
+            <mat-option value="all">Tất cả</mat-option>
+            <mat-option value="1">Còn hàng</mat-option>
+            <mat-option value="0">Sắp hết hàng</mat-option>
+            <mat-option value="2">Hết hàng</mat-option>
+            <mat-option value="3">Ngừng kinh doanh</mat-option>
+          </mat-select>
+        </mat-form-field>
+        
+        <button mat-flat-button fxFlex="30" class="searchBtn" (click)="onConfirmSearch()">
+          <mat-icon>search</mat-icon><a>Tìm kiếm</a>
+        </button>
+      </div>
+      <button mat-flat-button class="btn_add" (click)="addProduct()">
+        <mat-icon>add</mat-icon>
+        <a>Thêm mới</a>
+      </button>
+  </form>
+    
+    <table mat-table [dataSource]="dataSource" class="product-table">
+      <ng-container matColumnDef="stt" class="tb-stt">
+        <th mat-header-cell *matHeaderCellDef> STT </th>
+        <td mat-cell *matCellDef="let row" class="tb-stt-cell">
+          {{row.stt}}
+        </td>
+      </ng-container>
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="name" class="tb-name">
+        <th mat-header-cell *matHeaderCellDef> Sản phẩm </th>
+        <td mat-cell *matCellDef="let row" class="tb-name-cell" fxLayout="row">
+          <div>
+            <img [src]="getFilePath(row.img)" alt="" width="60px"
+              height="60px">
+          </div>
+
+          <div fxFlex="fill">
+            <p>{{row.name}}</p>
+            <p class="sku">Chip - Card: {{row.cpu.name}} - {{row.graphicsCard.name.name}}</p>
+            <p class="sku">SKU: {{row.code}}</p>
+          </div>
+        </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="type" class="tb-type-date">
+        <th mat-header-cell *matHeaderCellDef> Phân loại </th>
+        <td mat-cell *matCellDef="let row"> {{row.type.name.name}} </td>
+      </ng-container>
+
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="amount" class="tb-amount">
+        <th mat-header-cell *matHeaderCellDef> Số lượng </th>
+        <td mat-cell *matCellDef="let row"> {{row.quantity}} </td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="price" class="tb-price">
+        <th mat-header-cell *matHeaderCellDef> Giá bán </th>
+        <td mat-cell *matCellDef="let row"> {{formatPrice(row.price)}} </td>
+      </ng-container>
+
+      <!-- Action Column -->
+      <ng-container matColumnDef="action" class="tb-action">
+        <th mat-header-cell *matHeaderCellDef> Thao tác </th>
+        <td mat-cell *matCellDef="let row"><button mat-icon-button [matMenuTriggerFor]="actionMenu">
+            <mat-icon>more_horiz</mat-icon>
+          </button>
+          <mat-menu #actionMenu="matMenu" xPosition="before">
+            <button mat-menu-item class="menuAction" routerLink="/admin/product-management/detail">
+              <span>Xem chi tiết</span>
+            </button>
+            <button mat-menu-item class="menuAction" (click)="updateCategoryTagDialog(row.id)">
+              <span>Cập nhật</span>
+            </button>
+            <button mat-menu-item class="menuAction">
+              <span>Cập nhật nhanh</span>
+            </button>
+            <button mat-menu-item class="menuAction" (click)="deleteCategoryTagDialog(row.id, row.name)"> 
+              <span>Xóa</span>
+            </button>
+          </mat-menu>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <div class="frm_Pagination">
+      <ul class="temp_Arr">
+          <li *ngFor="let item of ELEMENTDATA  | paginate: {itemsPerPage: size, currentPage: page, totalItems: countResult, id: 'pgnx1'}">
+          </li>
+      </ul>
+      <div class="pageSize">
+          <span >Hiển thị</span>
+          <mat-form-field appearance="outline">
+              <mat-select [(value)]="size" (valueChange)="paginate(pageIndex, 1)">
+                  <mat-option *ngFor='let opt of pgSizeOptions;' [value]="opt">{{opt}}</mat-option>
+              </mat-select>
+          </mat-form-field>
+          <span><a>trên</a> {{countResult}} <a >bản ghi</a></span>
+      </div>
+      <div class="control">
+          <pagination-controls id="pgnx1" (pageChange)="page = $event; paginate(page, 0)" responsive="true" previousLabel="" nextLabel="">
+          </pagination-controls>
+      </div>
+  </div>
+  </div>
+</div>

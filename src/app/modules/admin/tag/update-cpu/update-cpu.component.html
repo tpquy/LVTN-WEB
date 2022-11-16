@@ -1,0 +1,131 @@
+<button mat-icon-button class="close-button" (click)="onDismiss()">
+    <mat-icon>close</mat-icon>
+</button>
+<h3 class="dialog_title" mat-dialog-title>Thêm mới CPU</h3>
+<form [formGroup]="updateForm" class="searchForm edit">
+    <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="row">
+        <mat-form-field appearance="outline" fxFlex.gt-sm="49" fxFlex.gt-xs="49" fxFlex='grow'>
+            <mat-label >Thương hiệu</mat-label>
+            <mat-select formControlName="brand" required (selectionChange)="onBrandChange($event.value)">
+                <mat-option *ngFor='let brand of brandList;' value="{{brand.id}}"> {{brand?.name?.name}} </mat-option>
+            </mat-select>
+            <mat-error *ngIf="brand.invalid" class="error_Msg">z
+                <span>Vui lòng chọn thương hiệu</span>
+                <div class="err">
+                    <mat-icon>priority_high</mat-icon>
+                </div>
+            </mat-error>
+        </mat-form-field>
+
+
+        <div fxFlex.gt-sm="2" fxFlex.lt-md="2"></div>
+
+
+        <mat-form-field appearance="outline" fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex='grow'>
+            <mat-label>Số ký hiệu</mat-label>
+            <input formControlName="code" [attr.disabled]="true" required matInput (change)="checkDuplicateCode()">
+            <mat-error *ngIf="code.invalid" class="error_Msg">
+                <span>Vui lòng nhập số ký hiệu</span>
+                <div class="err">
+                    <mat-icon>priority_high</mat-icon>
+                </div>
+            </mat-error>
+            <div *ngIf="duplicateCode" class="check_err">
+                <span>Số ký hiệu bị trùng. Vui lòng nhập lại</span>
+                <div class="err">
+                    <mat-icon>priority_high</mat-icon>
+                </div>
+            </div>
+        </mat-form-field>
+
+
+        <div fxFlex.gt-sm="2" fxFlex.lt-md="2"></div>
+
+
+        <mat-form-field appearance="outline" fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex='grow'>
+            <mat-label>Tên CPU</mat-label>
+            <input formControlName="name" [attr.disabled]="true" required matInput>
+            <mat-error *ngIf="name.invalid" class="error_Msg">
+                <span>Vui lòng nhập tên CPU</span>
+                <div class="err">
+                    <mat-icon>priority_high</mat-icon>
+                </div>
+            </mat-error>
+        </mat-form-field>
+
+    </div>
+
+    <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="row">
+        <mat-form-field appearance="outline" fxFlex.gt-sm="49" fxFlex.gt-xs="49" fxFlex='grow'>
+            <mat-label >Dòng CPU</mat-label>
+            <mat-select formControlName="core" required (selectionChange)="onCoreChange($event.value)">
+                <mat-option *ngFor='let core of coreList;' value="{{core.id}}"> {{core?.name?.name}} </mat-option>
+            </mat-select>
+            <mat-error *ngIf="core.invalid" class="error_Msg">
+                <span >Vui lòng chọn dòng CPU</span>
+                <div class="err">
+                    <mat-icon>priority_high</mat-icon>
+                </div>
+            </mat-error>
+        </mat-form-field>
+
+
+        <div fxFlex.gt-sm="2" fxFlex.lt-md="2"></div>
+
+        <mat-form-field appearance="outline" fxFlex.gt-sm="24" fxFlex.gt-xs="100" fxFlex='grow'>
+            <mat-label >Số nhân</mat-label>
+            <input formControlName="coreNumber" required matInput type="number" min="1" step="1">
+            <mat-error *ngIf="coreNumber.invalid" class="error_Msg">
+                <span>Vui lòng nhập số nhân</span>
+                <div class="err">
+                    <mat-icon>priority_high</mat-icon>
+                </div>
+            </mat-error>
+        </mat-form-field>
+
+        <div fxFlex.gt-sm="2" fxFlex.lt-md="2"></div>
+
+        <mat-form-field appearance="outline" fxFlex.gt-sm="24" fxFlex.gt-xs="100" fxFlex='grow'>
+            <mat-label>Số luồng</mat-label>
+            <input formControlName="threadNumber" required matInput type="number" min="1" step="1">
+            <mat-error *ngIf="threadNumber.invalid" class="error_Msg">
+                <span >Vui lòng nhập số luồng</span>
+                <div class="err">
+                    <mat-icon>priority_high</mat-icon>
+                </div>
+            </mat-error>
+        </mat-form-field>
+    </div>
+
+    <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="row">
+        <mat-form-field appearance="outline" fxFlex.gt-sm="24" fxFlex.gt-xs="100" fxFlex='grow'>
+            <mat-label >Xung nhịp cơ bản</mat-label>
+            <input formControlName="baseClock" required matInput type="number" min="0.1" step="0.1">
+            <mat-error *ngIf="baseClock.invalid" class="error_Msg">
+                <span>Vui lòng nhập xung nhịp cơ bản</span>
+                <div class="err">
+                    <mat-icon>priority_high</mat-icon>
+                </div>
+            </mat-error>
+        </mat-form-field>
+
+        <div fxFlex.gt-sm="2" fxFlex.lt-md="2"></div>
+
+        <mat-form-field appearance="outline" fxFlex.gt-sm="24" fxFlex.gt-xs="100" fxFlex='grow'>
+            <mat-label >Xung nhịp tối đa</mat-label>
+            <input formControlName="boostClock" required matInput type="number" min="0.1" step="0.1">
+            <mat-error *ngIf="boostClock.invalid" class="error_Msg">
+                <span>Vui lòng nhập xung nhịp tối đa</span>
+                <div class="err">
+                    <mat-icon>priority_high</mat-icon>
+                </div>
+            </mat-error>
+        </mat-form-field>
+    </div>
+
+    <div class="save" fxLayoutAlign="center" fxLayout.xs="row" fxLayout.sm="row">
+        <button mat-flat-button fxFlex='grow' class="searchBtn" (click)="onConfirmAdd()">
+            <a i18n="@@save">Lưu lại</a>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,14 @@
+<div class="snackbar">
+    <mat-icon *ngIf="snackBarType == 1" class="success_Icon">check_circle</mat-icon>
+    <mat-icon *ngIf="snackBarType == 0" class="err_Icon">cancel</mat-icon>
+    <mat-icon *ngIf="snackBarType == 2" class="warn_Icon">warning</mat-icon>
+    <div class="data">
+        <span [ngClass]="{'success': snackBarType == 1, 'error':  snackBarType == 0, 'warn':  snackBarType == 2 }" class="message">{{message}}</span>
+        <span class="content">{{content}}</span>
+    </div>
+    <div class="dismiss">
+        <button mat-icon-button (click)="snackBarRef.dismiss()">
+            <mat-icon [ngClass]="{'success': snackBarType == 1, 'error':  snackBarType == 0, 'warn':  snackBarType == 2}">highlight_off</mat-icon>
+        </button>
+    </div>
+</div>

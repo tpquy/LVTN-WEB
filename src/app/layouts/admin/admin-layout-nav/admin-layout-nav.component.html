@@ -1,0 +1,103 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
+
+<mat-drawer-container class="admin-container" >
+    <mat-drawer #drawer class="admin-sidenav" mode="side" opened>
+      <div class="sidebar-background"></div>
+      <div class="sidenav-container" fxLayout="column" fxLayoutAlign="start center">
+        <div class="home-page" fxLayoutAlign="center center">
+          <img src="../../../../assets/img/logo.svg" alt="">
+          <span>ADMIN PAGE</span>
+        </div>
+        <mat-divider></mat-divider>
+        <div *ngFor="let item of menu" style="width: 100%;" fxLayout="column" fxLayoutAlign="start center">
+          <div *ngIf="checkPermission(item.permission, role)" class="sidenav-menu menu-not-focused" id="{{item.id}}" routerLink="{{item.routing}}" [ngClass]="getURL(item.routing) ? 'menu-focused' : 'menu-not-focused'">
+            <div class="sidenav-menu-content">
+              <span class="material-symbols-rounded icon">
+                {{item.icon}}
+                </span>
+              <span class="text">{{item.name}}</span>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="sidenav-menu menu-not-focused" id="dashboard" routerLink="/admin">
+          <div class="sidenav-menu-content">
+            <span class="material-symbols-rounded icon">
+              dashboard
+              </span>
+            <span class="text">Dashboard</span>
+          </div>
+        </div>
+        <div class="sidenav-menu menu-not-focused" id="order" routerLink="/admin/order-management">
+          <div class="sidenav-menu-content">
+            <span class="material-symbols-rounded icon">
+              list_alt
+              </span>
+            <span class="text">Đơn hàng</span>
+          </div>
+        </div>
+        <div class="sidenav-menu menu-not-focused"  id="product" routerLink="/admin/product-management">
+          <div class="sidenav-menu-content">
+            <span class="material-symbols-rounded icon">
+              manage_search
+            </span>
+            <span class="text">Sản phẩm</span>
+          </div>
+        </div>
+        <div class="sidenav-menu menu-not-focused"  id="staff" routerLink="/admin/staff-management">
+          <div class="sidenav-menu-content">
+            <span class="material-symbols-rounded icon">
+              badge
+            </span>
+            <span class="text">Nhân viên</span>
+          </div>
+        </div>
+        <div class="sidenav-menu menu-not-focused"  id="user" routerLink="/admin/user-management">
+          <div class="sidenav-menu-content">
+            <span class="material-symbols-rounded icon">
+              group
+              </span>
+            <span class="text">Người dùng</span>
+          </div>
+        </div>
+        <div class="sidenav-menu menu-not-focused" id="account" routerLink="/admin/account-management">
+          <div class="sidenav-menu-content">
+            <span class="material-symbols-rounded icon">
+              person
+            </span>
+            <span class="text">Tài khoản</span>
+          </div>
+        </div>
+        <div class="sidenav-menu menu-not-focused" id="categoryTag" routerLink="/admin/category-tag">
+          <div class="sidenav-menu-content">
+            <span class="material-symbols-rounded icon">
+              person
+            </span>
+            <span class="text">Danh mục loại nhãn</span>
+          </div>
+        </div>
+        <div class="sidenav-menu menu-not-focused" id="tag" routerLink="/admin/tag">
+          <div class="sidenav-menu-content">
+            <span class="material-symbols-rounded icon">
+              person
+            </span>
+            <span class="text">Danh mục nhãn</span>
+          </div>
+        </div>
+        <div class="sidenav-menu menu-not-focused" id="account" routerLink="/">
+          <div class="sidenav-menu-content">
+            <span class="material-symbols-rounded icon">
+              person
+            </span>
+            <span class="text">Trang chủ - Tạm</span>
+          </div>
+        </div> -->
+      </div>
+    </mat-drawer>
+  
+    <div class="admin-content">
+        <router-outlet></router-outlet>
+    </div>
+    <div class="admin-footer">
+      Đây là footer
+    </div>
+  </mat-drawer-container>

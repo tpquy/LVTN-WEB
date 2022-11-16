@@ -1,0 +1,282 @@
+<button mat-icon-button class="close-button" (click)="onDismiss()">
+    <mat-icon>close</mat-icon>
+</button>
+<h3 class="dialog_title" mat-dialog-title>Thêm mới máy tính</h3>
+<form [formGroup]="updateForm" class="searchForm edit">
+    <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="row">
+        <mat-form-field appearance="outline" fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex='grow'>
+            <mat-label>Số ký hiệu</mat-label>
+            <input formControlName="code" [attr.disabled]="true" required matInput (change)="checkDuplicateCode()">
+            <mat-error *ngIf="code.invalid" class="error_Msg">
+                <span>Vui lòng nhập số ký hiệu</span>
+                <div class="err">
+                    <mat-icon>priority_high</mat-icon>
+                </div>
+            </mat-error>
+            <div *ngIf="duplicateCode" class="check_err">
+                <span>Số ký hiệu bị trùng. Vui lòng nhập lại</span>
+                <div class="err">
+                    <mat-icon>priority_high</mat-icon>
+                </div>
+            </div>
+        </mat-form-field>
+
+        <div fxFlex.gt-sm="2" fxFlex.lt-md="2"></div>
+        
+        <mat-form-field appearance="outline" fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex='grow'>
+            <mat-label>Tên Laptop</mat-label>
+            <input formControlName="name" [attr.disabled]="true" required matInput>
+            <mat-error *ngIf="name.invalid" class="error_Msg">
+                <span>Vui lòng nhập tên Laptop</span>
+                <div class="err">
+                    <mat-icon>priority_high</mat-icon>
+                </div>
+            </mat-error>
+        </mat-form-field>
+
+        <div fxFlex.gt-sm="2" fxFlex.lt-md="2"></div>
+
+        <mat-form-field appearance="outline" fxFlex.gt-sm="49" fxFlex.gt-xs="49" fxFlex='grow'>
+            <mat-label >Hãng sản xuất</mat-label>
+            <mat-select formControlName="brand" required (selectionChange)="onSelectionChange($event.value, 1)">
+                <mat-option *ngFor='let brand of brandList;' value="{{brand.id}}"> {{brand?.name.name}} </mat-option>
+            </mat-select>
+            <mat-error *ngIf="brand.invalid" class="error_Msg">z
+                <span>Vui lòng chọn thương hiệu</span>
+                <div class="err">
+                    <mat-icon>priority_high</mat-icon>
+                </div>
+            </mat-error>
+        </mat-form-field>
+    </div>
+
+    <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="row">
+        <mat-form-field appearance="outline" fxFlex.gt-sm="35" fxFlex.gt-xs="30" fxFlex='grow'>
+            <mat-label >CPU</mat-label>
+            <mat-select formControlName="cpu" required (selectionChange)="onCPUChange($event.value)">
+                <mat-option *ngFor='let cpu of cpuList;' value="{{cpu.id}}"> {{cpu?.name}} </mat-option>
+            </mat-select>
+            <mat-error *ngIf="brand.invalid" class="error_Msg">z
+                <span>Vui lòng chọn CPU</span>
+                <div class="err">
+                    <mat-icon>priority_high</mat-icon>
+                </div>
+            </mat-error>
+        </mat-form-field>
+        
+        <div fxFlex.gt-sm="2" fxFlex.lt-md="2"></div>
+
+        <mat-form-field appearance="outline" fxFlex.gt-sm="20" fxFlex.gt-xs="20" fxFlex='grow'>
+            <mat-label >RAM</mat-label>
+            <mat-select formControlName="ram" required (selectionChange)="onSelectionChange($event.value, 2)">
+                <mat-option *ngFor='let ram of ramList;' value="{{ram.id}}"> {{ram?.name?.name}} </mat-option>
+            </mat-select>
+            <mat-error *ngIf="ram.invalid" class="error_Msg">
+                <span >Vui lòng chọn RAM</span>
+                <div class="err">
+                    <mat-icon>priority_high</mat-icon>
+                </div>
+            </mat-error>
+        </mat-form-field>
+
+
+        <div fxFlex.gt-sm="2" fxFlex.lt-md="2"></div>
+
+        <mat-form-field appearance="outline" fxFlex.gt-sm="20" fxFlex.gt-xs="20" fxFlex='grow'>
+            <mat-label>Bộ nhớ</mat-label>
+            <mat-select formControlName="rom" required (selectionChange)="onSelectionChange($event.value, 3)">
+                <mat-option *ngFor='let rom of romList;' value="{{rom.id}}"> {{rom?.name?.name}} </mat-option>
+            </mat-select>
+            <mat-error *ngIf="rom.invalid" class="error_Msg">
+                <span >Vui lòng chọn dòng ROM</span>
+                <div class="err">
+                    <mat-icon>priority_high</mat-icon>
+                </div>
+            </mat-error>
+        </mat-form-field>
+
+
+        <div fxFlex.gt-sm="2" fxFlex.lt-md="2"></div>
+
+        <mat-form-field appearance="outline" fxFlex.gt-sm="20" fxFlex.gt-xs="20" fxFlex='grow'>
+            <mat-label >Màn hình</mat-label>
+            <mat-select formControlName="screen" required (selectionChange)="onSelectionChange($event.value, 4)">
+                <mat-option *ngFor='let screen of screenList;' value="{{screen.id}}"> {{screen?.name?.name}} </mat-option>
+            </mat-select>
+            <mat-error *ngIf="screen.invalid" class="error_Msg">
+                <span >Vui lòng chọn loại màn hình</span>
+                <div class="err">
+                    <mat-icon>priority_high</mat-icon>
+                </div>
+            </mat-error>
+        </mat-form-field>
+    </div>
+
+    <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="row">
+        <mat-form-field appearance="outline" fxFlex.gt-sm="49" fxFlex.gt-xs="49" fxFlex='grow'>
+            <mat-label >Loại laptop</mat-label>
+            <mat-select formControlName="type" required (selectionChange)="onSelectionChange($event.value, 8)">
+                <mat-option *ngFor='let type of typeList;' value="{{type.id}}"> {{type?.name?.name}} </mat-option>
+            </mat-select>
+            <mat-error *ngIf="type.invalid" class="error_Msg">
+                <span >Vui lòng loại laptop</span>
+                <div class="err">
+                    <mat-icon>priority_high</mat-icon>
+                </div>
+            </mat-error>
+        </mat-form-field>
+
+        <div fxFlex.gt-sm="2" fxFlex.lt-md="2"></div>
+
+        <mat-form-field appearance="outline" fxFlex.gt-sm="49" fxFlex.gt-xs="49" fxFlex='grow'>
+            <mat-label>Card đồ họa</mat-label>
+            <mat-select formControlName="graphicsCard" required (selectionChange)="onSelectionChange($event.value, 5)">
+                <mat-option *ngFor='let graphicsCard of graphicsCardList;' value="{{graphicsCard.id}}"> {{graphicsCard?.name?.name}} </mat-option>
+            </mat-select>
+            <mat-error *ngIf="graphicsCard.invalid" class="error_Msg">
+                <span >Vui lòng chọn Graphics Card</span>
+                <div class="err">
+                    <mat-icon>priority_high</mat-icon>
+                </div>
+            </mat-error>
+        </mat-form-field>
+
+
+        <div fxFlex.gt-sm="2" fxFlex.lt-md="2"></div>
+
+        <mat-form-field appearance="outline" fxFlex.gt-sm="49" fxFlex.gt-xs="49" fxFlex='grow'>
+            <mat-label>Vật liệu</mat-label>
+            <mat-select formControlName="material" required (selectionChange)="onSelectionChange($event.value, 6)">
+                <mat-option *ngFor='let material of materialList;' value="{{material.id}}"> {{material?.name?.name}} </mat-option>
+            </mat-select>
+            <mat-error *ngIf="material.invalid" class="error_Msg">
+                <span >Vui lòng chọn vật liệu</span>
+                <div class="err">
+                    <mat-icon>priority_high</mat-icon>
+                </div>
+            </mat-error>
+        </mat-form-field>
+
+
+        <div fxFlex.gt-sm="2" fxFlex.lt-md="2"></div>
+
+        <mat-form-field appearance="outline" fxFlex.gt-sm="49" fxFlex.gt-xs="49" fxFlex='grow'>
+            <mat-label >Hệ điều hành</mat-label>
+            <mat-select formControlName="os" required (selectionChange)="onSelectionChange($event.value, 7)">
+                <mat-option *ngFor='let os of osList;' value="{{os.id}}"> {{os?.name?.name}} </mat-option>
+            </mat-select>
+            <mat-error *ngIf="os.invalid" class="error_Msg">
+                <span >Vui lòng chọn hệ điều hành</span>
+                <div class="err">
+                    <mat-icon>priority_high</mat-icon>
+                </div>
+            </mat-error>
+        </mat-form-field>
+    </div>
+
+    <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="row">
+        <mat-form-field appearance="outline" fxFlex.gt-sm="23.5" fxFlex.gt-xs="100" fxFlex='grow'>
+            <mat-label>Cân nặng</mat-label>
+            <input formControlName="weight" required matInput type="number" min="0.1" step="0.1">
+            <mat-error *ngIf="weight.invalid" class="error_Msg">
+                <span>Vui lòng nhập cân nặng</span>
+                <div class="err">
+                    <mat-icon>priority_high</mat-icon>
+                </div>
+            </mat-error>
+        </mat-form-field>
+
+        <div fxFlex.gt-sm="2" fxFlex.lt-md="2"></div>
+
+        <mat-form-field appearance="outline" fxFlex.gt-sm="23.5" fxFlex.gt-xs="100" fxFlex='grow'>
+            <mat-label >Năm sản xuất</mat-label>
+            <input formControlName="releaseYear" required matInput type="number" min="2020" step="1">
+            <mat-error *ngIf="releaseYear.invalid" class="error_Msg">
+                <span>Vui lòng nhập năm sản xuất</span>
+                <div class="err">
+                    <mat-icon>priority_high</mat-icon>
+                </div>
+            </mat-error>
+        </mat-form-field>
+
+        <div fxFlex.gt-sm="2" fxFlex.lt-md="2"></div>
+
+        <mat-form-field appearance="outline" fxFlex.gt-sm="23.5" fxFlex.gt-xs="100" fxFlex='grow'>
+            <mat-label>Giá</mat-label>
+            <input formControlName="price" required matInput type="number" min="1000000" step="100000">
+            <mat-error *ngIf="price.invalid" class="error_Msg">
+                <span>Vui lòng nhập giá</span>
+                <div class="err">
+                    <mat-icon>priority_high</mat-icon>
+                </div>
+            </mat-error>
+        </mat-form-field>
+
+        <div fxFlex.gt-sm="2" fxFlex.lt-md="2"></div>
+
+        <mat-form-field appearance="outline" fxFlex.gt-sm="23.5" fxFlex.gt-xs="100" fxFlex='grow'>
+            <mat-label>Số lượng</mat-label>
+            <input formControlName="quantity" required matInput type="number" min="0" step="1">
+            <mat-error *ngIf="quantity.invalid" class="error_Msg">
+                <span>Vui lòng nhập số lượng</span>
+                <div class="err">
+                    <mat-icon>priority_high</mat-icon>
+                </div>
+            </mat-error>
+        </mat-form-field>
+    </div>
+
+    <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayoutAlign="space-between">
+        <div class="card" fxFlex='100'>
+            <div class="cardTitle">
+                <span i18n="@@attachedFile">File đính kèm</span>
+            </div>
+            <div class="cardContent">
+                <div class="drag_upload_btn">
+                    <button mat-button>
+                        <mat-icon>cloud_upload</mat-icon>
+                        <span i18n="@@dragFileOr">Kéo thả tệp tin hoặc</span><a href="">&nbsp;<span i18n="@@upload">Tải
+                                lên</span></a>
+                    </button>
+                    <span i18n="@@supportedFiles">Các tệp tin hỗ trợ: </span> <span
+                        *ngFor="let extension of acceptFileExtension">
+                        {{extension.toLowerCase()}}</span><br />
+                    <span i18n="@@maximumFileSize">Kích thước tối đa của một tệp tin: </span><span
+                        style="color: red;">50 MB</span>
+                    <div class="class">
+                        <input class="listUploadedFile" id="img_upload" name="img_upload[]" type='file'
+                            (change)="onSelectFileAttach($event, 'fileAttachDone')" [accept]="acceptFileExtension"
+                            multiple value="{{blankVal}}" formControlName="attachment">
+                    </div>
+                    <div class="fileUploadPreview" fxLayoutAlign="center">
+                        <div class="listUploaded" *ngFor="let attach of attachFilePreview; let i = index" fxLayout="row"
+                            fxLayout.xs="row" fxLayout.sm="row" appearance="outline" fxFlex.gt-sm="49"
+                            fxFlex.gt-xs="100" fxFlex='grow'>
+                            <div class="fileInfo">
+                                <div class="fileIcon"
+                                    [ngStyle]="{'background-image': 'url('+ getIconFilename(attach)  +')'}">
+                                </div>
+                                <div class="dGrid" (click)="downloadFile(attach.id, attach.newFilename)">
+                                    <p class="fileName" matTooltip="" [matTooltipPosition]="'right'">
+                                        {{attach.oldFileName}}</p>
+                                    <p class="fileSize">{{bytesToSize(attach.size)}}</p>
+                                </div>
+                                <a mat-icon-button class="deleteFile">
+                                    <mat-icon
+                                        (click)="removeAttachItem(i, attach.newFilename, attach.newFilename, 'fileAttachDone')">
+                                        close
+                                    </mat-icon>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="save" fxLayoutAlign="center" fxLayout.xs="row" fxLayout.sm="row">
+        <button mat-flat-button fxFlex='grow' class="searchBtn" (click)="onConfirmAdd()">
+            <a i18n="@@save">Lưu lại</a>
+        </button>
+    </div>
+</form>

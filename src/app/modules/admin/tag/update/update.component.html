@@ -1,0 +1,107 @@
+<button mat-icon-button class="close-button" (click)="onDismiss()">
+    <mat-icon>close</mat-icon>
+</button>
+<h3 class="dialog_title" mat-dialog-title i18n="@@addTag">Thêm mới nhãn</h3>
+<form [formGroup]="updateForm" class="searchForm edit">
+    <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="row">
+        <mat-form-field appearance="outline" fxFlex.gt-sm="49" fxFlex.gt-xs="49" fxFlex='grow'>
+            <mat-label i18n="@@categoryTag">Loại nhãn</mat-label>
+            <mat-select formControlName="type" required>
+                <mat-option *ngFor='let category of listCategory;' value="{{category.id}}"> {{category.name.name}} </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <div fxFlex.gt-sm="2" fxFlex.lt-md="2"></div>
+
+        <div fxFlex.gt-sm="49" fxFlex.lt-md="49" class="bn-left">
+            <mat-form-field appearance="outline" fxFlex='grow'>
+                <mat-label i18n="@@status">Trạng thái</mat-label>
+                <mat-select formControlName="status" required>
+                    <mat-option *ngFor='let status of listStatus;' value="{{status.id}}"> {{status.name}} </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        
+    </div>
+    <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="row">
+
+        <mat-form-field appearance="outline" fxFlex.gt-sm="49" fxFlex.gt-xs="49" fxFlex='grow'>
+            <mat-label i18n="@@symbols">Số ký hiệu</mat-label>
+            <input formControlName="code" required matInput (change)="checkDuplicateCode()">
+            <mat-error *ngIf="code.invalid" class="error_Msg">
+                <span i18n="@@pleaseEnterSymbols">Vui lòng nhập số ký hiệu</span>
+                <div class="err">
+                    <mat-icon>priority_high</mat-icon>
+                </div>
+            </mat-error>
+            <div *ngIf="duplicateCode" class="check_err">
+                <span i18n="@@duplicateSymbols">Số ký hiệu bị trùng. Vui lòng nhập lại</span>
+                <div class="err">
+                    <mat-icon>priority_high</mat-icon>
+                </div>
+            </div>
+        </mat-form-field>
+
+        <div fxFlex.gt-sm="2" fxFlex.lt-md="2"></div>
+
+        <mat-form-field appearance="outline" fxFlex.gt-sm="49" fxFlex.lt-md="49" xFlex='grow'>
+            <mat-label i18n="@@order">Số thứ tự</mat-label>
+            <input matInput formControlName="order" type="text" value="{{order}}" required>
+        </mat-form-field>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="center" fxLayout.xs="column" fxLayout.sm="row" class="header-sector">
+        <div fxFlex.gt-sm="100" fxFlex.lt-md="100" class="header-sector1">
+            <a i18n="@@tagName">Tên nhãn</a>*
+        </div>
+        <!-- <div fxFlex.gt-sm="60" fxFlex.lt-md="60" class="header-sector2">
+            <a title="Thêm mới dòng" class="aHover" (click)="addItem()">
+                <div fxLayout="row" class="bn-add">
+                    <mat-icon>add</mat-icon>
+                    <span i18n="@@addContent">Thêm nội dung</span>
+                </div>
+            </a>
+        </div> -->
+    </div>
+    <div fxLayout="column" fxLayoutAlign="center" fxLayout.xs="column" fxLayout.sm="column" class="mat-elevation-z0 padding-sectorname">
+        <div fxLayout="column" fxLayoutAlign="center" fxLayout.lt-md="row" fxLayout.sm="row" class="mat-elevation-z0 margin-sectorname">
+            <div fxLayout="row" appearance="outline" fxFlex='grow' fxLayout.xs="row" fxLayout.sm="row">
+                <div fxLayout="column" fxLayout.xs="column" fxLayout.sm="column" fxFlex.gt-sm="98" fxFlex.lt-md="98" class="add-row">
+                    <div fxLayout="row">
+                        <div fxFlex.gt-sm="100" fxFlex.lt-md="100" class="header-sector1">
+                            <mat-form-field appearance="outline" fxFlex='grow'>
+                                <mat-label i18n="@@tagName">Tên nhãn</mat-label>
+                                <input formControlName="name" type="text" matInput required >
+                                <mat-error *ngIf="name.invalid" class="error_Msg">
+                                    <span i18n="@@pleaseEnterTagName">Vui lòng nhập tên nhãn</span>
+                                    <div class="err">
+                                        <mat-icon>priority_high</mat-icon>
+                                    </div>
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div fxLayout="column" appearance="outline" fxFlex='grow' fxLayout.xs="column" fxLayout.sm="column" fxFlex.gt-sm="98" fxFlex.lt-md="98">
+                        <mat-form-field appearance="outline" fxFlex='grow'>
+                            <mat-label >Mô tả</mat-label>
+                            <input type="text" formControlName="description" [attr.disabled]="true"  matInput >
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <!-- <div fxLayout="column" fxLayoutAlign="center" fxFlex.gt-sm="3" fxFlex.lt-md="5" class="div-icon">
+                    <a title="Xóa dòng" class="aHover" (click)="deleteItem(i)">
+                        <mat-icon class="material-icons-outlined icon-color">cancel</mat-icon>
+                    </a>
+                </div> -->
+            </div>
+        </div>
+    </div>
+
+    <div class="save" fxLayoutAlign="center" fxLayout.xs="row" fxLayout.sm="row">
+        <button mat-flat-button fxFlex='grow' class="searchBtn" (click)="onConfirmAdd()">
+            <a i18n="@@save">Lưu lại</a>
+        </button>
+    </div>
+</form>

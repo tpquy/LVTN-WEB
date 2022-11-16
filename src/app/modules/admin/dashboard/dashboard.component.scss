@@ -1,0 +1,14 @@
+@import 'src/app/app.component.scss';
+
+//option
+.menu-not-focused{
+  background-color: none;
+  color: $defaultGrey6;
+  .icon{
+    opacity: 0.7 !important;
+  }
+}
+.menu-focused{
+  background-color: $themeColor1;
+  color: white;
+}

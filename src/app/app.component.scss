@@ -1,0 +1,119 @@
+//clear deafult
+*{
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+
+//variable
+$defaultBackground:  rgb(244, 244, 244);
+$defaultBlue1: #1435c3;
+$defaultBlue2: #1990FF;
+$defaultBlue3: #7DD2EB;
+$defaultGrey1: #82869e;
+$defaultGrey2: #F5F5F5;
+$defaultGrey3: #e0e0e0;
+$defaultGrey4: #f3f5fc;
+$defaultGrey5: #434657;
+$defaultGrey6: #3c4858;
+$defaultGrey7: #82869E;
+$defaultGrey8: #999999;
+
+
+$themeColor1: #00BDC4;
+$themeColor2: #9368E9;
+$themeColor3: #18CE0F;
+$themeColor4: #F96332;
+$themeColor5: #F44336;
+
+$defaultTextColor: #333333;
+
+.male {
+    color: $defaultBlue1;
+}
+.female {
+    color: #e968de;
+}
+
+.btn_add {
+    background-color: #e8e8e8;
+    color: #666;
+    float: left;
+}
+
+.btn_add .mat-icon {
+    color: #ce7a58;
+}
+
+// ====================================================== Pagination
+::ng-deep .frm_Pagination .temp_Arr {
+    display: none;
+}
+
+::ng-deep .frm_Pagination .pageSize .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: #e8e8e8;
+}
+
+::ng-deep .frm_Pagination {
+    padding: 1em 0;
+    display: flex;
+}
+
+::ng-deep .frm_Pagination .pageSize .mat-form-field-appearance-outline .mat-form-field-wrapper {
+    width: 4.5em;
+    margin: 0 0.5em;
+}
+
+::ng-deep .frm_Pagination .pageSize .mat-form-field-appearance-outline .mat-form-field-infix {
+    padding: 0.5em 0;
+}
+
+::ng-deep .frm_Pagination .pageSize .mat-form-field-appearance-outline .mat-select-arrow-wrapper {
+    padding-top: 0.5em;
+}
+
+::ng-deep .frm_Pagination .pageSize .mat-form-field-appearance-outline .mat-form-field-flex {
+    padding: 0 0.5em 0.5em 0.5em;
+}
+
+::ng-deep .frm_Pagination .control {
+    text-align: right;
+    margin-left: auto;
+}
+
+::ng-deep .frm_Pagination .control .ngx-pagination a {
+    outline: unset;
+    background-color: #e8e8e8;
+    border-radius: 4px;
+    margin: 0 .2em;
+}
+
+::ng-deep .frm_Pagination .control .ngx-pagination .current {
+    background: #ce7a58;
+    border-radius: 4px;
+    margin: 0 .2em;
+}
+
+::ng-deep .frm_Pagination .control .ngx-pagination .pagination-previous a::before,
+::ng-deep .frm_Pagination .control .ngx-pagination .pagination-previous.disabled::before {
+    font-family: "Material Icons";
+    content: "chevron_left";
+    vertical-align: middle;
+    transform: scale(1.5);
+    margin-right: 0;
+    color: #1E2F41;
+}
+
+::ng-deep .frm_Pagination .control .ngx-pagination .pagination-next a::after,
+::ng-deep .frm_Pagination .control .ngx-pagination .pagination-next.disabled::after {
+    font-family: "Material Icons";
+    content: "chevron_right";
+    vertical-align: middle;
+    transform: scale(1.5);
+    margin-left: 0;
+    color: #1E2F41;
+}

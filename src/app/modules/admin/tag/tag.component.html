@@ -1,0 +1,245 @@
+<h2>Danh mục nhãn</h2>
+<div class="dm_searchbar">
+    <form [formGroup]="searchForm" class="searchForm">
+        <div fxLayout="row" fxLayout.xs="row" fxLayout.sm="row" class="formFieldItems" fxLayoutAlign="space-between">
+            <mat-form-field appearance="outline" fxFlex.gt-sm="85" fxFlex.gt-xs="49.5" fxFlex='grow'>
+                <mat-label>Nhập từ khóa</mat-label>
+                <input matInput formControlName="keyword">
+            </mat-form-field>
+
+            <button mat-flat-button fxFlex.gt-sm="14" fxFlex.gt-xs="49.5" fxFlex='grow' class="searchBtn"
+                (click)="onConfirmSearch()">
+                <mat-icon>search</mat-icon><a>Tìm kiếm</a>
+            </button>
+        </div>
+    </form>
+</div>
+<div fxLayout="row" fxLayoutAlign="center">
+    <div class="dm_main" fxFlex="grow">
+        <mat-tab-group>
+            <mat-tab label="Nhãn">
+                <button mat-flat-button class="btn_add" (click)="addTags()">
+                    <mat-icon>add</mat-icon>
+                    <a>Thêm mới</a>
+                </button>
+                <div class="dm_tag_tbl">
+                    <mat-table [dataSource]="tagDataSource">
+                        <ng-container matColumnDef="stt">
+                            <mat-header-cell *matHeaderCellDef>STT</mat-header-cell>
+                            <mat-cell *matCellDef="let row" data-label="STT"> {{row.stt}} </mat-cell>
+                        </ng-container>
+
+                        <ng-container matColumnDef="id">
+                            <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+                            <mat-cell *matCellDef="let row" data-label="ID" class="cell_id">
+                                <span>{{row.id}}</span>
+                            </mat-cell>
+                        </ng-container>
+
+                        <ng-container matColumnDef="symbol">
+                            <mat-header-cell *matHeaderCellDef>Số ký hiệu</mat-header-cell>
+                            <mat-cell *matCellDef="let row" data-label="Số ký hiệu" class="cell_symbol">
+                                <span>{{row.code}}</span>
+                            </mat-cell>
+                        </ng-container>
+
+                        <ng-container matColumnDef="tag">
+                            <mat-header-cell *matHeaderCellDef>Nhãn</mat-header-cell>
+                            <mat-cell *matCellDef="let row" data-label="Tag" class="cell_title">
+                                <span *ngIf="row.name  == null "></span>
+                                <span *ngIf="row.name  != null ">
+                                    <span>{{row.name.name}}</span>
+                                </span>
+                            </mat-cell>
+                        </ng-container>
+
+                        <ng-container matColumnDef="category">
+                            <mat-header-cell *matHeaderCellDef>Tên loại nhãn</mat-header-cell>
+                            <mat-cell *matCellDef="let row" data-label="Tên loại nhãn" class="cell_title2">
+                                <span *ngIf="row.type.length  == 0 "></span>
+                                <span *ngIf="row.type.length  != 0">
+                                    <span *ngIf="row.type.name.length != 0">
+                                        <span *ngIf="row.type.name.name != null">{{row.type.name.name}}</span>
+                                    </span>
+                                    <span *ngIf="row.type.name.length == 0"></span>
+                                </span>
+                            </mat-cell>
+                        </ng-container>
+
+                        <ng-container matColumnDef="description">
+                            <mat-header-cell *matHeaderCellDef>Mô tả</mat-header-cell>
+                            <mat-cell *matCellDef="let row" data-label="Mô tả">
+                                <span *ngIf="row.type.length  == 0 "></span>
+                                <span *ngIf="row.type.length  != 0">
+                                    <span *ngIf="row.name?.description != null">{{row.name.description}}</span>
+                                    <span *ngIf="row.name?.description == null"></span>
+                                </span>
+                            </mat-cell>
+                        </ng-container>
+
+                        <ng-container matColumnDef="status">
+                            <mat-header-cell *matHeaderCellDef>Trạng thái</mat-header-cell>
+                            <mat-cell *matCellDef="let row" data-label="Trạng thái">
+                                <span class="activeBtn" color="primary" *ngIf="row.status  == 1">Mở</span>
+                                <span class="closeBtn" color="warn" *ngIf="row.status  == 0">Đóng</span>
+                            </mat-cell>
+                        </ng-container>
+
+                        <ng-container matColumnDef="action">
+                            <mat-header-cell *matHeaderCellDef>Thao tác</mat-header-cell>
+                            <mat-cell *matCellDef="let row" data-label="Thao tác">
+                                <button mat-icon-button [matMenuTriggerFor]="actionMenu">
+                                    <mat-icon>more_horiz</mat-icon>
+                                </button>
+                                <mat-menu #actionMenu="matMenu" xPosition="before">
+                                    <button mat-menu-item class="menuAction" (click)="updateTagsDialog(row.id)">
+                                        <mat-icon>edit</mat-icon><a>Cập nhật</a>
+                                    </button>
+                                    <button mat-menu-item class="menuAction"
+                                        (click)="deleteTagsDialog(row.id, row.name.name)">
+                                        <mat-icon>delete_outline</mat-icon><a>Xoá</a>
+                                    </button>
+                                </mat-menu>
+                            </mat-cell>
+                        </ng-container>
+
+                        <mat-header-row *matHeaderRowDef="tagDisplayedColumns"></mat-header-row>
+                        <mat-row *matRowDef="let row; columns: tagDisplayedColumns;"></mat-row>
+                    </mat-table>
+
+                    <div class="frm_Pagination">
+                        <ul class="temp_Arr">
+                            <li
+                                *ngFor="let item of tagELEMENDATA  | paginate: {itemsPerPage: tagSize, currentPage: tagPage, totalItems: tagCountResult, id: 'pgnx1'}">
+                            </li>
+                        </ul>
+                        <div class="pageSize">
+                            <span>Hiển thị</span>
+                            <mat-form-field appearance="outline">
+                                <mat-select [(value)]="tagSize" (valueChange)="tagPaginate(tagPageIndex, 1)">
+                                    <mat-option *ngFor='let opt of pgSizeOptions;' [value]="opt">{{opt}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <span><a>trên</a> {{tagCountResult}} <a>bản ghi</a></span>
+                        </div>
+                        <div class="control">
+                            <pagination-controls id="pgnx1" (pageChange)="tagPage = $event; tagPaginate(tagPage, 0)"
+                                responsive="true" previousLabel="" nextLabel="">
+                            </pagination-controls>
+                        </div>
+                    </div>
+                </div>
+            </mat-tab>
+
+            <mat-tab label="CPU">
+                <button mat-flat-button class="btn_add" (click)="addCPU()">
+                    <mat-icon>add</mat-icon>
+                    <a>Thêm mới</a>
+                </button>
+                <div class="dm_tag_tbl">
+                    <mat-table [dataSource]="cpuDataSource">
+                        <ng-container matColumnDef="stt">
+                            <mat-header-cell *matHeaderCellDef>STT</mat-header-cell>
+                            <mat-cell *matCellDef="let row" data-label="STT"> {{row.stt}} </mat-cell>
+                        </ng-container>
+
+                        <ng-container matColumnDef="id">
+                            <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+                            <mat-cell *matCellDef="let row" data-label="ID" class="cell_id">
+                                <span>{{row.id}}</span>
+                            </mat-cell>
+                        </ng-container>
+
+                        <ng-container matColumnDef="symbol">
+                            <mat-header-cell *matHeaderCellDef>Số ký hiệu</mat-header-cell>
+                            <mat-cell *matCellDef="let row" data-label="Số ký hiệu" class="cell_symbol">
+                                <span>{{row.code}}</span>
+                            </mat-cell>
+                        </ng-container>
+
+                        <ng-container matColumnDef="tag">
+                            <mat-header-cell *matHeaderCellDef>Hãng</mat-header-cell>
+                            <mat-cell *matCellDef="let row" data-label="Tag" class="cell_title">
+                                <span *ngIf="row.brand?.name?.name  == null "></span>
+                                <span *ngIf="row.brand?.name?.name  != null ">
+                                    <span>{{row.brand.name.name}}</span>
+                                </span>
+                            </mat-cell>
+                        </ng-container>
+
+                        <ng-container matColumnDef="category">
+                            <mat-header-cell *matHeaderCellDef>Xung nhịp</mat-header-cell>
+                            <mat-cell *matCellDef="let row" data-label="Tag" class="cell_title">
+                                <span *ngIf="row.boostClock == null && row.baseClock == null"></span>
+                                <span *ngIf="row.boostClock  != null && row.baseClock != null">
+                                    <span>{{row.baseClock}}/{{row.boostClock}}</span>
+                                </span>
+                            </mat-cell>
+                        </ng-container>
+
+                        <ng-container matColumnDef="description">
+                            <mat-header-cell *matHeaderCellDef>Xung nhịp</mat-header-cell>
+                            <mat-cell *matCellDef="let row" data-label="Tag" class="cell_title">
+                                <span *ngIf="row.coreNumber == null && row.threadNumber== null"></span>
+                                <span *ngIf="row.coreNumber  != null && row.threadNumber != null">
+                                    <span>{{row.coreNumber}}/{{row.threadNumber}}</span>
+                                </span>
+                            </mat-cell>
+                        </ng-container>
+
+                        <ng-container matColumnDef="status">
+                            <mat-header-cell *matHeaderCellDef>Trạng thái</mat-header-cell>
+                            <mat-cell *matCellDef="let row" data-label="Trạng thái">
+                                <span class="activeBtn" color="primary">Mở</span>
+                                <!-- <span class="closeBtn" color="warn" *ngIf="row.status  == 0">Đóng</span> -->
+                            </mat-cell>
+                        </ng-container>
+
+                        <ng-container matColumnDef="action">
+                            <mat-header-cell *matHeaderCellDef>Thao tác</mat-header-cell>
+                            <mat-cell *matCellDef="let row" data-label="Thao tác">
+                                <button mat-icon-button [matMenuTriggerFor]="actionMenu">
+                                    <mat-icon>more_horiz</mat-icon>
+                                </button>
+                                <mat-menu #actionMenu="matMenu" xPosition="before">
+                                    <button mat-menu-item class="menuAction" (click)="updateCPUDialog(row.id)">
+                                        <mat-icon>edit</mat-icon><a>Cập nhật</a>
+                                    </button>
+                                    <button mat-menu-item class="menuAction"
+                                        (click)="deleteCPUDialog(row.id, row.name.name)">
+                                        <mat-icon>delete_outline</mat-icon><a>Xoá</a>
+                                    </button>
+                                </mat-menu>
+                            </mat-cell>
+                        </ng-container>
+
+                        <mat-header-row *matHeaderRowDef="cpuDisplayedColumns"></mat-header-row>
+                        <mat-row *matRowDef="let row; columns: cpuDisplayedColumns;"></mat-row>
+                    </mat-table>
+
+                    <div class="frm_Pagination">
+                        <ul class="temp_Arr">
+                            <li
+                                *ngFor="let item of cpuELEMENTDATA  | paginate: {itemsPerPage: cpuSize, currentPage: cpuPage, totalItems: cpuCountResult, id: 'pgnx2'}">
+                            </li>
+                        </ul>
+                        <div class="pageSize">
+                            <span>Hiển thị</span>
+                            <mat-form-field appearance="outline">
+                                <mat-select [(value)]="cpuSize" (valueChange)="cpuPaginate(cpuPageIndex, 1)">
+                                    <mat-option *ngFor='let opt of pgSizeOptions;' [value]="opt">{{opt}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <span><a>trên</a> {{cpuCountResult}} <a>bản ghi</a></span>
+                        </div>
+                        <div class="control">
+                            <pagination-controls id="pgnx2" (pageChange)="cpuPage = $event; cpuPaginate(cpuPage, 0)"
+                                responsive="true" previousLabel="" nextLabel="">
+                            </pagination-controls>
+                        </div>
+                    </div>
+                </div>
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+</div>

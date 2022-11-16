@@ -1,0 +1,339 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+
+<div class="main" fxLayout="column" fxLayoutAlign="start center">
+    <div class="main-banner" id="main-banner" fxLayout="row" fxLayoutAlign="center center" style="background-image: url(../../../assets/img/banner1.webp); background-size: cover; background-position: center;">
+        <!-- <div class="banner-slider-container" fxLayout="row" fxLayoutAlign="center center">
+            <img src="../../../assets/img/banner1.webp" alt="">
+        </div> -->
+    </div>
+    <div class="content" fxLayout="column" fxLayoutAlign="start center" >
+        <div class="banner-menu">
+            <app-category-menu></app-category-menu>
+            <div class="banner-slider-dot" fxLayout="row" fxLayoutAlign="center center">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+        </div>
+
+        <div class="list-promo-banner" fxLayout="row" fxLayoutAlign="space-between center" >
+            <div class="promo-banner-container" fxFlex="24" fxLayoutAlign="center center" [ngStyle]="{'height': this.smallBannerHeight}">
+                <img src="../../../assets/img/xiaomi-banner.jpg" alt="">
+            </div>
+            <div class="promo-banner-container" fxFlex="24"  fxLayoutAlign="center center" [ngStyle]="{'height': this.smallBannerHeight}">
+                <img src="../../../assets/img/xiaomi-banner.jpg" alt="">
+            </div>
+            <div class="promo-banner-container" fxFlex="24"  fxLayoutAlign="center center" [ngStyle]="{'height': this.smallBannerHeight}">
+                <img src="../../../assets/img/samsung-banner.png" alt="">
+            </div>
+            <div class="promo-banner-container" fxFlex="24"  fxLayoutAlign="center center" [ngStyle]="{'height': this.smallBannerHeight}">
+                <img src="../../../assets/img/huawei-banner.jpg" alt="">
+            </div>
+        </div>
+
+        <div class="product-group product-sale" fxLayout="column" style="background-image: url(../../../assets/img/background-xmas.jpg); background-size: cover;">
+            <div class="group-title" fxLayout="row" fxLayoutAlign="space-between center" >
+                <div></div>
+                <div class="group-title-header">
+                    <h2>ĐANG GIẢM GIÁ</h2>
+                    <h3>Chỉ duy nhất hôm nay</h3>
+                </div>
+                <div class="group-title-see-more">
+                    Xem tất cả >
+                </div>
+            </div>
+            <div class="product-list-product" fxLayout="row wrap" fxLayoutAlign="start center">
+                <div class="product" fxLayout="column" fxLayoutAlign="start start">
+                    <div class="product-img-container">
+                        <img src="../../../../assets/img/test-product.webp" alt="">
+                        <div class="promo" fxLayout="column" fxLayoutAlign="center start">
+                            <p class="promo-text">TIẾT KIỆM</p>
+                            <p class="promo-saved-money">991.000 đ</p>
+                        </div>
+                        <div class="gift">
+                            <img src="../../../../assets/img/gift-icon.png" alt="">
+                        </div>
+                    </div>
+                    <div class="product-name">
+                        RAM desktop APACER DDR4 8G 3200 OC NOX RGB AURA 2 (1 x 8GB) DDR4 3200MHz (AH4U08G32C28YNBAA-1)
+                    </div>
+                    <div class="product-price" fxLayout="row" fxLayoutAlign="space-between center" >
+                        <p class="price">4.999.999 đ</p>
+                        <img src="../../../../assets/img/freeship.png" alt="">
+                    </div>
+                    <div class="product-cost" fxLayout="row">
+                        <p class="cost">5.999.999 đ</p>
+                        <p class="discount">18.05%</p>
+                    </div>
+                </div>
+                <div class="product" fxLayout="column" fxLayoutAlign="start start">
+                    <div class="product-img-container">
+                        <img src="../../../../assets/img/test-product.webp" alt="">
+                        <div class="promo" fxLayout="column" fxLayoutAlign="center start">
+                            <p class="promo-text">TIẾT KIỆM</p>
+                            <p class="promo-saved-money">991.000 đ</p>
+                        </div>
+                        <div class="gift">
+                            <img src="../../../../assets/img/gift-icon.png" alt="">
+                        </div>
+                    </div>
+                    <div class="product-name">
+                        RAM desktop APACER DDR4 8G 3200 OC NOX RGB AURA 2 (1 x 8GB) DDR4 3200MHz (AH4U08G32C28YNBAA-1)
+                    </div>
+                    <div class="product-price" fxLayout="row" fxLayoutAlign="space-between center" >
+                        <p class="price">4.999.999 đ</p>
+                        <img src="../../../../assets/img/freeship.png" alt="">
+                    </div>
+                    <div class="product-cost" fxLayout="row">
+                        <p class="cost">5.999.999 đ</p>
+                        <p class="discount">18.05%</p>
+                    </div>
+                </div>
+                <div class="product" fxLayout="column" fxLayoutAlign="start start">
+                    <div class="product-img-container">
+                        <img src="../../../../assets/img/test-product.webp" alt="">
+                        <div class="promo" fxLayout="column" fxLayoutAlign="center start">
+                            <p class="promo-text">TIẾT KIỆM</p>
+                            <p class="promo-saved-money">991.000 đ</p>
+                        </div>
+                        <div class="gift">
+                            <img src="../../../../assets/img/gift-icon.png" alt="">
+                        </div>
+                    </div>
+                    <div class="product-name">
+                        RAM desktop APACER DDR4 8G 3200 OC NOX RGB AURA 2 (1 x 8GB) DDR4 3200MHz (AH4U08G32C28YNBAA-1)
+                    </div>
+                    <div class="product-price" fxLayout="row" fxLayoutAlign="space-between center" >
+                        <p class="price">4.999.999 đ</p>
+                        <img src="../../../../assets/img/freeship.png" alt="">
+                    </div>
+                    <div class="product-cost" fxLayout="row">
+                        <p class="cost">5.999.999 đ</p>
+                        <p class="discount">18.05%</p>
+                    </div>
+                </div>
+                <div class="product" fxLayout="column" fxLayoutAlign="start start">
+                    <div class="product-img-container">
+                        <img src="../../../../assets/img/test-product.webp" alt="">
+                        <div class="promo" fxLayout="column" fxLayoutAlign="center start">
+                            <p class="promo-text">TIẾT KIỆM</p>
+                            <p class="promo-saved-money">991.000 đ</p>
+                        </div>
+                        <div class="gift">
+                            <img src="../../../../assets/img/gift-icon.png" alt="">
+                        </div>
+                    </div>
+                    <div class="product-name">
+                        RAM desktop APACER DDR4 8G 3200 OC NOX RGB AURA 2 (1 x 8GB) DDR4 3200MHz (AH4U08G32C28YNBAA-1)
+                    </div>
+                    <div class="product-price" fxLayout="row" fxLayoutAlign="space-between center" >
+                        <p class="price">4.999.999 đ</p>
+                        <img src="../../../../assets/img/freeship.png" alt="">
+                    </div>
+                    <div class="product-cost" fxLayout="row">
+                        <p class="cost">5.999.999 đ</p>
+                        <p class="discount">18.05%</p>
+                    </div>
+                </div>
+                <div class="product" fxLayout="column" fxLayoutAlign="start start">
+                    <div class="product-img-container">
+                        <img src="../../../../assets/img/test-product.webp" alt="">
+                        <div class="promo" fxLayout="column" fxLayoutAlign="center start">
+                            <p class="promo-text">TIẾT KIỆM</p>
+                            <p class="promo-saved-money">991.000 đ</p>
+                        </div>
+                        <div class="gift">
+                            <img src="../../../../assets/img/gift-icon.png" alt="">
+                        </div>
+                    </div>
+                    <div class="product-name">
+                        RAM desktop APACER DDR4 8G 3200 OC NOX RGB AURA 2 (1 x 8GB) DDR4 3200MHz (AH4U08G32C28YNBAA-1)
+                    </div>
+                    <div class="product-price" fxLayout="row" fxLayoutAlign="space-between center" >
+                        <p class="price">4.999.999 đ</p>
+                        <img src="../../../../assets/img/freeship.png" alt="">
+                    </div>
+                    <div class="product-cost" fxLayout="row">
+                        <p class="cost">5.999.999 đ</p>
+                        <p class="discount">18.05%</p>
+                    </div>
+                </div>
+                <div class="product" fxLayout="column" fxLayoutAlign="start start">
+                    <div class="product-img-container">
+                        <img src="../../../../assets/img/test-product.webp" alt="">
+                        <div class="promo" fxLayout="column" fxLayoutAlign="center start">
+                            <p class="promo-text">TIẾT KIỆM</p>
+                            <p class="promo-saved-money">991.000 đ</p>
+                        </div>
+                        <div class="gift">
+                            <img src="../../../../assets/img/gift-icon.png" alt="">
+                        </div>
+                    </div>
+                    <div class="product-name">
+                        RAM desktop APACER DDR4 8G 3200 OC NOX RGB AURA 2 (1 x 8GB) DDR4 3200MHz (AH4U08G32C28YNBAA-1)
+                    </div>
+                    <div class="product-price" fxLayout="row" fxLayoutAlign="space-between center" >
+                        <p class="price">4.999.999 đ</p>
+                        <img src="../../../../assets/img/freeship.png" alt="">
+                    </div>
+                    <div class="product-cost" fxLayout="row">
+                        <p class="cost">5.999.999 đ</p>
+                        <p class="discount">18.05%</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="product-group product-sale" fxLayout="column" style="background-image: url(../../../assets/img/background-xmas.jpg); background-size: cover;">
+            <div class="group-title" fxLayout="row" fxLayoutAlign="space-between center" >
+                <div></div>
+                <div class="group-title-header">
+                    <h2>ĐANG GIẢM GIÁ</h2>
+                    <h3>Chỉ duy nhất hôm nay</h3>
+                </div>
+                <div class="group-title-see-more">
+                    Xem tất cả >
+                </div>
+            </div>
+            <div class="product-list-product" fxLayout="row wrap" fxLayoutAlign="start center">
+                <div class="product" fxLayout="column" fxLayoutAlign="start start">
+                    <div class="product-img-container">
+                        <img src="../../../../assets/img/test-product.webp" alt="">
+                        <div class="promo" fxLayout="column" fxLayoutAlign="center start">
+                            <p class="promo-text">TIẾT KIỆM</p>
+                            <p class="promo-saved-money">991.000 đ</p>
+                        </div>
+                        <div class="gift">
+                            <img src="../../../../assets/img/gift-icon.png" alt="">
+                        </div>
+                    </div>
+                    <div class="product-name">
+                        RAM desktop APACER DDR4 8G 3200 OC NOX RGB AURA 2 (1 x 8GB) DDR4 3200MHz (AH4U08G32C28YNBAA-1)
+                    </div>
+                    <div class="product-price" fxLayout="row" fxLayoutAlign="space-between center" >
+                        <p class="price">4.999.999 đ</p>
+                        <img src="../../../../assets/img/freeship.png" alt="">
+                    </div>
+                    <div class="product-cost" fxLayout="row">
+                        <p class="cost">5.999.999 đ</p>
+                        <p class="discount">18.05%</p>
+                    </div>
+                </div>
+                <div class="product" fxLayout="column" fxLayoutAlign="start start">
+                    <div class="product-img-container">
+                        <img src="../../../../assets/img/test-product.webp" alt="">
+                        <div class="promo" fxLayout="column" fxLayoutAlign="center start">
+                            <p class="promo-text">TIẾT KIỆM</p>
+                            <p class="promo-saved-money">991.000 đ</p>
+                        </div>
+                        <div class="gift">
+                            <img src="../../../../assets/img/gift-icon.png" alt="">
+                        </div>
+                    </div>
+                    <div class="product-name">
+                        RAM desktop APACER DDR4 8G 3200 OC NOX RGB AURA 2 (1 x 8GB) DDR4 3200MHz (AH4U08G32C28YNBAA-1)
+                    </div>
+                    <div class="product-price" fxLayout="row" fxLayoutAlign="space-between center" >
+                        <p class="price">4.999.999 đ</p>
+                        <img src="../../../../assets/img/freeship.png" alt="">
+                    </div>
+                    <div class="product-cost" fxLayout="row">
+                        <p class="cost">5.999.999 đ</p>
+                        <p class="discount">18.05%</p>
+                    </div>
+                </div>
+                <div class="product" fxLayout="column" fxLayoutAlign="start start">
+                    <div class="product-img-container">
+                        <img src="../../../../assets/img/test-product.webp" alt="">
+                        <div class="promo" fxLayout="column" fxLayoutAlign="center start">
+                            <p class="promo-text">TIẾT KIỆM</p>
+                            <p class="promo-saved-money">991.000 đ</p>
+                        </div>
+                        <div class="gift">
+                            <img src="../../../../assets/img/gift-icon.png" alt="">
+                        </div>
+                    </div>
+                    <div class="product-name">
+                        RAM desktop APACER DDR4 8G 3200 OC NOX RGB AURA 2 (1 x 8GB) DDR4 3200MHz (AH4U08G32C28YNBAA-1)
+                    </div>
+                    <div class="product-price" fxLayout="row" fxLayoutAlign="space-between center" >
+                        <p class="price">4.999.999 đ</p>
+                        <img src="../../../../assets/img/freeship.png" alt="">
+                    </div>
+                    <div class="product-cost" fxLayout="row">
+                        <p class="cost">5.999.999 đ</p>
+                        <p class="discount">18.05%</p>
+                    </div>
+                </div>
+                <div class="product" fxLayout="column" fxLayoutAlign="start start">
+                    <div class="product-img-container">
+                        <img src="../../../../assets/img/test-product.webp" alt="">
+                        <div class="promo" fxLayout="column" fxLayoutAlign="center start">
+                            <p class="promo-text">TIẾT KIỆM</p>
+                            <p class="promo-saved-money">991.000 đ</p>
+                        </div>
+                        <div class="gift">
+                            <img src="../../../../assets/img/gift-icon.png" alt="">
+                        </div>
+                    </div>
+                    <div class="product-name">
+                        RAM desktop APACER DDR4 8G 3200 OC NOX RGB AURA 2 (1 x 8GB) DDR4 3200MHz (AH4U08G32C28YNBAA-1)
+                    </div>
+                    <div class="product-price" fxLayout="row" fxLayoutAlign="space-between center" >
+                        <p class="price">4.999.999 đ</p>
+                        <img src="../../../../assets/img/freeship.png" alt="">
+                    </div>
+                    <div class="product-cost" fxLayout="row">
+                        <p class="cost">5.999.999 đ</p>
+                        <p class="discount">18.05%</p>
+                    </div>
+                </div>
+                <div class="product" fxLayout="column" fxLayoutAlign="start start">
+                    <div class="product-img-container">
+                        <img src="../../../../assets/img/test-product.webp" alt="">
+                        <div class="promo" fxLayout="column" fxLayoutAlign="center start">
+                            <p class="promo-text">TIẾT KIỆM</p>
+                            <p class="promo-saved-money">991.000 đ</p>
+                        </div>
+                        <div class="gift">
+                            <img src="../../../../assets/img/gift-icon.png" alt="">
+                        </div>
+                    </div>
+                    <div class="product-name">
+                        RAM desktop APACER DDR4 8G 3200 OC NOX RGB AURA 2 (1 x 8GB) DDR4 3200MHz (AH4U08G32C28YNBAA-1)
+                    </div>
+                    <div class="product-price" fxLayout="row" fxLayoutAlign="space-between center" >
+                        <p class="price">4.999.999 đ</p>
+                        <img src="../../../../assets/img/freeship.png" alt="">
+                    </div>
+                    <div class="product-cost" fxLayout="row">
+                        <p class="cost">5.999.999 đ</p>
+                        <p class="discount">18.05%</p>
+                    </div>
+                </div>
+                <div class="product" fxLayout="column" fxLayoutAlign="start start">
+                    <div class="product-img-container">
+                        <img src="../../../../assets/img/test-product.webp" alt="">
+                        <div class="promo" fxLayout="column" fxLayoutAlign="center start">
+                            <p class="promo-text">TIẾT KIỆM</p>
+                            <p class="promo-saved-money">991.000 đ</p>
+                        </div>
+                        <div class="gift">
+                            <img src="../../../../assets/img/gift-icon.png" alt="">
+                        </div>
+                    </div>
+                    <div class="product-name">
+                        RAM desktop APACER DDR4 8G 3200 OC NOX RGB AURA 2 (1 x 8GB) DDR4 3200MHz (AH4U08G32C28YNBAA-1)
+                    </div>
+                    <div class="product-price" fxLayout="row" fxLayoutAlign="space-between center" >
+                        <p class="price">4.999.999 đ</p>
+                        <img src="../../../../assets/img/freeship.png" alt="">
+                    </div>
+                    <div class="product-cost" fxLayout="row">
+                        <p class="cost">5.999.999 đ</p>
+                        <p class="discount">18.05%</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

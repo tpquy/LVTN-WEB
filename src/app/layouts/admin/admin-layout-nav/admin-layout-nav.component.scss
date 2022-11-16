@@ -1,0 +1,103 @@
+@import 'src/app/app.component.scss';
+
+
+.admin-container {
+    width: 100%;
+    height: 100%;
+    background-color: #eee;
+    position: relative;
+    .admin-sidenav {
+      width: 260px;
+      overflow-x: hidden;
+      .sidebar-background {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: 0;
+        opacity: .1;
+        width: 260px;
+        background-image: url(../../../../assets/img/sidebar-1.jpg);
+        background-size: cover;
+        background-position: center;
+      }
+      .sidenav-container{
+        position: relative;
+        z-index: 500;
+        .home-page{
+          height: 70px;
+          width: 100%;
+  
+          img{
+            width: 35px;
+            height: 35px;
+          }
+          span{
+            font-size: 18px;
+            letter-spacing: 2px;
+            font-weight: 500;
+            color: $defaultGrey1;
+            margin-left: 10px;
+          }
+        }
+        .mat-divider{
+          width: 85%;
+          margin-bottom: 20px;
+        }
+        .sidenav-menu{
+          width: 85%;
+          height: 50px;
+          border-radius: 3px;
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          margin-bottom: 10px;
+          font-weight: 400;
+          letter-spacing: .7px;
+          cursor: pointer;
+          .sidenav-menu-content{
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            .icon{
+              margin: 10px 15px;
+            }
+            .text{
+              margin: 10px 15px 10px 0px;
+            }
+          }
+        }
+        .menu-not-focused:hover{
+          background-color: $defaultGrey3;
+        }
+      }
+    }
+    .admin-content {
+      min-height: calc(100% - 51px);
+      padding: 16px;
+    }
+    .admin-footer{
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-top: 1px solid white;
+    }
+  }
+  
+
+  //option
+  .menu-not-focused{
+    background-color: none;
+    color: $defaultGrey6;
+    .icon{
+      opacity: 0.7 !important;
+    }
+  }
+  .menu-focused{
+    background-color: $themeColor1;
+    color: white;
+  }
+  
+  
+  

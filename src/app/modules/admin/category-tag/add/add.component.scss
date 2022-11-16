@@ -1,0 +1,486 @@
+.mat-form-field {
+    display: inline-block;
+    position: relative;
+    text-align: left;
+    padding-bottom: 0.7em;
+}
+
+.dialog_title {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    color: #ce7a58;
+}
+
+.close-button {
+    float: right;
+    top: -24px;
+    right: -24px;
+}
+.mat-dialog-container{
+    height: 79% !important;
+}
+
+.searchForm .save .searchBtn {
+    margin-top: 1em;
+    background-color: #ce7a58;
+    color: #fff;
+    height: 3em;
+    max-width: 100px !important;
+}
+.searchForm .save {
+    place-content: stretch center;
+    align-items: stretch;
+    flex-direction: row;
+    box-sizing: border-box;
+    display: flex;
+    padding-top: 3em;
+}
+::ng-deep .searchForm .mat-form-field-wrapper {
+    padding-bottom: 2px;
+}
+
+.searchForm .label {
+    margin: 0.5em 0 0.5em 0.2em;
+    font-weight: 500;
+}
+
+::ng-deep .mat-form-field .error_Msg {
+    font-size: 12px !important;
+    float: right;
+    display: flex;
+    color: #ce7a58;
+    padding-top: 0.8em;
+}
+
+::ng-deep .mat-form-field .error_Msg .err {
+    // background-color: #f2a63494;
+    // border-radius: 50%;
+    width: 1.2em;
+    height: 1.2em;
+    justify-content: center;
+    display: flex;
+    margin-left: 0.5em;
+}
+
+::ng-deep .mat-form-field .error_Msg .err .mat-icon {
+    color: #ce7a58;
+    vertical-align: middle;
+    align-self: center;
+    transform: scale(0.8);
+}
+
+::ng-deep .mat-form-field .check_err {
+    font-size: 12px !important;
+    float: right;
+    display: flex;
+    color: #ce7a58;
+    padding-top: 1.05em;
+    right: 0.5px;
+    position: absolute;
+}
+
+::ng-deep .mat-form-field .check_err .err {
+    background-color: #f2a63494;
+    border-radius: 50%;
+    width: 1.2em;
+    height: 1.2em;
+    justify-content: center;
+    display: flex;
+    margin-left: 0.5em;
+}
+
+::ng-deep .mat-form-field .check_err .err .mat-icon {
+    color: #ce7a58;
+    vertical-align: middle;
+    align-self: center;
+    transform: scale(0.4);
+}
+
+::ng-deep .edit .mat-form-field.mat-focused .mat-form-field-label {
+    color: #ce7a58;
+}
+::ng-deep .edit .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: #ffffff !important;
+    // opacity: 1!important;
+}
+::ng-deep .edit .mat-form-field-appearance-outline .mat-form-field-outline {
+    background-color: #eaebeb;
+    border-radius: 5px;
+}
+::ng-deep .edit .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: #ce7a58 !important;
+}
+
+.div-icon {
+    display: flex;
+    align-items: center;
+    padding-left: 0px;
+}
+.icon-color {
+    color: #ce7a58;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+@media screen and (max-width: 600px) {
+    .bn-add {
+        float: left;
+        margin-top: auto;
+        margin-bottom: auto;
+        align-items: center;
+        color: #ce7a58;
+    }
+}
+@media screen and (max-width: 960px) {
+    .padding-itemsectorname {
+        padding: 5px;
+        border-radius: 5px;
+    }
+}
+::ng-deep .prc_AgencyAutocomplete .mat-option-text {
+    font-size: 14px !important;
+}
+::ng-deep .prc_TagAutocomplete .mat-option-text {
+    font-size: 14px !important;
+}
+.header-sector {
+    background-color: #f4eadf;
+    align-items: center;
+    padding: 5px;
+    //justify-content: center;
+}
+
+.header-sector3 {
+    background-color: #f4eadf;
+    align-items: center;
+    // padding: 5px;
+    border: 1px solid #dfdcdc;
+    //justify-content: center;
+}
+
+.header-sector1 {
+    display: flex;
+    align-items: center;
+
+    //justify-content: center;
+}
+.header-sector2 {
+    background-color: #f4eadf;
+    // height: 30px;
+}
+.marginRow {
+    margin-bottom: 10px;
+}
+
+.bn-add {
+    float: right;
+    margin-top: auto;
+    margin-bottom: auto;
+    align-items: center;
+    color: #ce7a58;
+}
+.file {
+    background-color: white;
+    max-height: 200px;
+}
+a.aHover {
+    cursor: pointer;
+}
+.margin-sectorname {
+    margin: 15px 15px 15px 15px;
+}
+.padding-sectorname {
+    margin-bottom: 17px;
+    padding-bottom: 15px;
+    border: 1px solid #dfdcdc;
+}
+.padding-itemsectorname {
+    padding: 12px;
+    border-radius: 5px;
+}
+.add-row {
+    padding: 12px;
+    border-radius: 5px;
+    box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14),
+        0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+}
+.save {
+    padding-top: 3em;
+}
+// ================================= Editor
+
+::ng-deep .prc_main .edit .padding-sectorname .margin-sectorname .add-row .editorLabel {
+    font-weight: 500;
+    color: #1e2f41;
+}
+
+::ng-deep .prc_main .edit .padding-sectorname .margin-sectorname .add-row .editorLabel .required {
+    color: #ce7a58;
+}
+
+::ng-deep
+    .prc_main
+    .edit
+    .padding-sectorname
+    .margin-sectorname
+    .add-row
+    .hiden_formField
+    .mat-form-field-wrapper
+    .mat-form-field-flex {
+    display: none;
+}
+
+::ng-deep .prc_main .edit .padding-sectorname .margin-sectorname .add-row .prc_Editor .ck.ck-toolbar {
+    border-radius: 4px 4px 0 0;
+    border: 1px solid #dedede;
+}
+
+::ng-deep .prc_main .edit .padding-sectorname .margin-sectorname .add-row .prc_Editor .ck.ck-content {
+    background-color: #eaebeb;
+    border: none;
+    border-radius: 0 0 4px 4px;
+}
+
+::ng-deep .prc_main .edit .padding-sectorname .margin-sectorname .add-row .prc_Editor .ck-editor__editable {
+    min-height: 5em !important;
+}
+// ====================================================== file
+.searchForm {
+    .card {
+        flex-wrap: wrap;
+        margin: 1em 0;
+        .cardTitle {
+            background-color: #f4eadf;
+            color: #1e2f41;
+            padding: 0.5em;
+            font-weight: 500;
+            font-size: 16px;
+            border-radius: 4px 4px 0 0;
+            height: 2em;
+            display: flex;
+
+            span {
+                align-self: center;
+            }
+
+            .cardAction {
+                align-self: center;
+                color: #ce7a58;
+                margin-left: auto;
+
+                .mat-icon {
+                    margin-right: 0.3em;
+                }
+
+                .mat-spinner {
+                    display: none;
+                    margin-right: 1em;
+                    circle {
+                        stroke: #ce7a58;
+                    }
+                }
+
+                .done {
+                    display: none;
+                    background-color: #fff;
+                    padding: 0.3em 0.5em;
+                    border-radius: 30px;
+
+                    .mat-icon {
+                        vertical-align: middle;
+                    }
+
+                    span {
+                        font-size: 14px;
+                        vertical-align: middle;
+                    }
+                }
+            }
+        }
+
+        .cardContent {
+            color: #1e2f41;
+            padding: 0.5em;
+            border: 1px solid #e2e2e2;
+            height: 100%;
+            border-radius: 0 0 4px 4px;
+
+            .drag_upload_btn {
+                position: relative;
+                overflow: hidden;
+                display: inline-block;
+                width: 100%;
+                min-height: 3em;
+                text-align: center;
+                align-self: center;
+                cursor: pointer;
+                z-index: 4;
+
+                button {
+                    width: 100%;
+                    padding: 0.2em;
+
+                    .mat-icon {
+                        margin-right: 0.3em;
+                        color: #ce7a58;
+                    }
+
+                    a {
+                        text-decoration: none;
+                        font-weight: 500;
+                        cursor: pointer;
+
+                        &:hover {
+                            color: #ce7a58;
+                        }
+
+                        &:visited {
+                            color: #ce7a58;
+                        }
+                    }
+                }
+
+                input[type="file"] {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    opacity: 0;
+                    height: 50px;
+                    width: 100%;
+                    align-self: center;
+                    border-radius: 4px;
+                    border: 1px dashed #8f969c;
+                    margin: 0.25em 0;
+                    cursor: pointer;
+
+                    .listUploadedFile {
+                        align-self: center;
+                        border-radius: 4px;
+                        border: 1px dashed #8f969c;
+                        margin: 0.25em 0;
+
+                        .wrapList {
+                            flex-wrap: wrap;
+                            .file {
+                                background-color: #8c8c8c2d;
+                                padding-left: 0.5em;
+                                border-radius: 4px;
+                                display: flex;
+                                margin: 0.25em 0;
+
+                                .icon {
+                                    align-self: center;
+                                    width: 2em;
+                                    height: 2em;
+                                    background-position: center;
+                                    background-repeat: no-repeat;
+                                    background-size: 100%;
+                                    margin-right: 0.5em;
+                                }
+                                .name {
+                                    align-self: center;
+                                    color: #1e2f41;
+                                    width: 80%;
+                                    white-space: nowrap;
+                                    overflow: hidden;
+                                    text-overflow: ellipsis;
+                                }
+                                .viewFile {
+                                    align-self: center;
+                                    .mat-icon {
+                                        margin: 0;
+                                    }
+                                }
+                            }
+                            .uploadBtn {
+                                position: relative;
+                                overflow: hidden;
+                                display: inline-block;
+
+                                .mat-button {
+                                    background-color: #8c8c8c2d;
+                                    padding: 0.2em 1em;
+                                    border-radius: 4px;
+                                    margin: 0.25em 0;
+                                    display: flex;
+                                    color: #1e2f41;
+                                    width: 100%;
+                                    justify-content: center;
+
+                                    .mat-icon {
+                                        color: #ce7a58;
+                                        transform: rotate(45deg);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .fileUploadPreview {
+                    width: 100%;
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: left;
+
+                    .listUploaded {
+                        display: flex;
+                        height: 4em;
+                        width: 100%;
+                        margin: 0.5em 0;
+                        .fileInfo {
+                            height: 100%;
+                            width: 100%;
+                            margin: 0 0.5% 1em 0.5%;
+                            background-color: #3e3e3e17;
+                            border-radius: 4px;
+                            display: flex;
+
+                            .fileIcon {
+                                width: 2.5em;
+                                height: 2.5em;
+                                background-position: center;
+                                background-size: 100%;
+                                align-self: center;
+                                margin-left: 1em;
+                                background-repeat: no-repeat;
+                            }
+
+                            .deleteFile {
+                                margin-left: auto;
+                                align-self: center;
+                                color: #1e2f41;
+                            }
+
+                            .dGrid {
+                                text-align: left;
+                                align-self: center;
+                                margin: 0 1em;
+                                width: 75%;
+
+                                .fileName {
+                                    color: #1e2f41;
+                                    font-weight: 500;
+                                    margin: 0;
+                                    width: 80%;
+                                    white-space: nowrap;
+                                    overflow: hidden;
+                                    text-overflow: ellipsis;
+                                }
+
+                                .fileSize {
+                                    color: #1e2f41;
+                                    margin: 0;
+                                    width: 80%;
+                                }
+                            }
+                        }
+                        .moreBtn {
+                            align-self: center;
+                            color: #1e2f41;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

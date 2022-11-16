@@ -1,0 +1,100 @@
+@import 'src/app/app.component.scss';
+
+p, h1, h2, h3, h4 {
+    margin: 0;
+}
+
+.profile-container{
+    margin: 0 calc((100% - 50vw)/2);
+    width: 50vw;
+    height: 100%;
+    .profile-title{
+        font-size: 20px;
+        font-weight: 500;
+        letter-spacing: .3px;
+    }
+    .profile-content{
+        width: 100%;
+        min-height: 200px;
+        background-color: white;
+        padding: 16px;
+        margin-top: 16px;
+        border-radius: 5px;
+        .avatar-container{
+            width: 100px;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 500;
+            margin-bottom: 32px;
+            img{
+                width: inherit;
+                height: inherit;
+                border-radius: 50%;
+                overflow: hidden;
+                border: 1px solid $defaultGrey3;
+                margin-bottom: 6px;
+            }
+            .change-avatar{
+                height: 20px;
+                width: 20px;
+                position: absolute;
+                bottom: 5px;
+                right: 5px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 50%;
+                background-color: $defaultGrey2;
+                border: 1px solid $defaultGrey3;
+                cursor: pointer;
+                span{
+                    font-size: 16px;
+                    color: $defaultGrey7;
+                }
+            }
+        }
+        .text {
+          font-weight: 400 !important;
+        }
+        p{
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: .3px;
+            line-height: 24px;
+            margin: 6px 0 4px 0;
+            color: $defaultTextColor;
+        }
+        input{
+            padding: 8px 12px;
+            border: 1px solid $defaultGrey3;
+            background-color: $defaultGrey2;
+            border-radius: 5px;
+        }
+        .radio-group{
+            span{
+                margin: 0 24px 0 8px;
+                font-size: 13px;
+            }
+        }
+        .button-container{
+            margin-top: 36px;
+            .submit-button{
+                padding: 2px 24px;
+                margin: 0 16px;
+            }
+        }
+        
+    }
+}
+
+::ng-deep .mat-icon-button{
+    height: 30px;
+    width: 30px;
+    margin: 0 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

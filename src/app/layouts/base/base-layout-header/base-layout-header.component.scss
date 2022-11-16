@@ -1,0 +1,28 @@
+@import 'src/app/app.component.scss';
+
+.top-banner{
+    height: 56px;
+    overflow: hidden;
+    img{
+        height: 56px;
+    }
+}
+
+.header-menu{
+    height: 42px;
+    padding: 0 16px;
+    background-color: $defaultBlue1;
+
+    button{
+        font-size: 13px;
+        color: white;
+        line-height: 20px;
+        
+        .icon{
+            font-size: 18px;
+            margin: 0 5px;
+        }
+
+      }
+
+}

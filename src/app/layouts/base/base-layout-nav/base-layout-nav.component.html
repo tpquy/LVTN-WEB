@@ -1,0 +1,167 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+
+<div *ngIf="this.scroll > 98" class="space">
+
+</div>
+
+<div class="layout-nav" id="layout-nav" fxLayout="row" fxLayoutAlign="center center">
+    <div class="home-group" fxFlex="22" fxLayout="row" fxLayoutAlign="center center">
+        <div class="home-img-container" fxLayout="row" fxLayoutAlign="center center" routerLinkActive="active" [routerLink]="['/']">
+            <img *ngIf="this.scroll < 98" src="../../../../assets/img/logo-full.svg" alt="" height="35">
+            <img *ngIf="this.scroll > 98" src="../../../../assets/img/logo.svg" alt="" height="35">
+        </div>
+        <div *ngIf="this.scroll > 98" class="category-product cursor-pointer" fxLayout="row" fxLayoutAlign="center center" (click)="clickCategoryMenu()">
+            <mat-icon>menu</mat-icon>
+            Danh mục sản phẩm
+        </div>
+    </div>
+    <div class="search-bar" fxFlex="35" fxLayout="row" fxLayoutAlign="space-between center">
+        <input  class="search-input" placeholder="Hôm nay bạn tìm gì ?" fxFlex>
+        <button class="search-button cursor-pointer" fxLayoutAlign="center center"><mat-icon>search</mat-icon></button>
+    </div>
+    <div class="menu-button" fxLayoutAlign="center center" routerLink="/account">
+        <div class="icon-container">
+            <span class="material-symbols-outlined mat-icon">
+                account_circle
+            </span>
+        </div>
+            0378367310
+    </div>
+    <div class="menu-button" fxLayoutAlign="center center" [matMenuTriggerFor]="nofiMenu">
+        <div class="icon-container">
+            <span class="material-symbols-outlined mat-icon" matBadge="15" matBadgeColor="warn">
+                notifications
+            </span>
+        </div>
+        
+        Thông báo
+        <mat-menu #nofiMenu="matMenu" xPosition="before" class="mat-menu-notify" fxLayout="column">
+            <div *ngIf="notifyCounter === 0" class="empty-notify" fxLayout="column">
+                <div class="image-container" fxLayoutAlign="column" fxLayoutAlign="center center">
+                    <img src="../../../../assets/img/notification-icon.png" alt="">
+                </div>
+                <p class="text">Bạn chưa nhận được thông báo nào!</p>
+            </div>
+            <div *ngIf="notifyCounter !== 0" class="not-empty-notify">
+                <div class="notify-line" fxLayout="row">
+                    <div class="notify-icon" fxFlex="20" fxLayoutAlign="center center">
+                        <div class="icon-container">
+                            <span class="material-symbols-outlined icon-color-order">
+                                list_alt
+                            </span>
+                        </div>
+                    </div>
+                    <div class="notify-content" fxFlex="70">
+                        <p class="notify-title icon-color-order">Đơn hàng</p>
+                        <p class="notify-detail">Đơn hàng DH123456 của bạn vừa được xác nhận. </p>
+                    </div>
+                    <div class="notify-seen-button" fxFlex fxLayoutAlign="center center">
+                        x
+                    </div>
+                </div>
+                <div class="notify-line" fxLayout="row">
+                    <div class="notify-icon" fxFlex="20" fxLayoutAlign="center center">
+                        <div class="icon-container">
+                            <span class="material-symbols-outlined icon-color-comment">
+                                chat
+                            </span>
+                        </div>
+                    </div>
+                    <div class="notify-content" fxFlex="70">
+                        <p class="notify-title icon-color-comment">Đánh giá</p>
+                        <p class="notify-detail">Có người vừa phản hồi đánh giá của bạn. </p>
+                    </div>
+                    <div class="notify-seen-button" fxFlex fxLayoutAlign="center center">
+                        x
+                    </div>
+                </div>
+                <div class="notify-line" fxLayout="row">
+                    <div class="notify-icon" fxFlex="20" fxLayoutAlign="center center">
+                        <div class="icon-container">
+                            <span class="material-symbols-outlined icon-color-promo">
+                                loyalty
+                            </span>
+                        </div>
+                    </div>
+                    <div class="notify-content" fxFlex="70">
+                        <p class="notify-title icon-color-promo">Khuyến mãi</p>
+                        <p class="notify-detail">Đang có khuyến mãi giảm 1.000.000 đ trên tất cả sản phẩm. </p>
+                    </div>
+                    <div class="notify-seen-button" fxFlex fxLayoutAlign="center center">
+                        x
+                    </div>
+                </div>
+                <div class="button-container">
+                    <button mat-flat-button color="primary" routerLinkActive="active" routerLink="/nofi" class="mat-menu-button">Xem tất cả</button>
+                </div>
+            </div>
+        </mat-menu>
+    </div>
+    <div class="menu-button" fxLayoutAlign="center center" [matMenuTriggerFor]="cartMenu">
+        <div class="icon-container">
+            <span class="material-symbols-outlined mat-icon" matBadge="15" matBadgeColor="warn">
+                shopping_cart
+            </span>
+        </div>
+        Giỏ hàng
+        <mat-menu #cartMenu="matMenu" xPosition="before"  class="mat-menu-cart" fxLayout="column">
+            <div *ngIf="cartCounter === 0" class="empty-cart" fxLayout="column">
+                <div class="image-container" fxLayoutAlign="column" fxLayoutAlign="center center">
+                    <img src="../../../../assets/img/emty-cart.png" alt="">
+                </div>
+                <p class="text">Giỏ hàng hiện đang trống!</p>
+                <div class="button-container">
+                    <button mat-flat-button color="primary" routerLinkActive="active" routerLink="/products" class="mat-menu-button">Mua sắm ngay</button>
+                </div>
+            </div>
+            <div *ngIf="cartCounter !== 0" class="not-empty-cart" fxLayout="column"  fxLayoutAlign="space-between center">
+                <div class="cart-line" fxLayout="row">
+                    <div class="product-image" fxFlex="30" fxLayoutAlign="center center">
+                        <img src="../../../../assets/img/Product/phone-1-a.webp" alt="">
+                    </div>
+                    <div class="product-info" fxFlex="70">
+                        <p class="product-name">Màn hình LCD PHILIPS 242M8 (1920 x 1080/IPS/144Hz/1 ms/FreeSync)</p>
+                        <p class="product-amount">Số lượng: 1 </p>
+                        <p class="product-price">4.990.000 đ</p>
+                    </div>
+                </div>
+
+                <div class="button-container" fxLayout="column">
+                    <mat-divider></mat-divider>
+                    <div class="total-line" fxLayout="row" fxLayoutAlign="space-between center" >
+                        <p class="total-text">Tổng tiền (1) sản phẩm:</p>
+                        <p class="total-price">4.990.000 đ</p>
+                    </div>
+                    <button mat-flat-button color="primary" routerLinkActive="active" routerLink="/cart" class="mat-menu-button">Xem tất cả</button>
+                </div>
+            </div>
+        </mat-menu>
+    </div>
+    <div class="menu-button">
+
+    </div>
+</div>
+
+<div class="category-menu-modal" *ngIf="this.scroll > 98 && this.isOpenCategoryMenu">
+    <div class="overlay" (click)="this.isOpenCategoryMenu=false">
+        <app-category-menu></app-category-menu>
+    </div>
+</div>
+<div class="contact-group-button">
+    <div class="contact-button" matTooltip="Like & fanpage và nhận quà bất ngờ!" matTooltipPosition="left" matTooltipClass="contact-tooltip">
+        <img src="../../../../assets/img/icon-fanpage-s2.svg" alt="">
+    </div>
+    <div class="contact-button" matTooltip="Email hỗ trợ" matTooltipPosition="left" matTooltipClass="contact-tooltip">
+        <img src="../../../../assets/img/icon-mail-s2.svg" alt="">
+    </div>
+    <div class="contact-button" matTooltip="Liên hệ hotline" matTooltipPosition="left" matTooltipClass="contact-tooltip">
+        <img src="../../../../assets/img/icon-phone-s2.svg" alt="">
+    </div>
+</div>
+<div class="scroll-to-top" *ngIf="scroll >= screenHeight*50/100">
+    <div mat-fab class="scroll-to-top-button" matTooltip="Đến đầu trang" matTooltipPosition="left" fxLayoutAlign="center center" (click)="scrollToTop()">
+        <span class="material-symbols-outlined">
+            expand_less
+        </span>
+    </div>
+</div>

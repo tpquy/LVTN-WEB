@@ -1,0 +1,22 @@
+@import 'src/app/app.component.scss';
+
+.container{
+    background-color: $defaultBackground;
+    min-height: 100vh;
+    .beadscrum{
+       width: 85%;
+       height: 60px;
+       display: flex;
+       align-items: center;
+       p, a{
+        margin: 0px 0px 0px 15px;
+        font-size: 14px;
+        font-weight: 400;
+        color: $defaultGrey5;
+       }
+       a:hover{
+        color: $defaultBlue1;
+       }
+    }
+
+}

@@ -1,0 +1,71 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+
+<div class="address-container">
+    <h2 class="address-title">Địa chỉ nhận hàng</h2>
+    <div class="add-new-address address-line" fxLayout="row" fxLayoutAlign="center center" (click)="openAddDialog()">
+        <span class="material-symbols-outlined icon">
+            add
+        </span>
+        <p>Thêm địa chỉ mới</p>
+    </div>
+    <div class="address-line address" fxLayout="row">
+        <div fxFlex  fxLayout="column">
+            <p class="user-address-title">
+                <span class="receiver">Nguyễn Minh Luân</span>
+                <span class="default-card">MẶC ĐỊNH</span>
+            </p>
+            <p class="address-info">
+                <span class="line-title">Số điện thoại:</span>
+                <span class="line-content">0378367310</span>
+            </p>
+            <p class="address-info">
+                <span class="line-title">Địa chỉ:</span>
+                <span class="line-content">Số 35, ấp 2, xã Châu Bình, huyện Giồng Trôm, tỉnh Bến Tre</span>
+            </p>
+        </div>
+        <div class="button-group" fxLayout="column">
+            <!-- <button mat-flat-button color="primary">Mặc định</button> -->
+            <button mat-stroked-button color="warn" class="button-warn">Chỉnh sửa</button>
+        </div>
+    </div>
+    <div class="address-line address" fxLayout="row">
+        <div fxFlex  fxLayout="column">
+            <p class="user-address-title">
+                <span class="receiver">Nguyễn Minh Luân</span>
+                <!-- <span class="default-card">MẶC ĐỊNH</span> -->
+            </p>
+            <p class="address-info">
+                <span class="line-title">Số điện thoại:</span>
+                <span class="line-content">0378367310</span>
+            </p>
+            <p class="address-info">
+                <span class="line-title">Địa chỉ:</span>
+                <span class="line-content">Số 35, ấp 2, xã Châu Bình, huyện Giồng Trôm, tỉnh Bến Tre</span>
+            </p>
+        </div>
+        <div class="button-group" fxLayout="column">
+            <button mat-flat-button color="primary">Mặc định</button>
+            <button mat-stroked-button color="warn" class="button-warn">Chỉnh sửa</button>
+        </div>
+    </div>
+    <div class="address-line address" fxLayout="row">
+        <div fxFlex  fxLayout="column">
+            <p class="user-address-title">
+                <span class="receiver">Nguyễn Minh Luân</span>
+                <!-- <span class="default-card">MẶC ĐỊNH</span> -->
+            </p>
+            <p class="address-info">
+                <span class="line-title">Số điện thoại:</span>
+                <span class="line-content">0378367310</span>
+            </p>
+            <p class="address-info">
+                <span class="line-title">Địa chỉ:</span>
+                <span class="line-content">Số 35, ấp 2, xã Châu Bình, huyện Giồng Trôm, tỉnh Bến Tre</span>
+            </p>
+        </div>
+        <div class="button-group" fxLayout="column">
+            <button mat-flat-button color="primary">Mặc định</button>
+            <button mat-stroked-button color="primary" (click)="openUpdateDialog()">Chỉnh sửa</button>
+        </div>
+    </div>
+</div>

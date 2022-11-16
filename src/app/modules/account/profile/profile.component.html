@@ -1,0 +1,33 @@
+<div class="profile-container">
+    <h2 class="profile-title">Thông tin tài khoản</h2>
+    <div class="profile-content"  fxLayout="column" fxLayoutAlign="center center">
+        <div class="avatar-container">
+            <img src="../../../../assets/img/temp-avatar.jpg" alt="" srcset="">
+            <div class="change-avatar">
+                <span class="material-symbols-outlined">
+                    photo_camera
+                </span>
+            </div>
+        </div>
+        <form [formGroup]="profileForm" fxLayout="column" fxFill>
+            <p>Họ tên</p>
+            <input type="text" class="form-input" formControlName="fullname" >
+            <p>Email</p>
+            <input type="text" class="form-input" formControlName="email" >
+            <p>Số điện thoại</p>
+            <input type="phone" class="form-input" formControlName="phone" >
+            <p>Ngày sinh</p>
+            <input class="form-input" class="form-input" type="date" formControlName="birth">
+            <p>Giới tính</p>
+            <mat-radio-group class="radio-group" aria-label="Giới tính"  formControlName="gender" color="primary">
+                <mat-radio-button value="male"><span>Nam</span></mat-radio-button>
+                <mat-radio-button value="female"><span>Nữ</span></mat-radio-button>
+                <mat-radio-button value="other"><span>Khác</span></mat-radio-button>
+              </mat-radio-group>
+            <div class="button-container" fxLayout="row" fxLayoutAlign="center center">
+                <button mat-stroked-button color="primary" class="submit-button" (click)="onSubmit()">Đăng xuất</button>
+                <button mat-flat-button color="primary" class="submit-button" (click)="onSubmit()">Lưu thay đổi</button>
+            </div>
+        </form>
+    </div>
+</div>

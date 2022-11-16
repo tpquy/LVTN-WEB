@@ -1,0 +1,19 @@
+@import 'src/app/app.component.scss';
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    background: rgb(2,0,36);
+    background: linear-gradient(360deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(170,0,255,1) 100%);    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    .content {
+            h1 {
+                font-size: 24px;
+            }
+        .button-container {
+            width: inherit;
+        }
+    }
+}

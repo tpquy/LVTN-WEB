@@ -1,0 +1,105 @@
+@import 'src/app/app.component.scss';
+
+h1,h2,h3,h4,p {
+    margin: 0;
+}
+
+.manage-staff {
+    width: 100%;
+
+    .manage-staff-main{
+        width: 100%;
+        .manage-staff-header {
+            width: 100%;
+            margin-bottom: 1em;
+        }
+        // .search-bar {
+        //     margin-top: 1em;
+        // }
+        .btn_add {
+            margin-bottom: 1em;
+        }
+        .searchBtn {
+            /* margin-top: 0.3em; */
+            background-color: #1435c3;
+            color: #fff;
+            height: 3em;
+            margin-bottom: 1.6em;
+        }
+        .order-table {
+            margin-top: 1em;
+        }
+        .mat-column-avatar img {
+            margin: .5em;
+            border-radius: 50%;
+        }
+    }
+}
+
+::ng-deep {
+    .order-table{
+        width: 100%;
+        // .mat-cell, .mat-header-cell {
+        //     padding: 0 .5em;
+        // }
+        .mat-header-cell {
+            // text-align: center;
+            background-color: antiquewhite;
+        }
+        .mat-column-stt {
+            flex: 0 0 5%;
+            width: 5%;
+        }
+        .mat-column-name {
+            flex: 0 0 17%;
+            width: 17%;
+        }
+        .mat-column-contact {
+            flex: 0 0 18%;
+            width: 18%;
+        }
+        .mat-column-gender {
+            flex: 0 0 10%;
+            width: 10%;
+        }
+        .mat-column-age {
+            flex: 0 0 7%;
+            width: 7%;
+        }
+        .mat-column-join {
+            flex: 0 0 10%;
+            width: 10%;
+        }
+        .mat-column-done {
+            flex: 0 0 10%;
+            width: 10%;
+        }
+        .mat-column-cancel {
+            flex: 0 0 10%;
+            width: 10%;
+        }
+        .mat-column-action {
+            flex: 0 0 10%;
+            width: 10%;
+        }
+    }
+    .mat-form-field-underline {
+        background-color: $defaultBlue1 !important;
+    }
+}
+
+.chip {
+    color: white;
+    padding: 4px 8px;
+    border-radius: 3px;
+    font-size: 12px;
+}
+.chip-green {
+    background-color: green;
+}
+.chip-blue {
+    background-color: $defaultBlue1;
+}
+.chip-red {
+    background-color: $themeColor5;
+}

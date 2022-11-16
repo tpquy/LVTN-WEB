@@ -1,0 +1,142 @@
+@import 'src/app/app.component.scss';
+
+p, h1, h2, h3 {
+    margin: 0px;
+}
+
+ul, li {
+    list-style: none;
+}
+
+::ng-deep {
+    .mat-flat-button {
+        padding: 0px 12px !important;
+    }
+    .mat-stroked-button {
+        padding: 0px 12px !important;
+    }
+    .stroked-warn {
+        border-color: $themeColor5 !important;
+    }
+    .stroked-primary {
+        border-color: $defaultBlue1 !important;
+    }
+}
+
+.order-detail-container {
+    .order-detail-header {
+        .button {
+            background-color: white;
+            border-radius: 5px;
+            padding: 8px;
+            color: $defaultGrey1;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: $defaultBlue1;
+            color: white;
+        }
+        .breadscrum {
+        font-size: 20px;
+        font-weight: 500;
+        margin-left: 16px;
+        }   
+    }
+    .info {
+        background-color: white;
+        margin-top: 16px;
+        border-radius: 5px;
+        padding: 16px;
+        font-size: 14px;
+        font-weight: 500;
+        .title {
+            font-size: 16px !important;
+            margin-bottom: 4px;
+            font-weight: 500;
+        }
+        .text-line {
+            margin-top: 4px;
+            .text {
+                font-weight: 400 !important;
+            }
+            .detail {
+                text-decoration: underline;
+                color: $defaultBlue1;
+                cursor: pointer;
+            }
+            .detail:hover {
+                color: $defaultBlue2;
+            }
+        }
+        
+        .product-line {
+            margin: 8px 0;
+            .product-info {
+
+                img {
+                    width: 80px;
+                    height: 80px;
+                    border: 1px solid $defaultGrey8;
+                    border-radius: 3px;
+                }
+            }
+            .info-container {
+                padding: 8px 16px;
+                .text-3 {
+                    font-size: 13px;
+                    font-weight: 400;
+                    color: $defaultGrey6;
+                    text-decoration: line-through;
+                }
+                .text-2 {
+                    font-size: 13px;
+                    font-weight: 400;
+                    color: $defaultGrey6;
+                }
+                .text-1 {
+                    color: $defaultTextColor;
+                }
+                .text-4 {
+                    color: $defaultTextColor;
+                    font-weight: 400;
+                }
+                .type {
+                    color: $defaultBlue2;
+                }
+                .text-5 {
+                    font-size: 20px;
+                    font-weight: 500;
+                    color: $themeColor4;
+                }
+            }
+            .text-right {
+                text-align: right;
+            }
+        }
+        .product-divider {
+            margin: 16px 0;
+            width: 100%;
+        }
+    }
+}
+
+//status chip
+.chip {
+    color: white;
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-size: 12.5px;
+    font-weight: 400;
+}
+.chip-green {
+    background-color: #53c305;
+}
+.chip-blue {
+    background-color: $defaultBlue1;
+}
+.chip-red {
+    background-color: $themeColor5;
+}
+.chip-grey {
+    background-color: $defaultGrey8;
+}

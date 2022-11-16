@@ -1,0 +1,83 @@
+.footer{
+    width: 100%;
+}
+ul, li{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    li{
+        margin-top: 10px;
+    }
+}
+p, a, a:hover, a:focus{
+    text-decoration: none;
+    color: rgba($color: #ffffff, $alpha: 0.5);
+}
+a:hover{
+    color: rgba($color: #ffffff, $alpha: 1) !important;
+}
+h2{
+    font-size: 16px;
+    color: white;
+    font-weight: 550;
+    margin-top: 20px;
+}
+
+.footer{
+    background-color: #ffa825;
+    // background-image: url('../../../../assets/img/luna.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: right;
+
+}
+.contact{
+    ul li{
+        // color: #ffa825;
+        display: flex;
+        height: 26px;
+    }
+    .company-name{
+        font-weight: 500;
+    }
+}
+.mat-icon{
+    font-size: 20px;
+    margin-right: 7px;
+}
+.copyright{
+    // color: #ffa825;
+    opacity: 0.5;
+    img{
+         margin-left: 7px;
+    }
+}
+.social{
+    li{
+        margin-top: 0;
+        margin-bottom: 20px;
+        width: 36px;
+        height: 36px;
+        background-color: #ffffff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        transition: transform 0.1s 0.05s ease-out;
+        img{
+            height: 20px;
+        }
+    }
+    li:hover{
+        transform: scale(1.2);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .social{
+        ul, li{
+            float: left;
+            margin: 15px;
+        }
+    }
+}

@@ -1,0 +1,91 @@
+@import 'src/app/app.component.scss';
+
+p, span, h1, h2, h3, h4 {
+    margin: 0;
+}
+
+.manage-product {
+    width: 100%;
+    // min-height: 80vh;
+    .bread-crum{
+        width: 100%;
+        margin: 1em 0;
+    }
+
+    .manage-product-main{
+        // background-color: white;
+        width: 100%;
+        // padding: 3%;
+        .manage-product-header {
+            width: 90%;
+            margin-bottom: 1em;
+        }
+        .search-bars {
+            margin-top: 1em;
+        }
+        .btn_add {
+            margin: 1em 0;
+        }
+
+        .searchBtn {
+            /* margin-top: 0.3em; */
+            background-color: #1435c3;
+            color: #fff;
+            height: 3.7em;
+            margin-bottom: 1.6em;
+        }
+
+        .product-table {
+            margin-top: 1em;
+            width: 100%;
+            .sku {
+                font-size: 12px;
+                color: $defaultGrey1;
+            }
+        }
+    }
+}
+
+.margin-left {
+    margin-left: 2em;
+}
+
+::ng-deep {
+    .product-table{
+        width: 100%;
+        .mat-cell, .mat-header-cell {
+            padding: .5em;
+        }
+        .mat-header-cell {
+            // text-align: center;
+            background-color: antiquewhite;
+        }
+        .mat-column-stt {
+            flex: 0 0 5%;
+            width: 5%;
+        }
+        // .mat-column-name {
+        //     flex: 0 0 55%;
+        //     width: 55%;
+        // }
+        .mat-column-type {
+            flex: 0 0 13%;
+            width: 13%;
+        }
+        .mat-column-price {
+            flex: 0 0 12%;
+            width: 12%;
+        }
+        .mat-column-amount {
+            flex: 0 0 8%;
+            width: 8%;
+        }
+        .mat-column-action {
+            flex: 0 0 7%;
+            width: 7%;
+        }
+    }
+
+}
+
+

@@ -1,0 +1,76 @@
+<!-- <h3 class="dialog_title">Thêm nhân viên mới</h3> -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+
+<div class="profile-container">
+    <h2 class="profile-title">Thông tin tài khoản</h2>
+    <div class="profile-content"  fxLayout="column" fxLayoutAlign="center center">
+        <div class="avatar-container">
+            <img src="../../../../assets/img/temp-avatar.jpg" alt="" srcset="">
+            <div class="change-avatar">
+                <span class="material-symbols-outlined">
+                    photo_camera
+                </span>
+            </div>
+        </div>
+        <form [formGroup]="profileForm" fxLayout="column" fxFill>
+            <div fxLayout="row" fxLayoutAlign="space-between center">
+                <div fxFlex="35" fxLayout="column">
+                    <p>Họ tên</p>
+                    <input type="text" class="form-input" formControlName="fullName" fxFlex>
+                </div>
+                <div fxFlex="30" fxLayout="column">
+                    <p>Username</p>
+                    <input type="text" class="form-input" formControlName="username" fxFlex>
+                </div>
+                <div fxFlex="30" fxLayout="column">
+                    <p>Mật khẩu</p>
+                    <input type="text" class="form-input" formControlName="password" fxFlex>
+                </div>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="space-between center">
+                <div fxFlex="48"  fxLayout="column">
+                    <p>Địa chỉ</p>
+                    <input type="text" class="form-input" formControlName="address" fxFlex>
+                </div>
+
+                <div fxFlex="48"  fxLayout="column">
+                    <p>Email</p>
+                    <input type="text" class="form-input" formControlName="email" fxFlex>
+                </div>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="space-between center">
+
+                <div fxFlex="48"  fxLayout="column">
+                    <p>Số điện thoại</p>
+                    <input type="phone" class="form-input" formControlName="phoneNumber" fxFlex>
+                </div>
+                <div fxFlex="48"  fxLayout="column">
+                    <p>Ngày sinh</p>
+                    <input class="form-input" class="form-input" type="date" formControlName="birthDay">
+                </div>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="space-between center">
+                <div fxFlex="48" fxLayout="column">
+                    <p>Chức vụ</p>
+                    <mat-select formControlName="role" required  class="form-input" style="background-color: grey;">
+                        <mat-option *ngFor='let role of roleList;' value="{{role.code}}"> {{role.name}} </mat-option>
+                    </mat-select>
+                </div>
+
+                <div fxFlex="48"  fxLayout="column">
+                    <p>Giới tính</p>
+                    <mat-radio-group class="radio-group" aria-label="Giới tính"  formControlName="gender" color="primary">
+                        <mat-radio-button value="true"><span>Nam</span></mat-radio-button>
+                        <mat-radio-button value="false"><span>Nữ</span></mat-radio-button>
+                        <!-- <mat-radio-button value="other"><span>Khác</span></mat-radio-button> -->
+                    </mat-radio-group>
+                </div>
+            </div>
+            
+            <div class="button-container" fxLayout="row" fxLayoutAlign="center center">
+                <button mat-stroked-button color="primary" class="submit-button" (click)="onDismiss()">Huỷ</button>
+                <button mat-flat-button color="primary" class="submit-button" (click)="onSubmit()">Thêm mới</button>
+            </div>
+        </form>
+    </div>
+</div>

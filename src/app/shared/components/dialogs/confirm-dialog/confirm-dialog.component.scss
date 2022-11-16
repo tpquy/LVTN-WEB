@@ -1,0 +1,31 @@
+::ng-deep .shared-confirm-dialog {
+    @import "~src/styles/framework.scss";
+    @import "~src/styles/buttons.scss";
+    .dialog-icon {
+        @extend .color-theme;
+        @extend .ta-center;
+         ::ng-deep .mat-icon {
+            font-size: 60px;
+        }
+    }
+    .dialog-title {
+        @extend .color-theme;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 20px;
+    }
+    .btn-close {
+        @extend .t-btn-close;
+    }
+    .btn-apply {
+        @extend .t-btn-apply;
+    }
+    .btn-cancel {
+        @extend .t-btn-cancel;
+    }
+    .dialog-content {
+        @extend .fs-15;
+        overflow: hidden;
+        min-height: 8vh;
+    }
+}

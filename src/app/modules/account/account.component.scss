@@ -1,0 +1,81 @@
+@import 'src/app/app.component.scss';
+
+p, h1, h2, h3 {
+    margin: 0px;
+}
+
+ul, li {
+    list-style: none;
+}
+
+.account-container{
+    width: 100%;
+    min-height: 100%;
+    padding: 16px 7.5%;
+    background-color: $defaultBackground;
+    .account-sidenav{
+        height: 100%;
+        margin: 0 16px;
+        .account-sidenav-title{
+            .icon{
+                font-size: 28px;
+                margin-right: 8px;
+                color: $defaultGrey7;
+            }
+            p{
+                font-size: 12.8px;
+                font-weight: 300;
+                color: $defaultTextColor;
+                line-height: 16px;
+            }
+            h3{
+                font-size: 15px;
+                font-weight: 500;
+                color: $defaultTextColor;
+                line-height: 22px;
+            }
+        }
+        .account-sidenav-menu{
+            .menu-item{
+                cursor: pointer;
+                margin-top: 16px;
+                color: $defaultTextColor;
+                padding: 4px;
+                border-radius: 3px;
+                .icon{
+                    font-size: 18px;
+                }
+                p{
+                    font-size: 14px;
+                    font-weight: 400;
+                    margin-left: 8px;
+                }
+            }
+            .menu-item:hover{
+                background-color: $defaultGrey3;
+                color: $defaultBlue1;
+                .icon{
+                    font-weight: 500;
+                }
+                p{
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+    .account-content{
+        height: 100%;
+        margin: 0 16px;
+    }
+}
+
+.menu-active{
+    background-color: $defaultGrey3;
+    color: $defaultBlue1 !important;
+    .icon{
+        font-weight: 500 !important;
+    }
+    p{
+        font-weight: 500 !important;
+    }                
+}

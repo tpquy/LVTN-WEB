@@ -1,0 +1,164 @@
+<div class="manage-staff" fxLayout="column" fxLayoutAlign="start center">
+  <div class="manage-staff-main">
+    <h2 class="manage-staff-header">Quản lí nhân viên</h2>
+    <mat-divider></mat-divider>
+
+    <form [formGroup]="searchForm" class="searchForm">
+      <div class="search-bar" fxFlayout="row" fxLayoutAlign="space-between center">
+        <mat-form-field appearance="legacy">
+          <mat-label>Từ khóa</mat-label>
+          <mat-icon matSuffix>search</mat-icon>
+          <input matInput placeholder="Tên hoặc mã nhân viên" formControlName="keyword">
+          <!-- <mat-hint>Hint</mat-hint> -->
+        </mat-form-field>
+
+        <mat-form-field appearance="legacy">
+          <mat-label>Trạng thái</mat-label>
+          <mat-select value="0" formControlName="status">
+            <mat-option value="all">Tất cả</mat-option>
+            <mat-option value="1">Đang làm việc</mat-option>
+            <mat-option value="0">Đã thôi việc</mat-option>
+            <mat-option value="2">Nghỉ phép</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="legacy">
+          <mat-label>Vai trò</mat-label>
+          <mat-select multiple formControlName="role">
+            <mat-option *ngFor='let role of roleList;' value="{{role.code}}"> {{role.name}} </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="legacy">
+          <mat-label>Sắp xếp theo:</mat-label>
+          <mat-select value="1" formControlName="sorting">
+            <!-- <mat-option value="1">Vai trò</mat-option> -->
+            <mat-option value="seniority">Thăm niên</mat-option>
+            <mat-option value="age">Tuổi</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <button mat-flat-button fxFlex.gt-sm="14" fxFlex.gt-xs="49.5" fxFlex='grow' class="searchBtn"
+          (click)="onConfirmSearch()">
+          <mat-icon>search</mat-icon><a>Tìm kiếm</a>
+        </button>
+      </div>
+    </form>
+
+
+    <button mat-flat-button class="btn_add" (click)="openAddDialog()">
+      <mat-icon>add</mat-icon>
+      <a>Thêm mới</a>
+    </button>
+
+    <table mat-table [dataSource]="dataSource" class="order-table">
+
+      <!-- STT Column -->
+      <ng-container matColumnDef="stt" class="tb-stt">
+        <th mat-header-cell *matHeaderCellDef> STT </th>
+        <td mat-cell *matCellDef="let element" class="tb-stt-cell">
+          {{element.stt}}
+        </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="avatar" class="tb-avatar">
+        <th mat-header-cell *matHeaderCellDef> </th>
+        <td mat-cell *matCellDef="let element" class="tb-avatar-cell">
+          <img src="../../../../assets/img/temp-avatar.jpg" alt="" width="60px" height="60px">
+        </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="name" class="tb-name">
+        <th mat-header-cell *matHeaderCellDef> Nhân viên </th>
+        <td mat-cell *matCellDef="let element" class="tb-name-cell">
+          <p>{{element.fullName}}</p>
+          <p>{{element.employeeCode}}</p>
+        </td>
+      </ng-container>
+
+      <!-- Role Column -->
+      <ng-container matColumnDef="role" class="tb-role-date">
+        <th mat-header-cell *matHeaderCellDef> Vai trò </th>
+        <td mat-cell *matCellDef="let element"> {{element.role}} </td>
+      </ng-container>
+
+
+      <!-- Contact Column -->
+      <ng-container matColumnDef="contact" class="tb-contact">
+        <th mat-header-cell *matHeaderCellDef> Liên hệ </th>
+        <td mat-cell *matCellDef="let element">
+          <p>{{element.phoneNumber}}</p>
+          <p>{{element.email}}</p>
+        </td>
+      </ng-container>
+
+      <!-- Birth Column -->
+      <ng-container matColumnDef="age" class="tb-age">
+        <th mat-header-cell *matHeaderCellDef>Ngày sinh</th>
+        <td mat-cell *matCellDef="let element"> {{formatDate(element.birthDay)}} </td>
+      </ng-container>
+
+      <!-- Work Column -->
+      <ng-container matColumnDef="work" class="tb-work">
+        <th mat-header-cell *matHeaderCellDef> Ngày vào làm </th>
+        <td mat-cell *matCellDef="let element"> {{formatDate(element.createdDate)}} </td>
+      </ng-container>
+
+      <!-- Status Column -->
+      <ng-container matColumnDef="status" class="tb-status">
+        <th mat-header-cell *matHeaderCellDef> Trạng thái </th>
+        <td mat-cell *matCellDef="let element">
+          <span *ngIf="element.status == 0" class="chip chip-red">Thôi việc</span>
+          <span *ngIf="element.status == null" class="chip chip-green">Làm việc</span>
+          <span *ngIf="element.status == 2" class="chip chip-blue">Tạm nghỉ</span>
+        </td>
+      </ng-container>
+
+      <!-- Action Column -->
+      <ng-container matColumnDef="action" class="tb-action">
+        <th mat-header-cell *matHeaderCellDef> Thao tác </th>
+        <td mat-cell *matCellDef="let element"><button mat-icon-button [matMenuTriggerFor]="actionMenu">
+            <mat-icon>more_horiz</mat-icon>
+          </button>
+          <mat-menu #actionMenu="matMenu" xPosition="before">
+            <button mat-menu-item class="menuAction" (click)="openDetailDialog(element.id)">
+              <span>Cập nhật</span>
+            </button>
+            <!-- <button mat-menu-item class="menuAction" routerLink="/admin/product-management/update">
+              <span>Cập nhật chức vụ</span>
+            </button>
+            <button mat-menu-item class="menuAction">
+              <span>Cập nhật trạng thái</span>
+            </button> -->
+          </mat-menu>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <div class="frm_Pagination">
+      <ul class="temp_Arr">
+        <li
+          *ngFor="let item of ELEMENTDATA  | paginate: {itemsPerPage: size, currentPage: page, totalItems: countResult, id: 'pgnx1'}">
+        </li>
+      </ul>
+      <div class="pageSize">
+        <span>Hiển thị</span>
+        <mat-form-field appearance="outline">
+          <mat-select [(value)]="size" (valueChange)="paginate(pageIndex, 1)">
+            <mat-option *ngFor='let opt of pgSizeOptions;' [value]="opt">{{opt}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <span><a>trên</a> {{countResult}} <a>bản ghi</a></span>
+      </div>
+      <div class="control">
+        <pagination-controls id="pgnx1" (pageChange)="page = $event; paginate(page, 0)" responsive="true"
+          previousLabel="" nextLabel="">
+        </pagination-controls>
+      </div>
+    </div>
+  </div>
+</div>

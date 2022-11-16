@@ -1,0 +1,64 @@
+<div class="dialog-container" fxLayout="column">
+    <div class="dialog-header">
+        <h2>CHỉnh sửa địa chỉ nhận hàng</h2>
+    </div>
+    
+    
+    <div class="dialog-body" fxFlex>
+        <form [formGroup]="addNewAddressForm" fxLayout="column" class="add-address-form">
+            <h3>Thông tin người nhận</h3>
+            <mat-form-field appearance="outline">
+                <mat-label>Họ tên:</mat-label>
+                <input matInput formControlName="name" required="true">
+            </mat-form-field>
+            <div fxLayout="row" fxLayoutAlign="space-between center" >
+                <mat-form-field appearance="outline">
+                    <mat-label>Email:</mat-label>
+                    <input matInput formControlName="mail" required="true">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Số điện thoại:</mat-label>
+                    <input matInput formControlName="phone" required="true">
+                </mat-form-field>
+            </div>
+            <h3>Địa chỉ người nhận</h3>
+            <div fxLayout="row" fxLayoutAlign="space-between center" >
+                <mat-form-field appearance="outline">
+                    <mat-label>Tỉnh / Thành phố:</mat-label>
+                    <mat-select formControlName="province" required="true" >
+                        <mat-option *ngFor="let province of provinceList" [value]="province" (click)="getDistrictList(province.code)">
+                          {{province.name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Quận / Huyện:</mat-label>
+                    <mat-select formControlName="district" required="true" [disabled]="districtList==[]">
+                        <mat-option *ngFor="let district of districtList" [value]="district" (click)="getWardList(district.code)">
+                            {{district.name}}
+                          </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="space-between center" >
+                <mat-form-field appearance="outline">
+                    <mat-label>Xã / Phường:</mat-label>
+                    <mat-select formControlName="ward" required="true" [disabled]="wardList==[]">
+                        <mat-option *ngFor="let ward of districtList" [value]="ward">
+                            {{ward.name}}
+                          </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Cụ thể:</mat-label>
+                    <input matInput formControlName="address" required="true">
+                </mat-form-field>
+            </div>
+            <mat-checkbox class="set-default" color="primary" formControlName="setDefault">Đặt làm mặc định</mat-checkbox>
+        </form>
+    </div>
+    <div class="dialog-footer" fxLayoutAlign="end end">
+        <button mat-stroked-button color="primary" class="button button-primary" (click)="onDismiss()">Hủy</button>
+        <button mat-flat-button color="primary" class="button" (click)="onSubmit()">Lưu lại</button>
+    </div>
+</div>

@@ -1,0 +1,107 @@
+<h2>Danh mục loại nhãn</h2>
+<div class="dm_searchbar">
+    <form [formGroup]="searchForm" class="searchForm">
+        <div fxLayout="row" fxLayout.xs="row" fxLayout.sm="row" class="formFieldItems" fxLayoutAlign="space-between">
+            <mat-form-field appearance="outline" fxFlex.gt-sm="85" fxFlex.gt-xs="49.5" fxFlex='grow'>
+                <mat-label>Nhập từ khóa</mat-label>
+                <input matInput formControlName="keyword">
+            </mat-form-field>
+
+            <button mat-flat-button fxFlex.gt-sm="14" fxFlex.gt-xs="49.5" fxFlex='grow' class="searchBtn" (click)="onConfirmSearch()">
+                <mat-icon>search</mat-icon><a>Tìm kiếm</a>
+            </button>
+        </div>
+    </form>
+</div>
+<div fxLayout="row" fxLayoutAlign="center">
+    <div class="dm_main" fxFlex="grow">
+        <button mat-flat-button class="btn_add" (click)="addCategoryTag()">
+            <!-- <button mat-flat-button class="btn_add"> -->
+            <mat-icon>add</mat-icon>
+            <a >Thêm mới</a>
+        </button>
+        <div class="dm_category_tag_tbl">
+            <mat-table [dataSource]="dataSource">
+                <ng-container matColumnDef="stt">
+                    <mat-header-cell *matHeaderCellDef>STT</mat-header-cell>
+                    <mat-cell *matCellDef="let row"  data-label="STT"> {{row.stt}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="id">
+                    <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+                    <mat-cell *matCellDef="let row"  data-label="Id" class="cell_id">
+                        <span>{{row.id}}</span>
+                    </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="symbol">
+                    <mat-header-cell *matHeaderCellDef >Số ký hiệu</mat-header-cell>
+                    <mat-cell *matCellDef="let row"  data-label="Số ký hiệu" class="cell_symbol">
+                        <span>{{row.code}}</span>
+                    </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="title">
+                    <mat-header-cell *matHeaderCellDef >Tên loại nhãn</mat-header-cell>
+                    <mat-cell *matCellDef="let row" data-label="Tên loại nhãn" class="cell_title">
+                        <span *ngIf="row.name == null "></span>
+                        <span *ngIf="row.name!= null ">
+                            <span >{{row.name.name}}</span>
+                        </span>
+                    </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="description">
+                    <mat-header-cell *matHeaderCellDef >Mô tả</mat-header-cell>
+                    <mat-cell *matCellDef="let row"  data-label="Mô tả" class="cell_description">
+                        <span *ngIf="row.name.description  == null"></span>
+                        <span *ngIf="row.name.description != null">
+                            <span >{{row.name.description}}</span>
+                        </span>
+                    </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="action">
+                    <mat-header-cell *matHeaderCellDef>Thao tác</mat-header-cell>
+                    <mat-cell *matCellDef="let row" data-label="Thao tác">
+                        <button mat-icon-button [matMenuTriggerFor]="actionMenu">
+                            <mat-icon>more_horiz</mat-icon>
+                        </button>
+                        <mat-menu #actionMenu="matMenu" xPosition="before">
+                            <button mat-menu-item class="menuAction" (click)="updateCategoryTagDialog(row.id)">
+                            <!-- <button mat-menu-item class="menuAction" > -->
+                                <mat-icon>edit</mat-icon><a >Cập nhật</a>
+                            </button>
+                            <button mat-menu-item class="menuAction" (click)="deleteCategoryTagDialog(row.id, row.name.name)">
+                                <mat-icon>delete_outline</mat-icon><a >Xoá</a>
+                            </button>
+                        </mat-menu>
+                    </mat-cell>
+                </ng-container>
+
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </mat-table>
+
+            <div class="frm_Pagination">
+                <ul class="temp_Arr">
+                    <li *ngFor="let item of ELEMENTDATA  | paginate: {itemsPerPage: size, currentPage: page, totalItems: countResult, id: 'pgnx1'}">
+                    </li>
+                </ul>
+                <div class="pageSize">
+                    <span >Hiển thị</span>
+                    <mat-form-field appearance="outline">
+                        <mat-select [(value)]="size" (valueChange)="paginate(pageIndex, 1)">
+                            <mat-option *ngFor='let opt of pgSizeOptions;' [value]="opt">{{opt}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <span><a>trên</a> {{countResult}} <a >bản ghi</a></span>
+                </div>
+                <div class="control">
+                    <pagination-controls id="pgnx1" (pageChange)="page = $event; paginate(page, 0)" responsive="true" previousLabel="" nextLabel="">
+                    </pagination-controls>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

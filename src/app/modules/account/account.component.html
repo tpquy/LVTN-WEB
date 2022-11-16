@@ -1,0 +1,39 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+
+
+<div class="account-container" fxLayout="row">
+    <div class="account-sidenav" fxFlex="20">
+        <div class="account-sidenav-title" fxLayout="row">
+            <span class="material-symbols-outlined icon" fxLayoutAlign="center center">
+                account_circle
+            </span>
+            <div class="title-group">
+                <p>Tài khoản</p>
+                <h3>Nguyễn Minh Luân</h3>
+            </div>            
+        </div>
+        <ul class="account-sidenav-menu">
+            <li class="menu-item" id="account-profile" fxLayout="row" fxLayoutAlign="start center" routerLink="/account/profile" (click)="accountFocus('account-profile')">
+                <span class="material-symbols-outlined icon">
+                    account_circle
+                </span>
+                <p>Thông tin tài khoản</p>
+            </li>
+            <li class="menu-item" id="account-address" fxLayout="row" fxLayoutAlign="start center" routerLink="/account/address" (click)="accountFocus('account-address')">
+                <span class="material-symbols-outlined icon">
+                    person_pin_circle
+                </span>
+                <p>Địa chỉ nhận hàng</p>
+            </li>
+            <li class="menu-item" id="account-order" fxLayout="row" fxLayoutAlign="start center" routerLink="/account/order" (click)="accountFocus('account-order')">
+                <span class="material-symbols-outlined icon">
+                    list_alt
+                </span>
+                <p>Đơn hàng của tôi</p>
+            </li>
+        </ul>
+    </div>
+    <div class="account-content" fxFlex="80">
+        <router-outlet></router-outlet>
+    </div>
+</div>

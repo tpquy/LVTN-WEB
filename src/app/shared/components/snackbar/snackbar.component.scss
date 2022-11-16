@@ -1,0 +1,64 @@
+::ng-deep .error_notification{
+	background-color: #f9eded;
+	color: #1E2F41;
+}
+
+::ng-deep .success_notification{
+	background-color: #f8ffec;
+	color: #1E2F41;
+}
+
+::ng-deep .warn_notification{
+	background-color: #F7F8E0;
+	color: #1E2F41;
+}
+
+.success {
+	color: #7C964C;;
+}
+
+.error {
+	color: #913938;;
+}
+
+.warn {
+	color: #886A08;;
+}
+
+.snackbar {
+	display: flex;
+}
+
+.snackbar .success_Icon {
+	transform: scale(2);
+    align-self: center;
+    vertical-align: middle;
+    color: #7C964C;
+}
+
+.snackbar .err_Icon {
+	transform: scale(2);
+    align-self: center;
+    vertical-align: middle;
+    color: #913938;
+}
+
+.snackbar .warn_Icon {
+	transform: scale(2);
+    align-self: center;
+    vertical-align: middle;
+    color: #FACC2E;
+}
+
+.snackbar .data {
+    letter-spacing: 0.15px;
+    align-self: center;
+    color: #1E2F41;
+    margin-left: 1em;
+	display: grid;
+	font-weight: 500;
+}
+
+.dismiss {
+	margin-left: auto;
+}

@@ -1,0 +1,124 @@
+<link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+
+<div class="order-detail-container">
+    <div class="order-detail-header" fxLayout="row" fxLayoutAlign="space-between center">
+        <div>
+            <span class="material-symbols-outlined button">
+                arrow_back_ios_new
+            </span>
+            <span class="breadscrum">ĐƠN HÀNG: {{orderId}}</span>
+        </div>
+        <div>
+            <button *ngIf="!true" mat-flat-button color="warn">Hủy đơn</button>
+            <button *ngIf="!true" mat-stroked-button color="warn" class="stroked-warn">Đã hủy</button>
+            <button *ngIf="!true" mat-flat-button color="primary">Hoàn thành</button>
+            <button *ngIf="true" mat-stroked-button color="primary" class="stroked-primary">Đã hoàn thành</button>
+        </div>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-between center">
+        <div class="info" fxFlex="49">
+            <h3 class="title">Thông tin người nhận</h3>
+            <p class="text-line">
+                Người nhận: <span class="text">{{uid}}</span>
+            </p>
+            <p class="text-line">
+                Điện thoại: <span class="text">{{uphoneNumber}}</span>
+            </p>
+            <p class="text-line">
+                Email: <span class="text">{{uemail}}</span>
+            </p>
+            <p class="text-line">
+                Địa chỉ: <span class="text">{{uaddress}}</span>
+            </p>
+        </div>
+        <div class="info" fxFlex="49" fxFlexAlign="stretch">
+            <h3 class="title">Thông tin đơn hàng</h3>
+            <p class="text-line">
+                Trạng thái: <span class="chip chip-blue">{{getOrderStatus(newestStatus)}}</span>
+            </p>
+            <p class="text-line">
+                Thời gian đặt hàng: <span class="text">{{ createdDate | date:'shortTime' }}, {{createdDate |
+                    date:'MM/dd/yyyy' }}</span>
+            </p>
+            <p class="text-line">
+                Số tiền thanh toán: <span class="text">{{total}}</span>
+            </p>
+            <p class="text-line">
+                Hình thức thanh toán: <span class="text">Thanh toán khi nhận hàng</span>
+            </p>
+            <!-- <p class="text-line">
+                <span class="text detail">Xem chi tiết >></span>
+            </p> -->
+        </div>
+    </div>
+    <div class="info">
+        <h3 class="title">Danh sách sản phẩm</h3>
+        <div *ngFor="let row of products">
+            <div class="product-line" fxLayout="row" fxLayoutAlign="space-between center">
+                <div class="product-info" fxLayout="row">
+                    <img [src]="getFilePath(row.product.img)" alt="">
+                    <div class="info-container">
+                        <p class="text-4">
+                            {{row.product.name}}
+                        </p>
+                        <p class="text-2">
+                            SKU: {{row.product.code}}
+                        </p>
+                        <p class="text-2">
+                            <span *ngIf="row.type == true">Phân loại: Sản phẩm bán</span>
+                            <span *ngIf="row.type == false">Phân loại: Quà tặng</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="info-container text-right" fxLayout="column">
+                    <p class="text-1">
+                        {{itemPricingCalculate(row)}} đ
+                    </p>
+                    <p class="text-3">
+                        {{formatPrice(row.product.price)}} đ
+                    </p>
+                    <p class="text-2">
+                        x{{row.itemQuantity}}
+                    </p>
+                </div>
+            </div>
+            <mat-divider class="product-divider"></mat-divider>
+        </div>
+
+    </div>
+    <div class="info" fxLayout="row" fxLayoutAlign="space-between flex-start center">
+        <div class="product-line" fxFlex="35">
+
+            <p class="info-container" fxLayoutAlign="space-between center">
+                <span class="text-1">Trạng thái đơn hàng</span>
+            </p>
+            <p *ngFor="let row of orderStatuses" class="info-container" fxLayoutAlign="space-between center">
+                <span class="text-2">{{row.timeUpdate | date:'MM/dd/yyyy : hh:mm'}} - {{row.content}}</span>
+            </p>
+            
+        </div>
+        <div class="product-line" fxFlex="35">
+            <p class="info-container" fxLayoutAlign="space-between center">
+                <span class="text-2">Tổng tiền sản phẩm</span>
+                <span class="text-1">{{formatPrice(itemPriceTotal)}} đ</span>
+            </p>
+            <p class="info-container" fxLayoutAlign="space-between center">
+                <span class="text-2">Phí vận chuyển</span>
+                <span class="text-1">Miễn phí</span>
+            </p>
+            <p class="info-container" fxLayoutAlign="space-between center">
+                <span class="text-2">Giảm giá</span>
+                <span class="text-1">{{formatPrice(discountTotal)}}</span>
+            </p>
+            <p class="info-container" fxLayoutAlign="space-between center">
+                <span class="text-2">Thành tiền</span>
+                <span class="text-1 text-5">{{total}} đ</span>
+            </p>
+            <p class="info-container" fxLayoutAlign="space-between center">
+                <span></span>
+                <span class="text-2">(Đã bao gồm VAT)</span>
+            </p>
+        </div>
+    </div>
+</div>

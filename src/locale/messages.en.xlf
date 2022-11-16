@@ -1,0 +1,829 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="bb694b49d408265c91c62799c2b3a7e3151c824d" datatype="html">
+        <source>Logout</source>
+        <target>Logout</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/nav/nav.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="0b1f56ab253b434fee883c676f8601fb2126af27" datatype="html">
+        <source>Tag Management</source>
+        <target>Tag Management</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layouts/default/default-layout-nav/default-layout-nav.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layouts/admin/admin-layout-nav/admin-layout-nav.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="b399ae1e9e818f36a81237f0f3f6cfa63e84ea3b" datatype="html">
+        <source>app component works</source>
+        <target>app component works</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.component.html</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7c25ffdfdcbc340e0abe8ead8c8f9ca6a260e970" datatype="html">
+        <source>File Management</source>
+        <target>File Management</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layouts/default/default-layout-nav/default-layout-nav.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layouts/admin/admin-layout-nav/admin-layout-nav.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6413592830e3f3ed22997c1f73c3188bb0743c86" datatype="html">
+        <source>Tags Management</source>
+        <target>Tags Management</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/nav/nav.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3bd605ce7321999982e4ad9a3f784bc981def7ea" datatype="html">
+        <source>footer works!</source>
+        <target>footer works!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/footer/footer.component.html</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="09495d0cf6a0386de64d1f366b5035665376c079" datatype="html">
+        <source>My Application</source>
+        <target>My Application</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/nav/nav.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="92eee6be6de0b11c924e3ab27db30257159c0a7c" datatype="html">
+        <source>Home</source>
+        <target>Home</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/nav/nav.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6765b4c916060f6bc42d9bb69e80377dbcb5e4e9" datatype="html">
+        <source>Login</source>
+        <target>Login</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/nav/nav.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="a9540ffdd661b91d4556ee91c486568fc38e7829" datatype="html">
+        <source>home works!</source>
+        <target>home works!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/pages/home/home.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="40c5b59b045f494bc9e7c4cf235fe61def17f49c" datatype="html">
+        <source>Sorry, Page not found!</source>
+        <target>Sorry, Page not found!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/error/pages/page-not-found/page-not-found.component.html</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="e42f844332930946f9a5da594fd922e05f06d753" datatype="html">
+        <source>Back to Home Page</source>
+        <target>Back to Home Page</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/error/pages/page-not-found/page-not-found.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fileNotFound" datatype="html">
+        <source>Không tìm thấy file</source>
+        <target>fileNotFound</target>
+    </trans-unit>
+    <trans-unit id="deleteDocument" datatype="html">
+        <source>Xoá tài liệu</source>
+        <target>Delete document</target>
+    </trans-unit>
+    <trans-unit id="personalDocuments" datatype="html">
+        <source>Tài liệu cá nhân</source>
+        <target>Personal documents</target>
+    </trans-unit>
+    <trans-unit id="categoryTag" datatype="html">
+        <source>Danh mục loại nhãn</source>
+        <target>Category Tag</target>
+    </trans-unit>
+    <trans-unit id="enterKeyword" datatype="html">
+        <source>Nhập từ khóa</source>
+        <target>Enter keyword</target>
+    </trans-unit>
+    <trans-unit id="account" datatype="html">
+        <source>Tài khoản</source>
+        <target>Account</target>
+    </trans-unit>
+    <trans-unit id="logout" datatype="html">
+        <source>Đăng xuất</source>
+        <target>Logout</target>
+    </trans-unit>
+    <trans-unit id="developedBy" datatype="html">
+        <source>Phát triển bởi</source>
+        <target>Developed by</target>
+    </trans-unit>
+    <trans-unit id="order" datatype="html">
+        <source>STT</source>
+        <target>#</target>
+    </trans-unit>
+    <trans-unit id="symbols" datatype="html">
+        <source>Số ký hiệu</source>
+        <target>Symbols</target>
+    </trans-unit>
+
+    <trans-unit id="search" datatype="html">
+        <source>Tìm kiếm</source>
+        <target>Search</target>
+    </trans-unit>
+    <trans-unit id="add" datatype="html">
+        <source>Thêm mới</source>
+        <target>Add</target>
+    </trans-unit>
+    <trans-unit id="description" datatype="html">
+        <source>Mô tả</source>
+        <target>Description</target>
+    </trans-unit>
+    <trans-unit id="action" datatype="html">
+        <source>Thao tác</source>
+        <target>Action</target>
+    </trans-unit>
+    <trans-unit id="update" datatype="html">
+        <source>Cập nhật</source>
+        <target>Update</target>
+    </trans-unit>
+    <trans-unit id="delete" datatype="html">
+        <source>Xóa</source>
+        <target>Delete</target>
+    </trans-unit>
+    <trans-unit id="display" datatype="html">
+        <source>Hiển thị</source>
+        <target>Display</target>
+    </trans-unit>
+    <trans-unit id="over" datatype="html">
+        <source>trên</source>
+        <target>over</target>
+    </trans-unit>
+    <trans-unit id="records" datatype="html">
+        <source>bản ghi</source>
+        <target>records</target>
+    </trans-unit>
+    <trans-unit id="addNewCategoryTag" datatype="html">
+        <source>Thêm mới loại nhãn</source>
+        <target>Adding category tag</target>
+    </trans-unit>
+    <trans-unit id="pleaseEnterSymbols" datatype="html">
+        <source>Vui lòng nhập số ký hiệu</source>
+        <target>Please enter symbols</target>
+    </trans-unit>
+    <trans-unit id="duplicateSymbols" datatype="html">
+        <source>Số ký hiệu bị trùng. Vui lòng nhập lại</source>
+        <target>Entered symbols already exists. Please try again</target>
+    </trans-unit>
+    <trans-unit id="categoryTagName" datatype="html">
+        <source>Tên loại nhãn</source>
+        <target>Category tag name</target>
+    </trans-unit>
+    <trans-unit id="addContent" datatype="html">
+        <source>Thêm nội dung</source>
+        <target>Add content</target>
+    </trans-unit>
+    <trans-unit id="language" datatype="html">
+        <source>Ngôn ngữ</source>
+        <target>Language</target>
+    </trans-unit>
+    <trans-unit id="save" datatype="html">
+        <source>Lưu lại</source>
+        <target>Save</target>
+    </trans-unit>
+    <trans-unit id="updateCategoryTag" datatype="html">
+        <source>Cập nhật loại nhãn</source>
+        <target>Updating category tag</target>
+    </trans-unit>
+    <trans-unit id="tagList" datatype="html">
+        <source>Danh mục nhãn</source>
+        <target>List of tags</target>
+    </trans-unit>
+    <trans-unit id="tag" datatype="html">
+        <source>Nhãn</source>
+        <target>Tag</target>
+    </trans-unit>
+    <trans-unit id="userDoesNotExist" datatype="html">
+        <source>Người dùng không tồn tại hoặc đã bị xóa</source>
+        <target>User doesn't exist or has been deleted</target>
+    </trans-unit>
+    <trans-unit id="deleteTag" datatype="html">
+        <source>Xóa nhãn</source>
+        <target>Delete tag</target>
+    </trans-unit>
+    <trans-unit id="startDayMustBeLesser" datatype="html">
+        <source>Từ ngày phải nhỏ hơn đến ngày</source>
+        <target>From date must not be greater than to date</target>
+    </trans-unit>
+    <trans-unit id="addTag" datatype="html">
+        <source>Thêm mới nhãn</source>
+        <target>Adding tag</target>
+    </trans-unit>
+    <trans-unit id="status" datatype="html">
+        <source>Trạng thái</source>
+        <target>Status</target>
+    </trans-unit>
+    <trans-unit id="tagName" datatype="html">
+        <source>Tên nhãn</source>
+        <target>Tag name</target>
+    </trans-unit>
+    <trans-unit id="symbolsCannotBeEmpty" datatype="html">
+        <source>Số ký hiệu không được phép rỗng. Vui lòng kiểm tra lại</source>
+        <target>Symbols cannot be empty. Please check again</target>
+    </trans-unit>
+    <trans-unit id="updateTag" datatype="html">
+        <source>Cập nhật nhãn</source>
+        <target>Adding tag</target>
+    </trans-unit>
+    <trans-unit id="pleaseSelectStatus" datatype="html">
+        <source>Vui lòng nhập trạng thái</source>
+        <target>Please select status</target>
+    </trans-unit>
+    <trans-unit id="pleaseEnterOrder" datatype="html">
+        <source>Vui lòng nhập số thứ tự</source>
+        <target>Please enter order number</target>
+    </trans-unit>
+    <trans-unit id="deleteCategoryTag" datatype="html">
+        <source>Xóa loại nhãn</source>
+        <target>Delete category tag</target>
+    </trans-unit>
+    <trans-unit id="updateFailed" datatype="html">
+        <source>Cập nhật thất bại</source>
+        <target>Update failed</target>
+    </trans-unit>
+    <trans-unit id="open" datatype="html">
+        <source>Mở</source>
+        <target>Open</target>
+    </trans-unit>
+    <trans-unit id="close" datatype="html">
+        <source>Đóng</source>
+        <target>Close</target>
+    </trans-unit>
+    <trans-unit id="exportExcel" datatype="html">
+        <source>Xuất Excel</source>
+        <target>Export To Excel</target>
+    </trans-unit>
+    <trans-unit id="officerCode" datatype="html">
+        <source>Mã cán bộ</source>
+        <target>Officer code</target>
+    </trans-unit>
+    <trans-unit id="officer" datatype="html">
+        <source>Cán bộ</source>
+        <target>Officer</target>
+    </trans-unit>
+    <trans-unit id="phone" datatype="html">
+        <source>Di động</source>
+        <target>Phone</target>
+    </trans-unit>
+    <trans-unit id="officerProfile" datatype="html">
+        <source>Hồ sơ cán bộ</source>
+        <target>Officer profile</target>
+    </trans-unit>
+    <trans-unit id="officerList" datatype="html">
+        <source>Danh sách cán bộ</source>
+        <target>Officer list</target>
+    </trans-unit>
+    <trans-unit id="position" datatype="html">
+        <source>Chức vụ</source>
+        <target>Position</target>
+    </trans-unit>
+    <trans-unit id="agency" datatype="html">
+        <source>Cơ quan quản lý</source>
+        <target>Agency</target>
+    </trans-unit>
+    <trans-unit id="agencyDepartment" datatype="html">
+        <source>Đơn vị công tác</source>
+        <target>Department</target>
+    </trans-unit>
+    <trans-unit id="officerInfo" datatype="html">
+        <source>Thông tin cán bộ</source>
+        <target>Officer Infomation</target>
+    </trans-unit>
+    <trans-unit id="fullname" datatype="html">
+        <source>Họ và tên</source>
+        <target>Fullname</target>
+    </trans-unit>
+    <trans-unit id="gender" datatype="html">
+        <source>Giới tính</source>
+        <target>Gender</target>
+    </trans-unit>
+    <trans-unit id="birthday" datatype="html">
+        <source>Ngày sinh</source>
+        <target>Birthday</target>
+    </trans-unit>
+    <trans-unit id="identity" datatype="html">
+        <source>CMND/CCCD</source>
+        <target>Identity</target>
+    </trans-unit>
+    <trans-unit id="issuedDate" datatype="html">
+        <source>Ngày cấp</source>
+        <target>Issued Day</target>
+    </trans-unit>
+    <trans-unit id="issuedAgency" datatype="html">
+        <source>Nơi cấp</source>
+        <target>Issued Agency</target>
+    </trans-unit>
+    <trans-unit id="workInformation" datatype="html">
+        <source>Thông tin công tác</source>
+        <target>Work Information</target>
+    </trans-unit>
+    <trans-unit id="joiningDay" datatype="html">
+        <source>Ngày vào đơn vị</source>
+        <target>Joining date</target>
+    </trans-unit>
+    <trans-unit id="socialInsuranceNumber" datatype="html">
+        <source>Số sổ BHXH</source>
+        <target>Social Insurance Number</target>
+    </trans-unit>
+    <trans-unit id="taxNumber" datatype="html">
+        <source>Mã số thuế</source>
+        <target>Tax Number</target>
+    </trans-unit>
+    <trans-unit id="workingRecords" datatype="html">
+        <source>Quá trình công tác</source>
+        <target>Working Records</target>
+    </trans-unit>
+    <trans-unit id="startDate" datatype="html">
+        <source>Từ ngày</source>
+        <target>Start date</target>
+    </trans-unit>
+    <trans-unit id="endDate" datatype="html">
+        <source>Đến ngày</source>
+        <target>End date</target>
+    </trans-unit>
+    <trans-unit id="education" datatype="html">
+        <source>Trình độ học vấn</source>
+        <target>Education</target>
+    </trans-unit>
+    <trans-unit id="educationLevel" datatype="html">
+        <source>Trình độ đào tạo</source>
+        <target>Education level</target>
+    </trans-unit>
+    <trans-unit id="major" datatype="html">
+        <source>Chuyên ngành</source>
+        <target>Major</target>
+    </trans-unit>
+    <trans-unit id="majorGroup" datatype="html">
+        <source>Ngành đào tạo</source>
+        <target>Major group</target>
+    </trans-unit>
+    <trans-unit id="file" datatype="html">
+        <source>Tệp tin</source>
+        <target>File</target>
+    </trans-unit>
+    <trans-unit id="certificateDiplomaOne" datatype="html">
+        <source>Chứng chỉ/ Chứng nhận</source>
+        <target>Certificate/ Diploma</target>
+    </trans-unit>
+    <trans-unit id="certificateDiplomaTwo" datatype="html">
+        <source>Chứng chỉ, chứng nhận</source>
+        <target>Certificate, diploma</target>
+    </trans-unit>
+    <trans-unit id="pleaseChooseCertificateDiploma" datatype="html">
+        <source>Vui lòng chọn Chứng chỉ/ Chứng nhận</source>
+        <target>Please choose Certificate/ Diploma</target>
+    </trans-unit>
+    <trans-unit id="pleaseChooseClassification" datatype="html">
+        <source>Vui lòng chọn xếp loại</source>
+        <target>Please choose classification</target>
+    </trans-unit>
+    <trans-unit id="classification" datatype="html">
+        <source>Xếp loại</source>
+        <target>Classification</target>
+    </trans-unit>
+    <trans-unit id="sentToLearn" datatype="html">
+        <source>Cử đi học</source>
+        <target>Sent to learn</target>
+    </trans-unit>
+    <trans-unit id="pleaseChooseSentToLearn" datatype="html">
+        <source>Vui lòng chọn cử đi học</source>
+        <target>Please choose sent to learn</target>
+    </trans-unit>
+    <trans-unit id="internationalCertificate" datatype="html">
+        <source>Chứng chỉ quốc tế</source>
+        <target>International certificate</target>
+    </trans-unit>
+    <trans-unit id="pleaseChooseIsInternational" datatype="html">
+        <source>Vui lòng chọn chứng chỉ quốc tế</source>
+        <target>Please choose international certificate</target>
+    </trans-unit>
+    <trans-unit id="dragFileOr" datatype="html">
+        <source>Kéo thả tập tin hoặc</source>
+        <target>Drag file or</target>
+    </trans-unit>
+    <trans-unit id="supportedFiles" datatype="html">
+        <source>Các tập tin được hỗ trợ</source>
+        <target>Supported files</target>
+    </trans-unit>
+    <trans-unit id="maximumFileSize" datatype="html">
+        <source>Kích thước tối đa của một tệp tin</source>
+        <target>Maximum file size</target>
+    </trans-unit>
+    <trans-unit id="smartCADigitalSignature" datatype="html">
+        <source>Ký số Smart CA</source>
+        <target>Smart CA Digital signature</target>
+    </trans-unit>
+    <trans-unit id="attachedFile" datatype="html">
+        <source>File đính kèm</source>
+        <target>Attached file</target>
+    </trans-unit>
+    <trans-unit id="upload" datatype="html">
+        <source>Tải lên</source>
+        <target>Upload</target>
+    </trans-unit>
+    <trans-unit id="contentCannotBeEmpty" datatype="html">
+        <source>Nội dung không được phép rỗng. Vui lòng thử lại</source>
+        <target>Content cannot be empty. Please try again</target>
+    </trans-unit>
+    <trans-unit id="symbolIsNotValid" datatype="html">
+        <source>Số ký hiệu không hợp lệ. Vui lòng thử lại</source>
+        <target>Symbol cannot be empty. Please try again</target>
+    </trans-unit>
+    <trans-unit id="languageCannotBeDuplicate" datatype="html">
+        <source>Ngôn ngữ không được phép trùng. Vui lòng thử lại</source>
+        <target>Symbol cannot be empty. Please try again</target>
+    </trans-unit>
+    <trans-unit id="cannotDeleteFile" datatype="html">
+        <source>Không thể xóa file. Vui lòng kiểm tra lại</source>
+        <target>File cannot be deleted. Please try again</target>
+    </trans-unit>
+    <trans-unit id="thisFileTypeIsNotSupported" datatype="html">
+        <source>Không hỗ trợ dạng tệp tin này, vui lòng chọn loại tệp tin khác</source>
+        <target>This file type is not supported, please choose another file type</target>
+    </trans-unit>
+    <trans-unit id="error" datatype="html">
+        <source>Lỗi</source>
+        <target>Error</target>
+    </trans-unit>
+    <trans-unit id="existingOversizedFile" datatype="html">
+        <source>Tồn tại tệp tin vượt quá kích thước tối đa. Vui lòng kiểm tra lại</source>
+        <target>Existing oversized file. Please choose another file</target>
+    </trans-unit>
+    <trans-unit id="success" datatype="html">
+        <source>Thành công</source>
+        <target>Success</target>
+    </trans-unit>
+    <trans-unit id="failure" datatype="html">
+        <source>Thất bại</source>
+        <target>Failure</target>
+    </trans-unit>
+    <trans-unit id="deleteCertificate" datatype="html">
+        <source>Xóa chứng chỉ</source>
+        <target>Delete certificate</target>
+    </trans-unit>
+    <trans-unit id="yes" datatype="html">
+        <source>Có</source>
+        <target>Yes</target>
+    </trans-unit>
+    <trans-unit id="no" datatype="html">
+        <source>Không</source>
+        <target>No</target>
+    </trans-unit>
+    <trans-unit id="pleaseChooseEducation" datatype="html">
+        <source>Vui lòng chọn loại trình độ</source>
+        <target>Please choose education</target>
+    </trans-unit>
+    <trans-unit id="pleaseChooseMajor" datatype="html">
+        <source>Vui lòng chọn chuyên ngành</source>
+        <target>Please choose major</target>
+    </trans-unit>
+    <trans-unit id="pleaseChooseMajorGroup" datatype="html">
+        <source>Vui lòng chọn nhóm ngành</source>
+        <target>Please choose major group</target>
+    </trans-unit>
+    <trans-unit id="pleaseChooseEduAgency" datatype="html">
+        <source>Vui lòng chọn cơ sở đào tạo</source>
+        <target>Please choose education agency</target>
+    </trans-unit>
+    <trans-unit id="eduAgency" datatype="html">
+        <source>Cơ sở đào tạo</source>
+        <target>Education agency</target>
+    </trans-unit>
+    <trans-unit id="internalTrainingRecord" datatype="html">
+        <source>Quá trình đào tạo nội bộ</source>
+        <target>Internal training record</target>
+    </trans-unit>
+    <trans-unit id="courseName" datatype="html">
+        <source>Tên khóa đào tạo</source>
+        <target>Course name</target>
+    </trans-unit>
+    <trans-unit id="organizationalForm" datatype="html">
+        <source>Hình thức tổ chức</source>
+        <target>Form of organization</target>
+    </trans-unit>
+    <trans-unit id="trainingProject" datatype="html">
+        <source>Dự án đào tạo</source>
+        <target>Training project</target>
+    </trans-unit>
+    <trans-unit id="pleaseChooseCourseName" datatype="html">
+        <source>Vui lòng chọn khóa đào tạo</source>
+        <target>Please choose course name</target>
+    </trans-unit>
+    <trans-unit id="pleaseChooseOrganizationalForm" datatype="html">
+        <source>Vui lòng chọn khóa hình thức tổ chức</source>
+        <target>Please choose forms of organization</target>
+    </trans-unit>
+    <trans-unit id="pleaseChooseTrainingProject" datatype="html">
+        <source>Vui lòng chọn dự án đào tạo</source>
+        <target>Please choose training project</target>
+    </trans-unit>
+    <trans-unit id="rewardRecord" datatype="html">
+        <source>Thành tích thi đua</source>
+        <target>Reward record</target>
+    </trans-unit>
+    <trans-unit id="pleaseChooseRewardRecord" datatype="html">
+        <source>Vui lòng chọn thành tích thi đua</source>
+        <target>Please choose reward record</target>
+    </trans-unit>
+    <trans-unit id="decisionNumber" datatype="html">
+        <source>Số quyết định</source>
+        <target>Decision number</target>
+    </trans-unit>
+    <trans-unit id="pleaseEnterDecisionNumber" datatype="html">
+        <source>Vui lòng nhập số quyết định</source>
+        <target>Please enter Decision number</target>
+    </trans-unit>
+    <trans-unit id="periodNumber" datatype="html">
+        <source>Hệ số chu kỳ</source>
+        <target>Period number</target>
+    </trans-unit>
+    <trans-unit id="pleaseChoosePeriodNumber" datatype="html">
+        <source>Vui lòng nhập hệ số chu kỳ</source>
+        <target>Vui lòng nhập hệ số chu kỳ</target>
+    </trans-unit>
+    <trans-unit id="periodType" datatype="html">
+        <source>Loại chu kỳ</source>
+        <target>Period type</target>
+    </trans-unit>
+    <trans-unit id="pleaseChoosePeriodType" datatype="html">
+        <source>Vui lòng chọn loại chu kỳ</source>
+        <target>Please choose period type</target>
+    </trans-unit>
+    <trans-unit id="decisionDate" datatype="html">
+        <source>Ngày quyết định</source>
+        <target>Decision date</target>
+    </trans-unit>
+    <trans-unit id="pleaseChooseDecisionDate" datatype="html">
+        <source>Vui lòng chọn ngày quyết định</source>
+        <target>Please choose decision date</target>
+    </trans-unit>
+    <trans-unit id="rewardScope" datatype="html">
+        <source>Cấp khen thưởng</source>
+        <target>Reward scope</target>
+    </trans-unit>
+    <trans-unit id="pleaseChooseRewardScope" datatype="html">
+        <source>Vui lòng chọn cấp khen thưởng</source>
+        <target>Please choose reward scope</target>
+    </trans-unit>
+    <trans-unit id="rewardType" datatype="html">
+        <source>Hình thức khen thưởng</source>
+        <target>Reward type</target>
+    </trans-unit>
+    <trans-unit id="pleaseChooseRewardType" datatype="html">
+        <source>Vui lòng chọn hình thức khen thưởng</source>
+        <target>Please choose reward type</target>
+    </trans-unit>
+    <trans-unit id="pleaseChooseIssuedAgency" datatype="html">
+        <source>Vui lòng chọn nơi cấp</source>
+        <target>Please choose issued agency</target>
+    </trans-unit>
+    <trans-unit id="period" datatype="html">
+        <source>Chu kỳ</source>
+        <target>Period</target>
+    </trans-unit>
+    <trans-unit id="rewardRecordTitle" datatype="html">
+        <source>Quá trình khen thưởng</source>
+        <target>Reward record</target>
+    </trans-unit>
+    <trans-unit id="businessTripRecord" datatype="html">
+        <source>Quá trình đi công tác</source>
+        <target>Business trip record</target>
+    </trans-unit>
+    <trans-unit id="fromAgency" datatype="html">
+        <source>Đơn vị cử đi</source>
+        <target>From agency</target>
+    </trans-unit>
+    <trans-unit id="purpose" datatype="html">
+        <source>Mục đích</source>
+        <target>Purpose</target>
+    </trans-unit>
+    <trans-unit id="foreign" datatype="html">
+        <source>Nước ngoài</source>
+        <target>Foreign</target>
+    </trans-unit>
+    <trans-unit id="pleaseChooseFromAgency" datatype="html">
+        <source>Vui lòng chọn đơn vị cử đi</source>
+        <target>Please choose from agency</target>
+    </trans-unit>
+    <trans-unit id="pleaseChooseAgencyDepartment" datatype="html">
+        <source>Vui lòng chọn đơn vị công tác</source>
+        <target>Please choose to agency</target>
+    </trans-unit>
+    <trans-unit id="pleaseChoosePurpose" datatype="html">
+        <source>Vui lòng chọn mục đích</source>
+        <target>Please choose purpose</target>
+    </trans-unit>
+    <trans-unit id="otherAgency" datatype="html">
+        <source>Đơn vị công tác khác</source>
+        <target>Other agency</target>
+    </trans-unit>
+    <trans-unit id="officerRating" datatype="html">
+        <source>Đánh giá cán bộ</source>
+        <target>Officer rating</target>
+    </trans-unit>
+    <trans-unit id="ratingPhase" datatype="html">
+        <source>Đợt đánh giá</source>
+        <target>Rating phase</target>
+    </trans-unit>
+    <trans-unit id="ratingOfficer" datatype="html">
+        <source>Cán bộ đánh giá</source>
+        <target>Rating officer</target>
+    </trans-unit>
+    <trans-unit id="ratingAgency" datatype="html">
+        <source>Đơn vị đánh giá</source>
+        <target>Rating agency</target>
+    </trans-unit>
+    <trans-unit id="deleteTrainingRecord" datatype="html">
+        <source>Xóa đào tạo nội bộ</source>
+        <target>Delete internal training record</target>
+    </trans-unit>
+    <trans-unit id="deleteRewardRecord" datatype="html">
+        <source>Xóa thành tích thi đua</source>
+        <target>Delete reward record</target>
+    </trans-unit>
+    <trans-unit id="deleteBusinessTripRecord" datatype="html">
+        <source>Xóa dữ liệu công tác</source>
+        <target>Delete business trip record</target>
+    </trans-unit>
+    <trans-unit id="toDayMustBeLesserOrEqual" datatype="html">
+        <source>Đến ngày phải nhỏ hơn ngày cấp</source>
+        <target>To date must not be greater than or equal to Issued date</target>
+    </trans-unit>
+    <trans-unit id="all" datatype="html">
+        <source>Tất cả</source>
+        <target>All</target>
+    </trans-unit>
+    <trans-unit id="pleaseEnterYourFullDetail" datatype="html">
+        <source>Vui lòng nhập đầy đủ thông tin</source>
+        <target>Please enter your full details</target>
+    </trans-unit>
+    <trans-unit id="symbolContainSpecialCharaters" datatype="html">
+        <source>Số ký hiệu chứa ký tự đặc biệt. Vui lòng kiểm tra lại</source>
+        <target>The Symbol contain special characters. Please check again</target>
+    </trans-unit>
+    <trans-unit id="dataAlreadyExists" datatype="html">
+        <source>Dữ liệu đã tồn tại. Vui lòng kiểm tra lại</source>
+        <target>Data already exists. Please check again</target>
+    </trans-unit>
+    <trans-unit id="contentContainSpecialCharacters" datatype="html">
+        <source>Nội dung chứa ký tự đặc biệt. Vui lòng kiểm tra lại</source>
+        <target>Content contain special characters. Please check again</target>
+    </trans-unit>
+    <trans-unit id="pleaseChooseAttachment" datatype="html">
+        <source>Vui lòng chọn tệp đính kèm</source>
+        <target>Please choose attachment</target>
+    </trans-unit>
+    <trans-unit id="pleaseEnterCategoryTagName" datatype="html">
+        <source>Vui lòng chọn tên loại nhãn</source>
+        <target>Please enter category tag name</target>
+    </trans-unit>
+    <trans-unit id="addedSuccessfully" datatype="html">
+        <source>Thêm mới thành công</source>
+        <target>Added successfully</target>
+    </trans-unit>
+    <trans-unit id="failedToAdding" datatype="html">
+        <source>Thêm mới thất bại</source>
+        <target>Failed to adding</target>
+    </trans-unit>
+    <trans-unit id="doYouWantToDelete" datatype="html">
+        <source>Bạn có muốn xóa loại nhãn này ra khỏi danh sách</source>
+        <target>Do you want to delete this category tag</target>
+    </trans-unit>
+    <trans-unit id="deletedSuccessfully" datatype="html">
+        <source>Xóa thành công</source>
+        <target>Deleted successfully</target>
+    </trans-unit>
+    <trans-unit id="failedToDeleting" datatype="html">
+        <source>Xóa thất bại</source>
+        <target>Failed to deleting</target>
+    </trans-unit>
+    <trans-unit id="updatedSuccessfully" datatype="html">
+        <source>Cập nhật thành công</source>
+        <target>Updated successfully</target>
+    </trans-unit>
+    <trans-unit id="failedToUpdating" datatype="html">
+        <source>Cập nhật thất bại</source>
+        <target>Failed to updating</target>
+    </trans-unit>
+    <trans-unit id="pleaseEnterTagName" datatype="html">
+        <source>Vui lòng chọn tên  nhãn</source>
+        <target>Please enter tag name</target>
+    </trans-unit>
+    <trans-unit id="categoryTagNameCannotBeEmpty" datatype="html">
+        <source>Tên loại nhãn không được phép rỗng. Vui lòng kiểm tra lại</source>
+        <target>Category tag name can not be empty. Please check again</target>
+    </trans-unit>
+    <trans-unit id="tagNameCannotBeEmpty" datatype="html">
+        <source>Tên nhãn không được phép rỗng. Vui lòng kiểm tra lại</source>
+        <target>Tag name can not be empty. Please check again</target>
+    </trans-unit>
+    <trans-unit id="dataWasUsed" datatype="html">
+        <source>Dữ liệu đã sử dụng</source>
+        <target>Data was used</target>
+    </trans-unit>
+    <trans-unit id="doYouWantToDeleteTag" datatype="html">
+        <source>Bạn có muốn xóa Nhãn này ra khỏi danh sách</source>
+        <target>Do you want to delete this tag</target>
+    </trans-unit>
+    <trans-unit id="doYouWantToDeleteEducation" datatype="html">
+        <source>Bạn có muốn xóa bản ghi Trình độ học vấn này ra khỏi danh sách</source>
+        <target>Do you want to delete this Education record</target>
+    </trans-unit>
+    <trans-unit id="doYouWantToDeleteCertificate" datatype="html">
+        <source>Bạn có muốn xóa bản ghi Chứng chỉ/Chứng nhận này ra khỏi danh sách</source>
+        <target>Do you want to delete this Certificate record</target>
+    </trans-unit>
+    <trans-unit id="doYouWantToDeleteTrainingRecord" datatype="html">
+        <source>Bạn có muốn xóa bản ghi Quá trình đào tạo này ra khỏi danh sách</source>
+        <target>Do you want to delete this Training record</target>
+    </trans-unit>
+    <trans-unit id="doYouWantToDeleteWorkRecord" datatype="html">
+        <source>Bạn có muốn xóa bản ghi Quá trình làm việc này ra khỏi danh sách</source>
+        <target>Do you want to delete this Working record</target>
+    </trans-unit>
+    <trans-unit id="doYouWantToDeleteBusinessTripRecord" datatype="html">
+        <source>Bạn có muốn xóa bản ghi Quá trình công tác này ra khỏi danh sách</source>
+        <target>Do you want to delete this Business trip record</target>
+    </trans-unit>
+    <trans-unit id="deleteEducation" datatype="html">
+        <source>Xóa trình độ học vấn</source>
+        <target>Delete education record</target>
+    </trans-unit>
+    <trans-unit id="doYouWantToDeleteRewardRecord" datatype="html">
+        <source>Bạn có muốn xóa bản ghi Thành tích thi đua này ra khỏi danh sách</source>
+        <target>Do you want to delete this Reward record</target>
+    </trans-unit>
+    <trans-unit id="enterNameOrPhoneNumber" datatype="html">
+        <source>Nhập tên/SĐT để tìm kiếm</source>
+        <target>Enter name/phone number to search</target>
+    </trans-unit>
+    <trans-unit id="pleaseEnterAgencyDepartment" datatype="html">
+        <source>Vui lòng nhập đơn vị công tác</source>
+        <target>Please enter to agency</target>
+    </trans-unit>
+    <trans-unit id="day" datatype="html">
+        <source>Ngày</source>
+        <target>Day</target>
+    </trans-unit>
+    <trans-unit id="month" datatype="html">
+        <source>Tháng</source>
+        <target>Month</target>
+    </trans-unit>
+    <trans-unit id="year" datatype="html">
+        <source>Năm</source>
+        <target>Year</target>
+    </trans-unit>
+    <trans-unit id="statisticalEduUsed" datatype="html">
+        <source>Thống kê theo tiêu chí</source>
+        <target>Statistical by criteria</target>
+    </trans-unit>
+    <trans-unit id="statisticalList" datatype="html">
+        <source>Danh sách</source>
+        <target>List</target>
+    </trans-unit>
+    <trans-unit id="statisticalChart" datatype="html">
+        <source>Biểu đồ</source>
+        <target>Chart</target>
+    </trans-unit>
+    <trans-unit id="categoryTagType" datatype="html">
+        <source>Loại nhãn</source>
+        <target>Category tag</target>
+    </trans-unit>
+    <trans-unit id="statistical" datatype="html">
+        <source>Thống kê</source>
+        <target>Statistic</target>
+    </trans-unit>
+      
+    </body>
+  </file>
+</xliff>

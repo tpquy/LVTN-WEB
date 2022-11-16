@@ -1,0 +1,20 @@
+<div class="shared-confirm-dialog">
+    <button mat-icon-button class="btn-close" (click)="onDismiss()">
+        <mat-icon>close</mat-icon>
+    </button>
+    <div class="dialog-icon" *ngIf="isWarning">
+        <mat-icon>error_outline</mat-icon>
+    </div>
+    <h3 class="dialog-title" mat-dialog-title>{{dialogTitle}}</h3>
+    <div mat-dialog-content class="dialog-content">
+        <span>{{dialogContent}}</span>
+    </div>
+    <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayoutAlign="center" fxLayoutGap="1rem">
+        <button mat-flat-button fxFlex='30' class="btn-apply" (click)="onConfirm()">
+            <span>Đồng ý</span>
+        </button>
+        <button mat-flat-button fxFlex='30' class="btn-cancel" (click)="onReject()">
+            <span>Không</span>
+        </button>
+    </div>
+</div>

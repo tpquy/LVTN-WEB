@@ -1,0 +1,338 @@
+<link rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+
+<div class="order-container">
+  <div class="order-header" fxLayout="row" fxLayoutAlign="space-between center">
+    <h2 class="order-title">Quản lí đơn hàng</h2>
+  </div>
+  <form [formGroup]="searchForm" fxFlayout="row" fxLayoutAlign="space-between center" class="orderSearchForm">
+    <mat-form-field appearance="outline" fxFlex="30">
+      <mat-label>Mã đơn hàng</mat-label>
+      <input matInput formControlName="code" placeholder="Nhập mã đơn hàng">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" fxFlex="30">
+      <mat-label>Trạng thái</mat-label>
+      <mat-select formControlName="status">
+        <mat-option *ngFor="let status of statusList" [value]="status.code">
+          {{status.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-checkbox class="set-default" color="primary" formControlName="isMine" fxFlex="15">Của tôi</mat-checkbox>
+    <button mat-flat-button color="primary" class="searchBtn" (click)="onConfirmSearch()" fxFlex="20">Tìm kiếm</button>
+  </form>
+  <div class="order-header" fxLayout="row" fxLayoutAlign="space-between center">
+    <!-- <h2 class="order-title">Đơn hàng của tôi</h2> -->
+    <mat-card class="order-status-button" fxLayout="row">
+      <!-- <button mat-button class="filt-status-button" id="tab-button-1" (click)="activeTab('0')">
+        Tất cả
+      </button> -->
+      <button mat-button class="filt-status-button" id="tab-button-1" (click)="activeTab('1')">
+        Đã đặt hàng
+      </button>
+      <button mat-button class="filt-status-button" id="tab-button-2" (click)="activeTab('2')">
+        Đang giao hàng
+      </button>
+      <button mat-button class="filt-status-button" id="tab-button-3" (click)="activeTab('3')">
+        Đã hoàn thành
+      </button>
+    </mat-card>
+  </div>
+  <div class="order-tab" id="tab-0">
+    <div *ngIf="countAll == 0 && tabActive === '0'" class="no-order" fxLayout="column" fxLayoutAlign="center center" fxFlex>
+      <img src="../../../../assets/img/no-products-found.png" alt="">
+      <p>Bạn không có đơn hàng nào!</p>
+    </div>
+    <table *ngIf="countAll !== 0" mat-table [dataSource]="dataSource_0" class="order-table">
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="code" class="tb-code">
+        <th mat-header-cell *matHeaderCellDef> Mã đơn hàng </th>
+        <td mat-cell *matCellDef="let element" class="tb-code-cell" (click)="viewDetail(element.id)">
+          <span>{{element?.id}}</span>
+        </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="orderDate" class="tb-order-date">
+        <th mat-header-cell *matHeaderCellDef> Ngày đặt hàng </th>
+        <td mat-cell *matCellDef="let element"> {{element?.orderStatuses[0]?.timeUpdate | date:'MM/dd/yyyy'}}  </td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="products" class="tb-products">
+        <th mat-header-cell *matHeaderCellDef> Sản phẩm </th>
+        <td mat-cell *matCellDef="let element">
+          <!-- {{element.products}} -->
+          <span *ngFor="let product of element?.products; let i = index" [attr.data-index]="i">
+            {{product.product.name}}
+            <span *ngIf="element?.products?.length != i + 1">/ </span>
+          </span>
+        </td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="price" class="tb-price">
+        <th mat-header-cell *matHeaderCellDef> Tổng tiền </th>
+        <td mat-cell *matCellDef="let element"> {{pricingCalculate(element?.products)}} </td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="status" class="tb-status">
+        <th mat-header-cell *matHeaderCellDef> Trạng thái </th>
+        <td mat-cell *matCellDef="let element"> {{getOrderStatus(element?.orderStatuses[element?.orderStatuses?.length - 1]?.code)}}
+        </td>
+      </ng-container>
+
+      <!-- Action Column -->
+      <ng-container matColumnDef="action" class="tb-action">
+        <th mat-header-cell *matHeaderCellDef> Thao tác </th>
+        <td mat-cell *matCellDef="let element"><button mat-icon-button [matMenuTriggerFor]="actionMenu">
+            <mat-icon>more_horiz</mat-icon>
+          </button>
+          <mat-menu #actionMenu="matMenu" xPosition="before" >
+            <button *ngIf="element?.orderStatuses[element?.orderStatuses?.length - 1]?.code === 'order'" mat-menu-item class="menuAction" style="width: 100%;" (click)="changeStatusDialog(element.id, 'confirm')">
+              <span>Đã xác nhận</span>
+            </button>
+            <button *ngIf="element?.orderStatuses[element?.orderStatuses?.length - 1]?.code === 'confirm'" mat-menu-item class="menuAction" style="width: 100%;" (click)="changeStatusDialog(element.id, 'transport')">
+              <span>Vận chuyển</span>
+            </button>
+            <button *ngIf="element?.orderStatuses[element?.orderStatuses?.length - 1]?.code === 'transport'" mat-menu-item class="menuAction" style="width: 100%;" (click)="changeStatusDialog(element.id, 'receive')">
+              <span>Đã nhận hàng</span>
+            </button>
+            <button *ngIf="element?.orderStatuses[element?.orderStatuses?.length - 1]?.code !== 'transport'" mat-menu-item class="menuAction" style="width: 100%;" (click)="changeStatusDialog(element.id, 'cancel')">
+              <span>Hủy đơn</span>
+            </button>
+          </mat-menu>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    
+  </div>
+  <div class="order-tab" id="tab-1">
+    <div *ngIf="countOrdered == 0 && tabActive === '1'"  class="no-order" fxLayout="column" fxLayoutAlign="center center" fxFlex>
+      <img src="../../../../assets/img/no-products-found.png" alt="">
+      <p>Bạn không có đơn hàng nào!</p>
+    </div>
+    <table *ngIf="countOrdered !== 0" mat-table [dataSource]="dataSource_1" class="order-table">
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="code" class="tb-code">
+        <th mat-header-cell *matHeaderCellDef> Mã đơn hàng </th>
+        <td mat-cell *matCellDef="let element" class="tb-code-cell" (click)="viewDetail(element.id)">
+          <span>{{element?.id}}</span>
+        </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="orderDate" class="tb-order-date">
+        <th mat-header-cell *matHeaderCellDef> Ngày đặt hàng </th>
+        <td mat-cell *matCellDef="let element"> {{element?.orderStatuses[0]?.timeUpdate | date:'MM/dd/yyyy'}}  </td>
+      </ng-container>
+
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="products" class="tb-products">
+        <th mat-header-cell *matHeaderCellDef> Sản phẩm </th>
+        <td mat-cell *matCellDef="let element">
+          <!-- {{element.products}} -->
+          <span *ngFor="let product of element?.products; let i = index" [attr.data-index]="i">
+            {{product.product.name}}
+            <span *ngIf="element?.products?.length != i + 1">/ </span>
+          </span>
+        </td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="price" class="tb-price">
+        <th mat-header-cell *matHeaderCellDef> Tổng tiền </th>
+        <td mat-cell *matCellDef="let element"> {{pricingCalculate(element?.products)}} </td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="status" class="tb-status">
+        <th mat-header-cell *matHeaderCellDef> Trạng thái </th>
+        <td mat-cell *matCellDef="let element"> {{getOrderStatus(element?.orderStatuses[element?.orderStatuses?.length - 1]?.code)}}
+        </td>
+      </ng-container>
+
+      <!-- Action Column -->
+      <ng-container matColumnDef="action" class="tb-action">
+        <th mat-header-cell *matHeaderCellDef> Thao tác </th>
+        <td mat-cell *matCellDef="let element"><button mat-icon-button [matMenuTriggerFor]="actionMenu">
+            <mat-icon>more_horiz</mat-icon>
+          </button>
+          <mat-menu #actionMenu="matMenu" xPosition="before" >
+            <button *ngIf="element?.orderStatuses[element?.orderStatuses?.length - 1]?.code === 'order'" mat-menu-item class="menuAction" style="width: 100%;" (click)="changeStatusDialog(element.id, 'confirm')">
+              <span>Đã xác nhận</span>
+            </button>
+            <button *ngIf="element?.orderStatuses[element?.orderStatuses?.length - 1]?.code === 'confirm'" mat-menu-item class="menuAction" style="width: 100%;" (click)="changeStatusDialog(element.id, 'transport')">
+              <span>Vận chuyển</span>
+            </button>
+            <button *ngIf="element?.orderStatuses[element?.orderStatuses?.length - 1]?.code === 'transport'" mat-menu-item class="menuAction" style="width: 100%;" (click)="changeStatusDialog(element.id, 'receive')">
+              <span>Đã nhận hàng</span>
+            </button>
+            <button *ngIf="element?.orderStatuses[element?.orderStatuses?.length - 1]?.code !== 'transport'" mat-menu-item class="menuAction" style="width: 100%;" (click)="changeStatusDialog(element.id, 'cancel')">
+              <span>Hủy đơn</span>
+            </button>
+          </mat-menu>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+  <div class="order-tab" id="tab-2">
+    <div *ngIf="countShipping == 0 && tabActive === '2'" class="no-order" fxLayout="column" fxLayoutAlign="center center" fxFlex>
+      <img src="../../../../assets/img/no-products-found.png" alt="">
+      <p>Bạn không có đơn hàng nào!</p>
+    </div>
+    <table *ngIf="countShipping !== 0" mat-table [dataSource]="dataSource_2" class="order-table">
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="code" class="tb-code">
+        <th mat-header-cell *matHeaderCellDef> Mã đơn hàng </th>
+        <td mat-cell *matCellDef="let element" class="tb-code-cell" (click)="viewDetail(element.id)">
+          <span>{{element?.id}}</span>
+        </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="orderDate" class="tb-order-date">
+        <th mat-header-cell *matHeaderCellDef> Ngày đặt hàng </th>
+        <td mat-cell *matCellDef="let element"> {{element?.orderStatuses[0]?.timeUpdate | date:'MM/dd/yyyy'}}  </td>
+      </ng-container>
+
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="products" class="tb-products">
+        <th mat-header-cell *matHeaderCellDef> Sản phẩm </th>
+        <td mat-cell *matCellDef="let element">
+          <!-- {{element.products}} -->
+          <span *ngFor="let product of element?.products; let i = index" [attr.data-index]="i">
+            {{product.product.name}}
+            <span *ngIf="element?.products?.length != i + 1">/ </span>
+          </span>
+        </td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="price" class="tb-price">
+        <th mat-header-cell *matHeaderCellDef> Tổng tiền </th>
+        <td mat-cell *matCellDef="let element"> {{pricingCalculate(element?.products)}} </td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="status" class="tb-status">
+        <th mat-header-cell *matHeaderCellDef> Trạng thái </th>
+        <td mat-cell *matCellDef="let element"> {{getOrderStatus(element?.orderStatuses[element?.orderStatuses?.length - 1]?.code)}}
+        </td>
+      </ng-container>
+
+      <!-- Action Column -->
+      <ng-container matColumnDef="action" class="tb-action">
+        <th mat-header-cell *matHeaderCellDef> Thao tác </th>
+        <td mat-cell *matCellDef="let element"><button mat-icon-button [matMenuTriggerFor]="actionMenu">
+            <mat-icon>more_horiz</mat-icon>
+          </button>
+          <mat-menu #actionMenu="matMenu" xPosition="before" >
+            <button *ngIf="element?.orderStatuses[element?.orderStatuses?.length - 1]?.code === 'order'" mat-menu-item class="menuAction" style="width: 100%;" (click)="changeStatusDialog(element.id, 'confirm')">
+              <span>Đã xác nhận</span>
+            </button>
+            <button *ngIf="element?.orderStatuses[element?.orderStatuses?.length - 1]?.code === 'confirm'" mat-menu-item class="menuAction" style="width: 100%;" (click)="changeStatusDialog(element.id, 'transport')">
+              <span>Vận chuyển</span>
+            </button>
+            <button *ngIf="element?.orderStatuses[element?.orderStatuses?.length - 1]?.code === 'transport'" mat-menu-item class="menuAction" style="width: 100%;" (click)="changeStatusDialog(element.id, 'receive')">
+              <span>Đã nhận hàng</span>
+            </button>
+            <button *ngIf="element?.orderStatuses[element?.orderStatuses?.length - 1]?.code !== 'transport'" mat-menu-item class="menuAction" style="width: 100%;" (click)="changeStatusDialog(element.id, 'cancel')">
+              <span>Hủy đơn</span>
+            </button>
+          </mat-menu>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+  <div class="order-tab" id="tab-3">
+    <div *ngIf="countDone == 0 && tabActive === '3'" class="no-order" fxLayout="column" fxLayoutAlign="center center" fxFlex>
+      <img src="../../../../assets/img/no-products-found.png" alt="">
+      <p>Bạn không có đơn hàng nào!</p>
+    </div>
+    <table *ngIf="countDone !== 0" mat-table [dataSource]="dataSource_3" class="order-table">
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="code" class="tb-code">
+        <th mat-header-cell *matHeaderCellDef> Mã đơn hàng </th>
+        <td mat-cell *matCellDef="let element" class="tb-code-cell" (click)="viewDetail(element.id)">
+          <span>{{element?.id}}</span>
+        </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="orderDate" class="tb-order-date">
+        <th mat-header-cell *matHeaderCellDef> Ngày đặt hàng </th>
+        <td mat-cell *matCellDef="let element"> {{element?.orderStatuses[0]?.timeUpdate | date:'MM/dd/yyyy'}}  </td>
+      </ng-container>
+
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="products" class="tb-products">
+        <th mat-header-cell *matHeaderCellDef> Sản phẩm </th>
+        <td mat-cell *matCellDef="let element">
+          <!-- {{element.products}} -->
+          <span *ngFor="let product of element?.products; let i = index" [attr.data-index]="i">
+            {{product.product.name}}
+            <span *ngIf="element?.products?.length != i + 1">/ </span>
+          </span>
+        </td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="price" class="tb-price">
+        <th mat-header-cell *matHeaderCellDef> Tổng tiền </th>
+        <td mat-cell *matCellDef="let element"> {{pricingCalculate(element?.products)}} </td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="status" class="tb-status">
+        <th mat-header-cell *matHeaderCellDef> Trạng thái </th>
+        <td mat-cell *matCellDef="let element"> {{getOrderStatus(element?.orderStatuses[element?.orderStatuses?.length - 1]?.code)}}
+        </td>
+      </ng-container>
+
+      <!-- Action Column -->
+      <ng-container matColumnDef="action" class="tb-action">
+        <th mat-header-cell *matHeaderCellDef> Thao tác </th>
+        <td mat-cell *matCellDef="let element"><button mat-icon-button [matMenuTriggerFor]="actionMenu" *ngIf="element?.orderStatuses[element?.orderStatuses?.length - 1]?.code !== 'receive'">
+            <mat-icon>more_horiz</mat-icon>
+          </button>
+          <mat-menu #actionMenu="matMenu" xPosition="before" >
+            <button *ngIf="element?.orderStatuses[element?.orderStatuses?.length - 1]?.code === 'order'" mat-menu-item class="menuAction" style="width: 100%;" (click)="changeStatusDialog(element.id, 'confirm')">
+              <span>Đã xác nhận</span>
+            </button>
+            <button *ngIf="element?.orderStatuses[element?.orderStatuses?.length - 1]?.code === 'confirm'" mat-menu-item class="menuAction" style="width: 100%;" (click)="changeStatusDialog(element.id, 'transport')">
+              <span>Vận chuyển</span>
+            </button>
+            <button *ngIf="element?.orderStatuses[element?.orderStatuses?.length - 1]?.code === 'transport'" mat-menu-item class="menuAction" style="width: 100%;" (click)="changeStatusDialog(element.id, 'receive')">
+              <span>Đã nhận hàng</span>
+            </button>
+            <button *ngIf="element?.orderStatuses[element?.orderStatuses?.length - 1]?.code !== 'receive'" mat-menu-item class="menuAction" style="width: 100%;" (click)="changeStatusDialog(element.id, 'cancel')">
+              <span>Hủy đơn</span>
+            </button>
+          </mat-menu>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+</div>

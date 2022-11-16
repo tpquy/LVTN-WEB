@@ -1,0 +1,828 @@
+// Luu y: 
+// - Khi them class moi thi them theo thu tuc chu cai alphabet (a-z)
+// - Viet tat class theo css systax
+// - Khong import file nay vao scss toan site
+.als-center {
+    align-self: center;
+}
+
+.als-flex-start {
+    align-self: flex-start;
+}
+
+.bgc-white {
+    background-color: #fff;
+}
+
+.bgc-theme {
+    background-color: #1565c0 !important;
+}
+
+.bdc-theme {
+    border-color: #1565c0 !important;
+}
+
+.bd-1-black {
+    border: 1px solid black;
+}
+
+.bd-1-lightgray {
+    border: 1px solid #e2e2e2;
+}
+
+.bd-none {
+    border: none;
+}
+
+.bdt-1-gray {
+    border-top: 1px solid #ebebeb;
+}
+
+.bdt-1-theme {
+    border-top: 1px solid #1565c0;
+}
+
+.bdt-none {
+    border-top: none;
+}
+
+.bdr-4 {
+    border-radius: 4px;
+}
+
+.btn-update {
+    color: #ffffff;
+    background-color: #1976D2;
+}
+
+.bobble-popup {
+    padding: 30px;
+    background: #FFFFFF;
+    z-index: 10;
+    box-shadow: 0 0 2px 1px #DEDEDE;
+    border-radius: 3px;
+    position: absolute;
+    bottom: -15px;
+    transform: translateY(100%);
+    left: 0;
+    &:after {
+        content: "";
+        position: absolute;
+        top: -14px;
+        left: 40px;
+        width: 0;
+        height: 0;
+        border-left: 16px solid transparent;
+        border-right: 16px solid transparent;
+        border-bottom: 14px solid #FFFFFF;
+    }
+    &:before {
+        content: "";
+        position: absolute;
+        top: -15px;
+        left: 38px;
+        width: 0;
+        height: 0;
+        border-left: 18px solid transparent;
+        border-right: 18px solid transparent;
+        border-bottom: 15px solid #DEDEDE;
+    }
+    &.popup-list-menu-item {
+        width: 436px;
+        font-weight: 500;
+        font-size: 12px;
+        padding-bottom: calc(39px - 23px);
+        padding-right: 0;
+        padding-left: 25px;
+        span {
+            text-align: center;
+            margin-bottom: 23px;
+        }
+        img {
+            width: 30px;
+            height: 30px;
+        }
+    }
+}
+
+.color-red {
+    color: red !important;
+}
+
+.color-gray {
+    color: #787878;
+}
+
+.color-theme {
+    color: #ce7a58 !important;
+}
+
+.color-orange {
+    color: orange;
+}
+
+.color-white {
+    color: white !important;
+}
+
+.color-dark {
+    color: #1e2f41 !important;
+}
+
+.cs-pointer {
+    cursor: pointer;
+}
+
+.current-route {
+    margin-bottom: 1em;
+    vertical-align: text-bottom;
+    .link {
+        font-size: 14px;
+        font-weight: 500;
+        span {
+            margin: 0 0.5rem;
+        }
+    }
+}
+
+.dp-none {
+    display: none !important;
+}
+
+.dp-block {
+    display: block !important;
+}
+
+.dp-flex {
+    display: flex;
+}
+
+.dp-flex-jc-sb {
+    display: flex;
+    justify-content: space-between;
+}
+
+.dp-flex-jc-sa {
+    display: flex;
+    justify-content: space-around;
+}
+
+.flex-wrap-wrap {
+    flex-wrap: wrap;
+}
+
+.f-0-0-3 {
+    flex: 0 0 3%;
+}
+
+.f-0-0-5 {
+    flex: 0 0 5%;
+}
+
+.f-0-0-6 {
+    flex: 0 0 6%;
+}
+
+.f-0-0-8 {
+    flex: 0 0 8%;
+}
+
+.f-0-0-10 {
+    flex: 0 0 10%;
+}
+
+.f-0-0-15 {
+    flex: 0 0 15%;
+}
+
+.f-0-0-20 {
+    flex: 0 0 20%;
+}
+
+.fs-23 {
+    font-size: 23px;
+}
+
+.fs-22 {
+    font-size: 22px;
+}
+
+.fs-21 {
+    font-size: 21px;
+}
+
+.fs-20 {
+    font-size: 20px;
+}
+
+.fs-19 {
+    font-size: 19px;
+}
+
+.fs-18 {
+    font-size: 18px;
+}
+
+.fs-17 {
+    font-size: 17px;
+}
+
+.fs-16 {
+    font-size: 16px;
+}
+
+.fs-15 {
+    font-size: 15px;
+}
+
+.fs-14 {
+    font-size: 14px;
+}
+
+.fs-13 {
+    font-size: 13px;
+}
+
+.fs-12 {
+    font-size: 12px;
+}
+
+.fs-11 {
+    font-size: 11px;
+}
+
+.fw-300 {
+    font-weight: 300 !important;
+}
+
+.fw-400 {
+    font-weight: 400 !important;
+}
+
+.fw-500 {
+    font-weight: 500 !important;
+}
+
+.fw-600 {
+    font-weight: 600 !important;
+}
+
+.fw-700 {
+    font-weight: 700 !important;
+}
+
+.fw-800 {
+    font-weight: 800 !important;
+}
+
+.fw-bold {
+    font-weight: bold !important;
+}
+
+.input-err {
+    position: relative;
+    bottom: 1rem;
+    font-size: 75%;
+    font-weight: normal;
+    left: 0.5rem;
+}
+
+.jc-center {
+    justify-content: center;
+}
+
+.left-m2 {
+    left: -2rem;
+}
+
+.left-1 {
+    left: 1rem;
+}
+
+.lh-22 {
+    line-height: 22px;
+}
+
+.lh-23 {
+    line-height: 23px;
+}
+
+.lh-25 {
+    line-height: 25px;
+}
+
+.more-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.mt-0 {
+    margin-top: 0 !important;
+}
+
+.mt-02 {
+    margin-top: 0.2rem !important;
+}
+
+.mt-05 {
+    margin-top: 0.5rem !important;
+}
+
+.mt-1 {
+    margin-top: 1rem !important;
+}
+
+.mt-15 {
+    margin-top: 1.5rem !important;
+}
+
+.mt-2 {
+    margin-top: 2rem !important;
+}
+
+.mt-3 {
+    margin-top: 3rem;
+}
+
+.mt-4 {
+    margin-top: 4rem !important;
+}
+
+.mb-0 {
+    margin-bottom: 0 !important;
+}
+
+.mb-03 {
+    margin-bottom: 0.3rem !important;
+}
+
+.mb-05 {
+    margin-bottom: 0.5rem !important;
+}
+
+.mb-1 {
+    margin-bottom: 1rem !important;
+}
+
+.mb-15 {
+    margin-bottom: 1.5rem !important;
+}
+
+.mb-2 {
+    margin-bottom: 2rem;
+}
+
+.mb-3 {
+    margin-bottom: 3rem;
+}
+
+.mb-35 {
+    margin-bottom: 3.5rem;
+}
+
+.mr-0 {
+    margin-right: 0 !important;
+}
+
+.mr-05 {
+    margin-right: 0.5rem !important;
+}
+
+.mr-1 {
+    margin-right: 1rem !important;
+}
+
+.mr-2 {
+    margin-right: 2rem !important;
+}
+
+.ml-0 {
+    margin-left: 0 !important;
+}
+
+.ml-05 {
+    margin-left: 0.5rem !important;
+}
+
+.ml-1 {
+    margin-left: 1rem !important;
+}
+
+.ml-15 {
+    margin-left: 1.5rem !important;
+}
+
+.ml-25 {
+    margin-left: 2.5rem !important;
+}
+
+.m-0 {
+    margin: 0 !important;
+}
+
+.m-15-0 {
+    margin: 1.5rem 0;
+}
+
+.m-2-0 {
+    margin: 2rem 0;
+}
+
+.m-0-6 {
+    margin: 0 6rem;
+}
+
+.m-0-05 {
+    margin: 0 0.5rem;
+}
+
+.m-tb-05 {
+    margin-top: 0.5rem !important;
+    margin-bottom: 0.5rem !important;
+}
+
+.m-tb-1 {
+    margin-top: 1rem !important;
+    margin-bottom: 1rem !important;
+}
+
+.m-tb-2 {
+    margin-top: 2rem !important;
+    margin-bottom: 2rem !important;
+}
+
+.m-auto {
+    margin: auto !important;
+}
+
+.ofw-anywhere {
+    overflow-wrap: anywhere !important;
+}
+
+.pdt-05 {
+    padding-top: 0.5rem;
+}
+
+.pdt-1 {
+    padding-top: 1rem;
+}
+
+.pdt-2 {
+    padding-top: 2rem;
+}
+
+.pdb-05 {
+    padding-bottom: 0.5rem;
+}
+
+.pdb-1 {
+    padding-bottom: 1rem;
+}
+
+.pdb-2 {
+    padding-bottom: 2rem;
+}
+
+.pdl-0 {
+    padding-left: 0rem !important;
+}
+
+.pdl-05 {
+    padding-left: 0.5rem !important;
+}
+
+.pdl-15 {
+    padding-left: 1.5rem;
+}
+
+.pdl-2 {
+    padding-left: 2rem;
+}
+
+.pdl-3 {
+    padding-left: 3rem;
+}
+
+.pdl-4 {
+    padding-left: 4rem;
+}
+
+.pdl-5 {
+    padding-left: 5rem;
+}
+
+.pdl-6 {
+    padding-left: 6rem;
+}
+
+.pdl-7 {
+    padding-left: 7rem;
+}
+
+.pdl-10px {
+    padding-left: 10px;
+}
+
+.pdr-0 {
+    padding-right: 0rem !important;
+}
+
+.pdr-2 {
+    padding-right: 2rem;
+}
+
+.pdr-3 {
+    padding-right: 3rem;
+}
+
+.pdr-4 {
+    padding-right: 4rem;
+}
+
+.pdr-5 {
+    padding-right: 5rem;
+}
+
+.pdr-6 {
+    padding-right: 6rem;
+}
+
+.pdr-7 {
+    padding-right: 7rem;
+}
+
+.pdr-10px {
+    padding-right: 10px;
+}
+
+.pd-0-6 {
+    padding: 0 6rem;
+}
+
+.pd-1-0 {
+    padding: 1rem 0;
+}
+
+.pd-15-0 {
+    padding: 1.5rem 0;
+}
+
+.pd-2-0 {
+    padding: 2rem 0;
+}
+
+.pd-3-2 {
+    padding: 3rem 2rem;
+}
+
+.pd-1 {
+    padding: 1rem;
+}
+
+.pd-lr-05 {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+.pd-lr-5 {
+    padding-left: 5rem;
+    padding-right: 5rem;
+}
+
+.pd-0 {
+    padding: 0 !important;
+}
+
+.pd-0-15 {
+    padding: 0 1.5rem;
+}
+
+.pd-0-5 {
+    padding: 0 5rem;
+}
+
+.pd-05 {
+    padding: 0.5rem;
+}
+
+.pd-08 {
+    padding: 0.8rem;
+}
+
+.pd-1-05 {
+    padding: 1rem 0.5rem;
+}
+
+.pd-tb-05 {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.pd-tb-1 {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.ps-absolute {
+    position: absolute;
+}
+
+.ps-relative {
+    position: relative;
+}
+
+.ps-static {
+    position: static;
+}
+
+.right-m2 {
+    right: -2rem;
+}
+
+.right-1 {
+    right: 1rem;
+}
+
+.selection {
+    display: flex;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.ta-left {
+    text-align: left !important;
+}
+
+.ta-right {
+    text-align: right !important;
+}
+
+.ta-center {
+    text-align: center !important;
+}
+
+.va-middle {
+    vertical-align: middle;
+}
+
+.va-bottom {
+    vertical-align: bottom;
+}
+
+.va-sub {
+    vertical-align: sub;
+}
+
+.va-super {
+    vertical-align: super;
+}
+
+.w-fill {
+    width: 100%;
+    width: -moz-available;
+    /* WebKit-based browsers will ignore this. */
+    width: -webkit-fill-available;
+    /* Mozilla-based browsers will ignore this. */
+    width: stretch;
+}
+
+.w-fit {
+    width: fit-content;
+}
+
+.w-10 {
+    width: 10%;
+}
+
+.w-15 {
+    width: 15%;
+}
+
+.w-16 {
+    width: 16%;
+}
+
+.w-10r {
+    width: 10rem;
+}
+
+.w-18 {
+    width: 18%;
+}
+
+.w-24 {
+    width: 24%;
+}
+
+.w-25 {
+    width: 25%;
+}
+
+.w-30 {
+    width: 30%;
+}
+
+.w-35 {
+    width: 35%;
+}
+
+.w-40 {
+    width: 40%;
+}
+
+.w-45 {
+    width: 45%;
+}
+
+.w-46 {
+    width: 46%;
+}
+
+.w-50 {
+    width: 50%;
+}
+
+.w-55 {
+    width: 55%;
+}
+
+.w-60 {
+    width: 60%;
+}
+
+.w-65 {
+    width: 65%;
+}
+
+.w-70 {
+    width: 70%;
+}
+
+.w-75 {
+    width: 75%;
+}
+
+.w-80 {
+    width: 80%;
+}
+
+.w-85 {
+    width: 85%;
+}
+
+.w-90 {
+    width: 90%;
+}
+
+.w-92 {
+    width: 92%;
+}
+
+.w-95 {
+    width: 95%;
+}
+
+.w-96 {
+    width: 96%;
+}
+
+.w-99 {
+    width: 99% !important;
+}
+
+.w-100 {
+    width: 100% !important;
+}
+
+.wb-all {
+    word-break: break-all !important;
+}
+
+.warn-purple {
+    padding: 0.2em !important;
+    color: #4b088a !important;
+}
+
+.warn-red {
+    padding: 0.2em !important;
+    color: red !important;
+}
+
+.warn-orange {
+    padding: 0.2em !important;
+    color: orange !important;
+}
+
+.warn-orange-red {
+    padding: 0.2em !important;
+    color: orangered !important;
+}
+
+.warn-green {
+    padding: 0.2em !important;
+    color: #02a810 !important;
+}

@@ -1,0 +1,200 @@
+<div class="kontainer" [ngClass]="{'sign-up-mode': selectedIndex == 1}">
+  <div class="forms-kontainer" [ngClass]="{'sign-up-mode': selectedIndex == 1}">
+    <div class="signin-signup">
+      <form [formGroup]="loginForm" class="searchForm edit" class="sign-in-form">
+        <h2 class="title">Sign in</h2>
+
+        <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="row" class="input-field">
+          <mat-form-field appearance="none" fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex='grow'>
+            <mat-label><i class="fas fa-user"></i>Tài khoản</mat-label>
+            <input formControlName="lusername" required matInput>
+            <mat-error *ngIf="lusername.invalid" class="error_Msg">
+              <span>Vui lòng nhập tên tài khoản</span>
+              <div class="err">
+                <mat-icon>priority_high</mat-icon>
+              </div>
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="row" class="input-field">
+          <mat-form-field appearance="none" fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex='grow'>
+            <mat-label><i class="fas fa-lock"></i>Mật khẩu</mat-label>
+            <input formControlName="lpassword" required matInput>
+            <mat-error *ngIf="lpassword.invalid" class="error_Msg">
+              <span>Vui lòng nhập mật khẩu</span>
+              <div class="err">
+                <mat-icon>priority_high</mat-icon>
+              </div>
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <!-- <div class="btn solid" fxLayoutAlign="center" fxLayout.xs="row" fxLayout.sm="row">
+                  <button mat-flat-button fxFlex='grow' class="searchBtn" (click)="onConfirmAdd()">
+                      <a >Lưu lại</a>
+                  </button>
+              </div> -->
+
+
+
+        <input type="submit" value="Login" class="btn solid" (click)="onConfirmLogin()" />
+
+        <p class="social-text">Or Sign in with social platforms</p>
+        <div class="social-media">
+          <a href="#" class="social-icon">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="#" class="social-icon">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="#" class="social-icon">
+            <i class="fab fa-google"></i>
+          </a>
+          <a href="#" class="social-icon">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+        </div>
+      </form>
+
+      <form [formGroup]="registerForm" class="sign-up-form">
+        <h2 class="title">Sign up</h2>
+        <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="row" class="input-field">
+          <mat-form-field appearance="none" fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex='grow'>
+            <mat-label><i class="fas fa-user"></i>Tên tài khoản</mat-label>
+            <input formControlName="username" [attr.disabled]="true" required matInput (change)="checkDuplicate(1)">
+            <mat-error *ngIf="username.invalid" class="error_Msg">
+              <span>Vui lòng nhập tên tài khoản</span>
+              <div class="err">
+                <mat-icon>priority_high</mat-icon>
+              </div>
+            </mat-error>
+            <div *ngIf="duplicateUsername" class="check_err">
+              <span>Tên tài khoản bị trùng. Vui lòng nhập lại</span>
+              <div class="err">
+                <mat-icon>priority_high</mat-icon>
+              </div>
+            </div>
+          </mat-form-field>
+        </div>
+
+        <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="row" class="input-field">
+          <mat-form-field appearance="none" fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex='grow'>
+            <mat-label><i class="fas fa-lock"></i>Mật khẩu</mat-label>
+            <input formControlName="password" [attr.disabled]="true" required matInput>
+            <mat-error *ngIf="password.invalid" class="error_Msg">
+              <span>Vui lòng nhập tên mật khẩu</span>
+              <div class="err">
+                <mat-icon>priority_high</mat-icon>
+              </div>
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="row" class="input-field">
+          <mat-form-field appearance="none" fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex='grow'>
+            <mat-label><i class="fas fa-envelope"></i>Email</mat-label>
+            <input formControlName="email" [attr.disabled]="true" required matInput (change)="checkDuplicate(2)">
+            <mat-error *ngIf="email.invalid" class="error_Msg">
+              <span>Vui lòng nhập email</span>
+              <div class="err">
+                <mat-icon>priority_high</mat-icon>
+              </div>
+            </mat-error>
+            <div *ngIf="duplicateEmail" class="check_err">
+              <span>Email bị trùng. Vui lòng nhập lại</span>
+              <div class="err">
+                <mat-icon>priority_high</mat-icon>
+              </div>
+            </div>
+          </mat-form-field>
+        </div>
+
+        <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="row" class="input-field">
+          <mat-form-field appearance="none" fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex='grow'>
+            <mat-label><i class="fas fa-signature"></i>Họ và tên</mat-label>
+            <input formControlName="fullName" [attr.disabled]="true" required matInput>
+            <mat-error *ngIf="fullName.invalid" class="error_Msg">
+              <span>Vui lòng nhập họ và tên</span>
+              <div class="err">
+                <mat-icon>priority_high</mat-icon>
+              </div>
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="row" class="input-field">
+          <mat-form-field appearance="none" fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex='grow'>
+            <mat-label><i class="fas fa-mobile"></i>Số điện thoại</mat-label>
+            <input formControlName="phoneNumber" [attr.disabled]="true" required matInput>
+            <mat-error *ngIf="phoneNumber.invalid" class="error_Msg">
+              <span>Vui lòng nhập số điện thoại</span>
+              <div class="err">
+                <mat-icon>priority_high</mat-icon>
+              </div>
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="row" class="input-field">
+          <mat-form-field appearance="none" fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex='grow'>
+            <mat-label><i class="fas fa-mobile"></i>Địa chỉ</mat-label>
+            <input formControlName="address" [attr.disabled]="true" required matInput>
+            <mat-error *ngIf="address.invalid" class="error_Msg">
+              <span>Vui lòng nhập địa chỉ</span>
+              <div class="err">
+                <mat-icon>priority_high</mat-icon>
+              </div>
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <input type="submit" class="btn" value="Sign up" (click)="onConfirmRegister()" />
+
+        <p class="social-text">Or Sign up with social platforms</p>
+        <div class="social-media">
+          <a href="#" class="social-icon">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="#" class="social-icon">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="#" class="social-icon">
+            <i class="fab fa-google"></i>
+          </a>
+          <a href="#" class="social-icon">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="panels-kontainer" [ngClass]="{'sign-up-mode': selectedIndex == 1}">
+    <div class="panel left-panel">
+      <div class="content">
+        <h3>New here ?</h3>
+        <p>
+          Register now to receive lots of vouchers!
+        </p>
+        <button class="btn transparent " id="sign-up-btn" [ngClass]="{'sign-up-mode': selectedIndex == 1}"
+          (click)="setSelected(1)">
+          Sign up
+        </button>
+      </div>
+      <img src="./assets/img/log.svg" class="image" alt="" />
+    </div>
+    <div class="panel right-panel">
+      <div class="content">
+        <h3>One of us ?</h3>
+        <p>
+          Logging now.
+        </p>
+        <button class="btn transparent" id="sign-in-btn" [ngClass]="{' ': selectedIndex == 0}" (click)="setSelected(0)">
+          Sign in
+        </button>
+      </div>
+      <img src="./assets/img/register.svg" class="image" alt="" />
+    </div>
+  </div>
+</div>

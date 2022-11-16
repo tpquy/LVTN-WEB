@@ -1,0 +1,75 @@
+@import 'src/app/app.component.scss';
+
+.display-none{
+    display: none;
+}
+.display-flex{
+    display: flex;
+}
+.transparent{
+    opacity: 0;
+}
+
+.category-menu{
+    width: 200px;
+    height: 457px;
+    background-color: white;
+    position: relative;
+    z-index: 700;
+    border-radius: 10px;
+    overflow: hidden;
+    .category-menu-button{
+        line-height: 34px;
+        width: 100%;
+        font-size: 13px;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        color: black;
+        .material-symbols-outlined{
+            font-size: 20px;
+            margin: 0 8px 0 16px;
+        }
+    }
+    .category-menu-button:hover{
+        background-color: $defaultGrey4;
+        color: $defaultBlue1;
+    }
+}
+
+.exend-menu-container{
+    padding-left: 20px;
+    z-index: 700;
+}
+.category-menu-extend{
+    position: relative;
+    height: 457px;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    // margin-left: 20px;
+    display: none;
+    .extend-group{
+        padding: 20px;
+        h3{
+            font-size: 15px;
+            color: $defaultBlue1;
+            font-weight: 500;
+            line-height: 26px;
+            margin: 15px 0;
+        }
+        a{
+            font-size: 15px;
+            line-height: 26px;
+        }
+    }
+}
+.overlay{
+    position: fixed;
+    z-index: 500;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba($color: #000000, $alpha: .5);
+}

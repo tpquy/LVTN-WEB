@@ -1,0 +1,115 @@
+<div *ngIf="isOpenCategorySubMenu" class="overlay" id="overlay-category-menu" (mouseenter)="closeExtendMenu()"></div>
+<div fxLayout="row">
+    <div class="category-menu" fxLayout="column" fxLayoutAlign="center start">
+        <a href="/products" class="category-menu-button" (mouseenter)="openExtendMenu('phone')">
+            <span class="material-symbols-outlined">
+                smartphone
+                </span>
+            Tất cả sản phẩm
+        </a>
+        <a href="" class="category-menu-button">
+            <span class="material-symbols-outlined">
+                devices
+            </span>
+            Sản phẩm mới nhất
+        </a>
+        <a href="" class="category-menu-button">
+            <span class="material-symbols-outlined">
+                laptop_windows
+            </span>
+            Laptop Window
+        </a>
+        <a href="" class="category-menu-button">
+            <span class="material-symbols-outlined">
+                laptop_mac
+            </span>
+            Macbook
+        </a>
+        <a href="" class="category-menu-button">
+            <span class="material-symbols-outlined">
+                tablet_android
+            </span>
+            Máy tính bảng
+        </a>
+        <a href="" class="category-menu-button">
+            <span class="material-symbols-outlined">
+                tablet_mac
+            </span>
+           iPad
+        </a>
+        <a href="" class="category-menu-button">
+            <span class="material-symbols-outlined">
+                cable
+            </span>
+            Phụ kiện
+        </a>
+        <a href="" class="category-menu-button">
+            <span class="material-symbols-outlined">
+                headphones
+            </span>
+            Tai nghe - Loa
+        </a>
+        <a href="" class="category-menu-button">
+            <span class="material-symbols-outlined">
+                laptop_chromebook
+            </span>
+            Laptop cũ
+        </a>
+        <a href="" class="category-menu-button">
+            <span class="material-symbols-outlined">
+                sync_saved_locally
+            </span>
+            Hàng trưng bày
+        </a>
+        <a href="" class="category-menu-button">
+            <span class="material-symbols-outlined">
+                build
+            </span>
+            Sửa chữa - Bảo hành
+        </a>
+        <a href="" class="category-menu-button">
+            <span class="material-symbols-outlined">
+                feed
+            </span>
+            Tin công nghệ
+        </a>
+        <a href="" class="category-menu-button" (click)="logout()">
+            <span class="material-symbols-outlined">
+                bolt
+            </span>
+            Khuyến mãi
+        </a>
+    </div>
+    <div *ngIf="isOpenCategorySubMenu" class="exend-menu-container"  fxFlex="70" >
+        <div class="category-menu-extend" id="category-menu-extend" fxLayout="row" fxLayoutAlign="center">
+            <div class="extend-group" fxFlex="28" fxLayout="column" style="">
+                <h3>Điện thoại theo thương hiệu</h3>
+                <a href="#">Apple</a>
+                <a href="#">Samsung</a>
+                <a href="#">Huwai</a>
+                <a href="#">Xiaomi</a>
+                <a href="#">Vivo</a>
+                <a href="#">Realme</a>
+            </div>
+            <div class="extend-group" fxFlex="28" fxLayout="column" style="">
+                <h3>Điện thoại theo giá</h3>
+                <a href="#">Dưới 1 triệu</a>
+                <a href="#">1 đến 2 triệu</a>
+                <a href="#">2 đến 3 triệu</a>
+                <a href="#">3 đến 5 triệu</a>
+                <a href="#">5 đến 10 triệu</a>
+                <a href="#">Trên 10 triệu</a>
+            </div>
+            <div class="extend-group" fxFlex="28" fxLayout="column" style="">
+                <h3>Điện thoại theo giá</h3>
+                <a href="#">Dưới 1 triệu</a>
+                <a href="#">1 đến 2 triệu</a>
+                <a href="#">2 đến 3 triệu</a>
+                <a href="#">3 đến 5 triệu</a>
+                <a href="#">5 đến 10 triệu</a>
+                <a href="#">Trên 10 triệu</a>
+            </div>     
+    
+        </div>
+    </div>
+</div>

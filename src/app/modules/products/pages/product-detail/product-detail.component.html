@@ -1,0 +1,224 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+
+<div class="container" fxLayout="column" fxLayoutAlign=" center start">
+    <div class="beadscrum">
+        <a href="/">Trang chủ</a>
+        <p>/</p>
+        <a href="/products"> Điện thoại </a>
+        <p>/ </p>
+        <a >{{productName}}</a>
+    </div>
+    <div class="product-detail-container" fxLayout="row" fxLayoutAlign="space-between start" fxFlex>
+        <div class="product-intro" fxLayout="column" fxFlex="55" fxFill>
+            <div class="product-image" fxLayout="row">
+                <div class="list-image" fxFlex="25" fxLayout="column" fxLayoutAlign="space-around center" >
+                    <div *ngFor="let img of listProductImage" class="small-image" id="product-image-{{img.no}}" fxLayoutAlign="center center" (mouseenter)="selectProductImage(img.no, img.url)">
+                        <img class="img" src="{{img.url}}" alt="">
+                    </div>
+
+                </div>
+                <div class="image-container" fxLayoutAlign="center center">
+                    <img class="img" src="{{selectedImage}}" alt="">
+                </div>
+            </div>
+            <div class="product-overview">
+                <h2>Thông tin chi tiết</h2>
+                <table>
+                    <tr>
+                        <td>Tên sản phẩm</td>
+                        <td>{{productName}}</td>
+                    </tr>
+                    <tr>
+                        <td>Phân loại</td>
+                        <td>{{productType}}</td>
+                    </tr>
+                    <tr>
+                        <td>CPU</td>
+                        <td>
+                            {{productCpu.name}}, {{productCpu.core}} nhân, {{productCpu.thread}} luồng, {{productCpu.base}}GHz upto {{productCpu.boost}}GHz
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Card đồ họa</td>
+                        <td>{{productVga.name}}</td>
+                    </tr>
+                    <tr>
+                        <td>RAM</td>
+                        <td>{{productRam}}</td>
+                    </tr>
+                    <tr>
+                        <td>Màn hình</td>
+                        <td>{{productScreen}}</td>
+                    </tr>
+                    <tr>
+                        <td>Hệ điều hành</td>
+                        <td>{{productOs}}</td>
+                    </tr>
+                    <tr>
+                        <td>Khối lượng</td>
+                        <td>{{productWeight}} Kg</td>
+                    </tr>
+                    <tr>
+                        <td>Chất liệu</td>
+                        <td>{{productMaterial}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div fxLex="2"></div>
+        <div class="info-and-feedback" fxFlex="43"  fxLayout="column">
+            <div class="product-info" fxLayout="column">
+                <div class="product-name">
+                    <h2>{{productName}}</h2>
+                </div>
+                <div class="product-code">
+                    <h3>Mã sản phẩm: {{productCode}}</h3>
+                </div>
+                <div class="product-quantity">
+                    <p>Đã bán: <span class="quantity">{{productSold}}</span> | Trạng thái: <span *ngIf="productQuantity > 0" class="quantity-status-1">Còn hàng</span><span *ngIf="productQuantity <= 0" class="quantity-status-2">Hết hàng</span></p>
+                </div>
+                <div class="product-price">
+                    <span class="product-promo-price">{{productPriceAfterDiscount}}</span>
+                    <span class="product-base-price">{{productPrice}}</span>
+                    <span class="product-promo-percent">{{productDiscount}}</span>
+                </div>
+                <div class="product-promo">
+                    <h3>Khuyến mãi:</h3>
+                    <div class="product-promo-info" fxLayout="row">
+                        <div class="promo-info-icon" fxFlex="25" fxLayoutAlign="center center">
+                            <img src="../../../../../assets/img/gift-icon.png" alt="">
+                        </div>
+                        <div class="promo-info-content" fxFlex="75">
+                            <h3>Quà tặng kèm</h3>
+                            <p>
+                                Quà tặng kèm khi mua sản phẩm, số lượng có hạn!
+                            </p>
+                            <p>
+                                Sản phẩm tặng kèm: Tai nghe cc gì đấy
+                            </p>
+                            <p>
+                                Thời hạn: 01/01/2022
+                            </p>
+                        </div>
+    
+                    </div>
+                    <div class="product-promo-info" fxLayout="row">
+                        <div class="promo-info-icon" fxFlex="25" fxLayoutAlign="center center">
+                            <img src="../../../../../assets/img/promo-icon.png" alt="">
+                        </div>
+                        <div *ngIf="promo != null" class="promo-info-content" fxFlex="75">
+                            <h3 *ngIf="promo.type == 1">Giảm giá </h3>
+                            <h3 *ngIf="promo.type == 2">Giảm giá trực tiếp</h3>
+                            <p>
+                                Giảm trực tiếp {{this.productDiscount}} trên giá gốc sản phẩm
+                            </p>
+                            <p class="expired-time">
+                                Thời hạn: {{promo.expired}}
+                            </p>
+                        </div>
+    
+                    </div>
+                    <div class="product-promo-info" fxLayout="row">
+                        <div class="promo-info-icon" fxFlex="25" fxLayoutAlign="center center">
+                            <img src="../../../../../assets/img/freeship.png" alt="">
+                        </div>
+                        <div class="promo-info-content" fxFlex="75">
+                            <h3>Miễn phí vận chuyển</h3>
+                            <p>
+                                Miễn phí vận chuyển toàn quốc
+                            </p>
+                            <p>
+                                Thời hạn: 01/01/2022
+                            </p>
+                        </div>
+    
+                    </div>
+                </div>
+                <div class="button-group" fxLayout="row" fxLayoutAlign="space-between center">
+                    <button mat-flat-button color="primary" class="product-button" fxFlex="48">Mua ngay</button>
+                    <button mat-stroked-button color="primary" class="product-button" fxFlex="48">Thêm vào giỏ hàng</button>
+                </div>
+            </div>
+            <div class="product-feedback">
+                <h2>Đánh giá sản phẩm</h2>
+                <div class="margin-top margin-bottom" fxLayout="row" fxLayoutAlign="space-between center">
+                    <div class="star-container">
+                        <div>
+                            <span *ngFor="let i of arrayStar; last as isLast">
+                                <mat-icon class="star-icon" *ngIf="i.hasStar === true && i.isHalf === false">star</mat-icon>
+                                <mat-icon class="star-icon" *ngIf="i.isHalf === true">star_half</mat-icon>
+                                <mat-icon class="star-icon" *ngIf="i.hasStar === false && i.isHalf === false">star_border</mat-icon>
+                            </span>
+                        </div>
+                        <div>
+                          <span class="ratings-count">Dựa trên {{totalFeedback}} <span>lượt đánh giá</span></span>
+                        </div>
+                    </div>
+                    <div class="button-container">
+                        <button mat-stroked-button color="primary" (click)="showForm('feedback')">
+                            <span class="material-symbols-outlined">
+                                rate_review
+                            </span>
+                            Viết đánh giá
+                        </button>
+                        <button mat-stroked-button color="primary" (click)="showForm('comment')">
+                            <span class="material-symbols-outlined">
+                                contact_support
+                            </span>
+                            Đặt câu hỏi
+                        </button>
+                    </div>
+                </div>
+                <form class="feedback-form" *ngIf="showFeedbackForm">
+                    <h3>Đánh giá</h3>
+                    <div class="star-container" fxLayoutAlign="start center">
+                        <span *ngFor="let star of feedbackRating.star;  let i = index">
+                            <mat-icon *ngIf="!star" class="star-icon" (click)="setFeedbackRating(i)">star_outlined</mat-icon>
+                            <mat-icon *ngIf="star" class="star-icon" (click)="setFeedbackRating(i)">star</mat-icon>
+                        </span>
+                    </div>
+                    <textarea name="" id="" rows="4" fxFill placeholder="Viết đánh giá.."></textarea>
+                    <div fxLayoutAlign="end center"><button mat-flat-button class="btn-commnent">Đánh giá</button></div>    
+                </form>
+                <form class="feedback-form" *ngIf="showCommentForm">
+                    <h3>Bình luận</h3>
+                    <textarea name="" id="" rows="4" fxFill placeholder="Viết bình luận..."></textarea>
+                    <div fxLayoutAlign="end center"><button mat-flat-button class="btn-commnent">Bình luận</button></div>    
+                </form>
+                <mat-tab-group class="tab">
+                    <mat-tab label="Đánh giá (0)"> 
+                        <div class="feedback-item" fxLayout="row">
+                            <img class="feedback-avatar" src="../../../../../assets/img/temp-avatar.jpg" alt="" width="50" height="50">
+                            <div class="feedback-group">
+                                <p class="name">Nguyễn Minh Luân</p>
+                                <div>sao sao sao</div>
+                                <p class="time">2022-04-15 19:45</p>
+                                <p class="content">Xịn sò shop nhiệt tìnhhhhhhhhhhh!!!!!!!!!!!!!!!!!!!!!!!</p>
+                            </div>
+                        </div>
+                    </mat-tab>
+                    <mat-tab label="Câu hỏi (0)">
+                        <div class="feedback-item" fxLayout="column">
+                            <div class="root-feedback" fxLayout="row">
+                                <img class="feedback-avatar" src="../../../../../assets/img/temp-avatar.jpg" alt="" width="50" height="50">
+                                <div class="feedback-group">
+                                    <p class="name">Nguyễn Minh Luân</p>
+                                    <p class="time">2022-04-15 19:45</p>
+                                    <p class="content">Còn hàng hk????</p>
+                                </div>
+                            </div>
+                            <div class="reply-feedback" fxLayout="row">
+                                <img class="feedback-avatar" src="../../../../../assets/img/temp-avatar.jpg" alt="" width="40" height="40">
+                                <div class="feedback-group">
+                                    <p class="name">Nguyễn Minh Luân <span class="staff-reply">Nhân viên</span></p>
+                                    <p class="time">2022-04-15 19:45</p>
+                                    <p class="content">Còn cđ ơi</p>
+                                </div>
+                            </div>
+                        </div>
+                    </mat-tab>
+                  </mat-tab-group>
+            </div>
+        </div>
+    </div>
+</div>
